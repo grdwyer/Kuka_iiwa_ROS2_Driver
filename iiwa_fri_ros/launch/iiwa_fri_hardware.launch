@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- LAUNCH INTERFACE -->
+    <arg name="hardware_interface" default="PositionJointInterface"/>
+    <arg name="robot_name" default="iiwa"/>
+
+    <!-- need to load joint names  -->
+    <rosparam command="load" file="$(find iiwa_fri_ros)/config/joint_names.yaml" />
+
+    <!-- Hardware interface to be loaded /-->
+    <param name="interface" value="$(arg hardware_interface)"/>
+
+    <!-- the real hardware interface /-->
+    <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="IIWA_FRI_Controller" respawn="false" output="screen"/>
+</launch>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_iiwa">
+  
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find sat_iiwa_description)/urdf/materials.xacro" />
+  <!--Import the iiwa macros -->
+  <xacro:include filename="$(find sat_iiwa_description)/urdf/iiwa14.xacro"/>
+
+  <xacro:include filename="$(find sat_iiwa_description)/urdf/iiwa7.xacro"/>
+  
+  <!--  Hardware interface options (currently both robots will need the same interface -->
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+
+  <link name="world"/>
+  
+  <gazebo reference="world">
+    <static>true</static>
+  </gazebo>
+
+  <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="iiwa7" parent="world">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:iiwa7>
+
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="iiwa14" parent="world">
+    <origin xyz="0.909536 0.612165 0.00393988" rpy="-0.00276109 0.00294195 -1.56426"/>
+  </xacro:iiwa14>
+  
+</robot> 
