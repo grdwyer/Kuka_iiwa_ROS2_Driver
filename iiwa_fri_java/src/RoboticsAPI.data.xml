@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RoboticsAPIData version="3">
+    <world>
+        <gravitation x="0.0" y="0.0" z="9.81"/>
+        <frame id="_7937c2b8-5d37-4cd3-8d37-8caeabf80d2e" name="ScopeHome">
+            <transformation a="1.1911164848469529" b="0.018072249200157844" c="-3.130003509121833" x="259.6345884034796" y="-571.6033987270977" z="165.6446900969931"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1506101488692"/>
+                <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="Fetoscope/CalibrationTip/ShaftTip" tool="Fetoscope" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                    <tcpTransformation a="1.581332376163734" b="-0.014612755758358345" c="1.5706415631975454" x="361.1825754116574" y="0.9813370422406447" z="41.23849473507828"/>
+                </info>
+            </additionalInformation>
+            <redundancyData>
+                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="61" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.004690805366189902" valueType="java.lang.Double"/>
+                </redundancy>
+            </redundancyData>
+        </frame>
+        <frame id="_a2f90241-dccb-4870-9894-088b774597f9" name="LoadingPosition">
+            <transformation a="3.1329751913039323" b="0.010259364220461656" c="1.7509416143890664" x="478.97401377694734" y="719.9801852533753" z="446.1413029789397"/>
+            <additionalInformation>
+                <info key="LastModificationTime" type="java.lang.Long" value="1480075273033"/>
+                <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="CTR/CalibrationTip/ShaftTip" tool="CTR" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
+                    <tcpTransformation a="1.581332376163734" b="-0.014612755758358345" c="1.5706415631975454" x="188.197" y="0.0" z="62.1"/>
+                </info>
+            </additionalInformation>
+            <redundancyData>
+                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="60" valueType="java.lang.Integer"/>
+                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.014940793088020845" valueType="java.lang.Double"/>
+                </redundancy>
+            </redundancyData>
+        </frame>
+    </world>
+    <objectTemplates>
+        <toolTemplate class="" name="Fetoscope">
+            <frames>
+                <frame id="_d860c5e0-d41c-486b-bc82-eddcdcf7a9de" name="CalibrationTip">
+                    <transformation a="-3.1021217384429076" b="-0.026768482661783756" c="1.5713184422264428" x="287.51885482682616" y="-2.3875083790712046" z="28.420911862809554"/>
+                    <measurementTranslation calculationError="2.8606420136706263" method="XYZ4Point" timestamp="1449159411769"/>
+                    <measurementRotation method="ABCWorld6D" timestamp="1441905678626"/>
+                    <frames>
+                        <frame id="_5627c7f5-02e8-44fa-ac57-f99562e7a142" name="ShaftTip">
+                            <transformation a="2.633017536690385" b="-1.538130803340653" c="-2.660144761549301" x="-73.3697989131314" y="14.786881745953332" z="0.4516815671616296"/>
+                            <measurementTranslation calculationError="2.856427698928011" method="XYZ4Point" timestamp="1506101398595"/>
+                            <measurementRotation method="ABCWorld6D" timestamp="1441978000891"/>
+                            <frames>
+                                <frame id="_3dd1f4ce-5e85-456c-a6ff-77187de4432c" name="ControlerToTip">
+                                    <transformation a="-1.5707963262" b="1.5707963262" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                                </frame>
+                                <frame id="_d2c0b232-1f4d-4c95-ac2e-0f916dcec0c5" name="Handle">
+                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="-250.0"/>
+                                    <additionalInformation>
+                                        <info key="Comment" type="java.lang.String" value="Needs to be updated when repeatable mount or calibration has been programmed."/>
+                                    </additionalInformation>
+                                    <frames>
+                                        <frame id="_b97e35c3-e8f8-4b69-af81-392b6d89b836" name="Angle">
+                                            <transformation a="0.0" b="0.0" c="0.5235987755982989" x="0.0" y="0.0" z="0.0"/>
+                                        </frame>
+                                    </frames>
+                                </frame>
+                                <frame id="_d6afcf9b-63bc-4a50-a40d-736d57f0aa5d" name="AngleTip">
+                                    <transformation a="0.0" b="0.0" c="0.5235987755982989" x="0.0" y="0.0" z="0.0"/>
+                                </frame>
+                            </frames>
+                        </frame>
+                    </frames>
+                </frame>
+            </frames>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="35.349825434373116" cogY="39.64141927105309" cogZ="-76.6682375102065" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.9151078990038298"/>
+        </toolTemplate>
+        <toolTemplate class="" name="CTR">
+            <frames>
+                <frame id="_cc6e24ad-0998-42bd-93ca-2ae7af846314" name="CalibrationTip">
+                    <transformation a="-3.1021217384429076" b="-0.026768482661783756" c="1.5713184422264428" x="188.197" y="0.0" z="62.1"/>
+                    <measurementTranslation calculationError="2.8606420136706263" method="XYZ4Point" timestamp="1449159411769"/>
+                    <measurementRotation method="ABCWorld6D" timestamp="1441905678626"/>
+                    <frames>
+                        <frame id="_f6a43a9e-d0b0-4a03-9b4c-13d33dc652a6" name="ShaftTip">
+                            <transformation a="2.633017536690385" b="-1.538130803340653" c="-2.660144761549301" x="0.0" y="0.0" z="0.0"/>
+                            <measurementRotation method="ABCWorld6D" timestamp="1441978000891"/>
+                            <frames>
+                                <frame id="_cc799d75-cb1e-4898-9feb-1835a8619289" name="Handle">
+                                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="-250.0"/>
+                                    <additionalInformation>
+                                        <info key="Comment" type="java.lang.String" value="Needs to be updated when repeatable mount or calibration has been programmed."/>
+                                    </additionalInformation>
+                                    <frames>
+                                        <frame id="_519bf021-b297-4547-88ab-d59624ff83b6" name="Angle">
+                                            <transformation a="0.0" b="0.0" c="0.5235987755982989" x="0.0" y="0.0" z="0.0"/>
+                                        </frame>
+                                    </frames>
+                                </frame>
+                            </frames>
+                        </frame>
+                    </frames>
+                </frame>
+            </frames>
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="-31.511313819182707" cogY="40.14384298311186" cogZ="-107.29026813104686" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.7033325706935396"/>
+        </toolTemplate>
+    </objectTemplates>
+    <processDataContainer>
+        <processData comment="" dataType="java.lang.Double" defaultValue="70.00" displayName="RCM Offset" id="RCMOffset" max="200.0" min="0.0" unit="" value="120"/>
+        <processData comment="" dataType="java.lang.Double" defaultValue="0.08" displayName="Min Synchronisation time" id="syncTime" max="0.1" min="0.0010" unit="" value="0.08"/>
+        <processData comment="" dataType="java.lang.Integer" defaultValue="3000" displayName="Spiral Size" id="spiralSize" max="100000.0" min="100.0" unit="" value="25000"/>
+        <processData comment="" dataType="java.lang.Double" defaultValue="35" displayName="Spiral Radius" id="spiralRadius" max="100.0" min="0.0" unit="" value="50"/>
+        <processData comment="" dataType="java.lang.Integer" defaultValue="2" displayName="Spiral Cycles" id="spiralCycle" max="100.0" min="1.0" unit="" value="4"/>
+        <processData comment="Can be CTR or Fetoscope" dataType="java.lang.String" defaultValue="Fetoscope" displayName="Tool" id="Tool" value="Fetoscope"/>
+        <processData comment="" dataType="java.lang.Integer" defaultValue="5" displayName="FRI Send Period" id="FRI_Send_Period" max="100.0" min="1.0" unit="msec" value="5"/>
+        <processData comment="Must be in same subnet as KONI ip" dataType="java.lang.String" defaultValue="" displayName="FRI Client IP" id="FRI_Client_IP" value="Fetoscope"/>
+    </processDataContainer>
+</RoboticsAPIData>
