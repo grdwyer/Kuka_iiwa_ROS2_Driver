@@ -3,11 +3,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_iiwa">
   
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find sat_iiwa_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find iiwa_fri_description)/urdf/materials.xacro" />
   <!--Import the iiwa macros -->
-  <xacro:include filename="$(find sat_iiwa_description)/urdf/iiwa14.xacro"/>
+  <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa14.xacro"/>
 
-  <xacro:include filename="$(find sat_iiwa_description)/urdf/iiwa7.xacro"/>
+  <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa7.xacro"/>
   
   <!--  Hardware interface options (currently both robots will need the same interface -->
   <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
