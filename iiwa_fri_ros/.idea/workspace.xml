@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="gtest" />
-      <config projectName="iiwa_fri_ros" targetName="download_extra_data" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_gencfg" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="tester" />
-      <config projectName="iiwa_fri_ros" targetName="IIWA_FRI_Controller" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="doxygen" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_gencfg" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="run_tests" />
-      <config projectName="iiwa_fri_ros" targetName="gtest_main" />
-      <config projectName="iiwa_fri_ros" targetName="tests" />
-      <config projectName="iiwa_fri_ros" targetName="iiwa_fri_ros" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="clean_test_results" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_eus" />
       <config projectName="iiwa_fri_ros" targetName="LBR_JointSineOverlay" />
       <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_lisp" />
       <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="run_tests" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="gtest" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_gencfg" />
+      <config projectName="iiwa_fri_ros" targetName="doxygen" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="download_extra_data" />
+      <config projectName="iiwa_fri_ros" targetName="tests" />
       <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_gencfg" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_nodejs" />
       <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_py" />
       <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="iiwa_fri_ros" />
+      <config projectName="iiwa_fri_ros" targetName="clean_test_results" />
+      <config projectName="iiwa_fri_ros" targetName="IIWA_FRI_Controller" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="gtest_main" />
+      <config projectName="iiwa_fri_ros" targetName="tester" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_eus" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -72,18 +72,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="iiwa_fri_ros" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.34140018">
+    <splitter split-orientation="horizontal" split-proportion="0.54041207">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="167" column="36" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="36" />
+                <state relative-caret-position="360">
+                  <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -104,19 +108,21 @@
           <file leaf-file-name="friClientIf.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1404">
+                <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IiwaFRIController.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="IiwaFRIController.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="205">
-                  <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
-                  <folding />
+                <state relative-caret-position="342">
+                  <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#2560#2578#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -124,7 +130,7 @@
           <file leaf-file-name="iiwa_fri_hardware.launch" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
+                <state relative-caret-position="210">
                   <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
                   <folding />
                 </state>
@@ -134,7 +140,7 @@
           <file leaf-file-name="IiwaFRIInterface.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
+                <state relative-caret-position="225">
                   <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
                   <folding>
                     <element signature="e#122#162#0" expanded="true" />
@@ -150,7 +156,7 @@
           <file leaf-file-name="tester.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tester.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="117">
+                <state relative-caret-position="135">
                   <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                   <folding />
                 </state>
@@ -160,8 +166,8 @@
           <file leaf-file-name="IiwaFRIInterface.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="492">
-                  <caret line="57" column="105" lean-forward="false" selection-start-line="57" selection-start-column="105" selection-end-line="57" selection-end-column="105" />
+                <state relative-caret-position="480">
+                  <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -170,8 +176,8 @@
           <file leaf-file-name="IiwaHWInterface.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-301">
-                  <caret line="61" column="92" lean-forward="false" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="92" />
+                <state relative-caret-position="759">
+                  <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
                   <folding />
                 </state>
               </provider>
@@ -208,22 +214,28 @@
       <list>
         <option value="$PROJECT_DIR$/src/IiwaHWInterface.h" />
         <option value="$PROJECT_DIR$/src/IiwaFRIInterface.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/IiwaHWInterface.cpp" />
         <option value="$PROJECT_DIR$/src/tester.cpp" />
         <option value="$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h" />
         <option value="$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h" />
-        <option value="$PROJECT_DIR$/src/IiwaFRIController.cpp" />
         <option value="$PROJECT_DIR$/launch/iiwa_fri_hardware.launch" />
         <option value="$PROJECT_DIR$/src/IiwaFRIInterface.cpp" />
+        <option value="$PROJECT_DIR$/src/IiwaHWInterface.cpp" />
+        <option value="$PROJECT_DIR$/src/IiwaFRIController.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="71" />
-    <option name="y" value="23" />
-    <option name="width" value="1430" />
-    <option name="height" value="977" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1535" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -242,31 +254,88 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="iiwa_fri_ros" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="iiwa_fri_ros" type="47feb1d3:ProjectViewModuleNode" />
-            </path>
-            <path>
-              <item name="iiwa_fri_ros" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="iiwa_fri_ros" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iiwa_fri_ros" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iiwa_fri_ros" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="iiwa_fri_ros" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iiwa_fri_ros" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iiwa_fri_ros" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="iiwa_fri_ros" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="iiwa_fri_ros" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="LBRJointSineOverlay" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fri_client_sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iiwa_fri_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -275,6 +344,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -294,167 +364,382 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.iiwa_fri_ros">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="clean_test_results" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
+      <method />
     </configuration>
-    <configuration name="IIWA_FRI_Controller" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="IIWA_FRI_Controller" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="IIWA_FRI_Controller">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true">
       <envs />
+      <method />
     </configuration>
-    <configuration name="LBR_JointSineOverlay" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="LBR_JointSineOverlay" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="LBR_JointSineOverlay">
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
       <envs />
+      <method />
     </configuration>
-    <configuration name="clean_test_results" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="clean_test_results" CONFIG_NAME="Debug">
-      <envs />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
     </configuration>
-    <configuration name="control_toolbox_gencfg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_gencfg" CONFIG_NAME="Debug">
-      <envs />
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
     </configuration>
-    <configuration name="control_toolbox_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <method />
     </configuration>
-    <configuration name="control_toolbox_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_eus" CONFIG_NAME="Debug">
-      <envs />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
     </configuration>
-    <configuration name="control_toolbox_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
       <envs />
+      <method />
     </configuration>
-    <configuration name="control_toolbox_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
     </configuration>
-    <configuration name="control_toolbox_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
     </configuration>
-    <configuration name="controller_manager_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
     </configuration>
-    <configuration name="controller_manager_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
     </configuration>
-    <configuration name="controller_manager_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="iiwa_fri_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
     </configuration>
-    <configuration name="controller_manager_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
+      <method />
     </configuration>
-    <configuration name="controller_manager_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="clean_test_results" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="clean_test_results" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="download_extra_data" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="download_extra_data" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_gencfg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_gencfg" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="doxygen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="doxygen" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_gencfg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_gencfg" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="control_toolbox_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="control_toolbox_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="controller_manager_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="dynamic_reconfigure_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="controller_manager_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="geometry_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="controller_manager_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="geometry_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="controller_manager_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="geometry_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="controller_manager_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="controller_manager_msgs_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="geometry_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="download_extra_data" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="download_extra_data" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="geometry_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="doxygen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="doxygen" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="gtest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_gencfg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_gencfg" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="iiwa_fri_ros" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="iiwa_fri_ros" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="roscpp_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="roscpp_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="roscpp_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="dynamic_reconfigure_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="dynamic_reconfigure_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="roscpp_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="geometry_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="roscpp_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="geometry_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="rosgraph_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="geometry_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="rosgraph_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="geometry_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="rosgraph_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="geometry_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="geometry_msgs_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="rosgraph_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="IIWA_FRI_Controller" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="IIWA_FRI_Controller" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="IIWA_FRI_Controller">
       <envs />
+      <method />
     </configuration>
-    <configuration name="rosgraph_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="iiwa_fri_ros" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="iiwa_fri_ros" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="run_tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="run_tests" CONFIG_NAME="Debug">
+    <configuration default="false" name="LBR_JointSineOverlay" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="LBR_JointSineOverlay" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="LBR_JointSineOverlay">
       <envs />
+      <method />
     </configuration>
-    <configuration name="sensor_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="roscpp_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="sensor_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="roscpp_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="sensor_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="roscpp_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="sensor_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="roscpp_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="sensor_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="roscpp_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="roscpp_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="std_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+    <configuration default="false" name="rosgraph_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="std_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+    <configuration default="false" name="rosgraph_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_eus" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="std_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+    <configuration default="false" name="rosgraph_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="std_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+    <configuration default="false" name="rosgraph_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="std_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_py" CONFIG_NAME="Debug">
+    <configuration default="false" name="rosgraph_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="rosgraph_msgs_generate_messages_py" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="tester" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="tester" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="tester">
+    <configuration default="false" name="run_tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="run_tests" CONFIG_NAME="Debug">
       <envs />
+      <method />
     </configuration>
-    <configuration name="tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="tests" CONFIG_NAME="Debug">
+    <configuration default="false" name="sensor_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="sensor_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="sensor_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="sensor_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="sensor_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="sensor_msgs_generate_messages_py" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="std_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="std_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="std_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="std_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="std_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="std_msgs_generate_messages_py" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="tester" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="tester" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="iiwa_fri_ros" RUN_TARGET_NAME="tester">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="tests" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iiwa_fri_ros" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+      <envs />
+      <method />
     </configuration>
     <list size="54">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
@@ -529,11 +814,12 @@
       <workItem from="1506603942685" duration="6000000" />
       <workItem from="1506680233730" duration="834000" />
       <workItem from="1506696884742" duration="11267000" />
+      <workItem from="1506964909951" duration="3317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62198000" />
+    <option name="totallyTimeSpent" value="65515000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,28 +831,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="71" y="23" width="1430" height="977" extended-state="0" />
+    <frame x="65" y="24" width="1535" height="1176" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19090909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21954398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -576,6 +866,84 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2505">
+          <caret line="167" column="36" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+          <folding>
+            <element signature="e#135#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#122#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tester.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="92" lean-forward="false" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1482">
@@ -590,7 +958,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1950">
           <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,7 +1002,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1950">
           <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -674,7 +1046,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1053">
           <caret line="81" column="1" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -716,7 +1090,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1053">
           <caret line="81" column="1" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -756,7 +1132,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1248">
           <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -822,7 +1200,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tester.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
@@ -830,27 +1208,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1404">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="61" column="92" lean-forward="false" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#122#162#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,19 +1222,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="167" column="36" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friLBRState.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-273">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LBRJointSineOverlay/LBRJointSineOverlayClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="105" column="15" lean-forward="false" selection-start-line="105" selection-start-column="15" selection-end-line="105" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#122#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+          <folding>
+            <element signature="e#2560#2578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -888,34 +1290,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LBRJointSineOverlay/LBRJointSineOverlayClient.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="105" column="15" lean-forward="false" selection-start-line="105" selection-start-column="15" selection-end-line="105" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="57" column="105" lean-forward="false" selection-start-line="57" selection-start-column="105" selection-end-line="57" selection-end-column="105" />
+        <state relative-caret-position="360">
+          <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
           <folding />
         </state>
       </provider>

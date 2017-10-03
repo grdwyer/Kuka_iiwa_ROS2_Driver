@@ -63,12 +63,11 @@ cost of any service and repair.
 #include <cstdlib>
 #include <cstdio>
 #include <cstring> // strstr
-#include "iiwa_fri_ros/IiwaFRIInterface.h
-#include "iiwa_fri_ros/IiwaHWInterface.h"
-#include "fri_client_sdk/friUdpConnection.h"
-#include "fri_client_sdk/friClientApplication.h"
-#include <controller_manager/controller_manager.h>
-#include <memory>
+#include <iiwa_fri_ros/IiwaFRIInterface.h>
+#include <iiwa_fri_ros/IiwaHWInterface.h>
+#include <fri_client_sdk/friUdpConnection.h>
+#include <fri_client_sdk/friClientApplication.h>
+
 
 #define DEFAULT_PORTID 30200
 #define DEFAULT_JOINTMASK 0x8

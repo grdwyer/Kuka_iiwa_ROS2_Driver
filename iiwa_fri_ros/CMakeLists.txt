@@ -17,6 +17,8 @@ find_package(catkin REQUIRED COMPONENTS
         joint_limits_interface
         std_msgs
         sensor_msgs
+        fri_client_sdk
+			
         )
 
 ## System dependencies are found with CMake's conventions
@@ -121,9 +123,9 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-link_directories(
-        lib
-)
+#link_directories(
+#        ${PROJECT_NAME}/lib
+#)
 
 include_directories(
   include
@@ -142,6 +144,11 @@ add_library(${PROJECT_NAME}
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+target_link_libraries(${PROJECT_NAME}
+        #FRIClient
+        ${catkin_LIBRARIES}
+        )
+
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
@@ -156,7 +163,7 @@ add_dependencies(LBR_JointSineOverlay ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catk
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(LBR_JointSineOverlay
-        FRIClient
+        #FRIClient
         ${catkin_LIBRARIES}
         )
 
@@ -169,7 +176,6 @@ add_dependencies(IIWA_FRI_Controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catki
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(IIWA_FRI_Controller
-        FRIClient
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
@@ -183,7 +189,6 @@ add_dependencies(tester ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TA
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(tester
-        FRIClient
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )

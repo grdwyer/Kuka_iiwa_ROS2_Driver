@@ -131,7 +131,10 @@ bool IiwaHWInterface::start() {
 
 void IiwaHWInterface::read(ros::Duration duration) {
     // Get the current state from the state handle
-    fri_state_handle_->getCurrentState(current_position_, current_velocity_, current_torque_);
+    fri_state_handle_->getCurrentState(current_position_, current_torque_);
+    for (int i = 0; i < 7; i++){
+        current_velocity_[i] = current_position_[i]/duration.sec;
+    }
 
 }
 
