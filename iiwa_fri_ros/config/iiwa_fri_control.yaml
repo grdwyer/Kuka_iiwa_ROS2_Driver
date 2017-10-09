@@ -1,0 +1,58 @@
+iiwa:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 500  
+  
+  # Controllers for singular joint ------------------------------------
+  # 
+ 
+  # Forward Position Controllers ---------------------------------------
+  PositionJointInterface_J1_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_1
+
+  PositionJointInterface_J2_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_2
+    
+  PositionJointInterface_J3_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_3
+    
+  PositionJointInterface_J4_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_4
+    
+  PositionJointInterface_J5_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_5
+    
+  PositionJointInterface_J6_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_6
+    
+  PositionJointInterface_J7_controller:
+    type: position_controllers/JointPositionController
+    joint: iiwa_joint_7
+    
+  # Trajectory Controllers ---------------------------------------
+  #   
+  # Forward Position Controllers ---------------------------------------
+  PositionJointInterface_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+      - iiwa_joint_1
+      - iiwa_joint_2
+      - iiwa_joint_3
+      - iiwa_joint_4
+      - iiwa_joint_5
+      - iiwa_joint_6
+      - iiwa_joint_7
+
+    constraints:
+      goal_time: 0.5                   # Override default
+
+    state_publish_rate:  500            # Override default
+    action_monitor_rate: 500            # Override default
+    stop_trajectory_duration: 0        # Override default

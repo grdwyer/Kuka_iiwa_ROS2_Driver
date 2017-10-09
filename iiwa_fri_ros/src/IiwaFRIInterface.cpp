@@ -20,25 +20,61 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
     switch (newState){
         case KUKA::FRI::MONITORING_WAIT:
         {
-
+            ROS_INFO_STREAM("Current Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->current_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->current_position_.data()[6] << std::endl);
+            ROS_INFO_STREAM("Commanded Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->command_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->command_position_.data()[6] << std::endl);
             break;
         }
 
         case KUKA::FRI::MONITORING_READY:
         {
-
+            ROS_INFO_STREAM("Current Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->current_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->current_position_.data()[6] << std::endl);
+            ROS_INFO_STREAM("Commanded Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->command_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->command_position_.data()[6] << std::endl);
             break;
         }
 
         case KUKA::FRI::COMMANDING_WAIT:
         {
-
+            ROS_INFO_STREAM("Current Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->current_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->current_position_.data()[6] << std::endl);
+            ROS_INFO_STREAM("Commanded Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->command_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->command_position_.data()[6] << std::endl);
             break;
         }
 
         case KUKA::FRI::COMMANDING_ACTIVE:
         {
-
+            ROS_INFO_STREAM("Current Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->current_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->current_position_.data()[6] << std::endl);
+            ROS_INFO_STREAM("Commanded Position: ");
+            for (int i = 0; i < 6; i++){
+                ROS_INFO_STREAM(iiwa_state_->command_position_.data()[i] << ", ");
+            }
+            ROS_INFO_STREAM(iiwa_state_->command_position_.data()[6] << std::endl);
             break;
         }
         default: {
@@ -49,7 +85,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
 
 void IiwaFRIInterface::command() {
     // Update current state
-    monitor();
+    update_state();
 
     auto mode = robotState().getClientCommandMode();
 
@@ -70,14 +106,20 @@ void IiwaFRIInterface::command() {
     }
 }
 
-void IiwaFRIInterface::monitor(){
+void IiwaFRIInterface::monitor() {
+    update_state();
+    //Copy current position as comanded postiion
+    std::memcpy(iiwa_state_->command_position_.data(), robotState().getMeasuredJointPosition(), 7);
 
+};
+
+void IiwaFRIInterface::update_state() {
     std::memcpy(iiwa_state_->current_position_.data(), robotState().getMeasuredJointPosition(), 7);
     std::memcpy(iiwa_state_->current_torque_.data(), robotState().getMeasuredTorque(), 7);
 
 }
 
 void IiwaFRIInterface::waitForCommand() {
-    monitor();
+    update_state();
     KUKA::FRI::LBRClient::waitForCommand();
 }

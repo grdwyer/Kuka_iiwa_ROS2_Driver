@@ -49,7 +49,7 @@ any particular purpose. In no event shall KUKA be responsible for loss or
 damages arising from the installation or use of the Software, including but
 not limited to any indirect, punitive, special, incidental or consequential
 damages of any character including, without limitation, damages for loss of
-goodwill, work stoppage, computer failure or malfunction, or any and all other
+goodwill, work stoppage, computer nh.param("port", portfailure or malfunction, or any and all other
 commercial damages or losses.
 The entire risk to the quality and performance of the Software is not borne by
 KUKA. Should the Software prove defective, KUKA is not liable for the entire
@@ -69,27 +69,24 @@ cost of any service and repair.
 #include <fri_client_sdk/friClientApplication.h>
 
 
-#define DEFAULT_PORTID 30200
-#define DEFAULT_JOINTMASK 0x8
-#define DEFAULT_FREQUENCY 0.25
-#define DEFAULT_AMPLITUDE 0.04
-#define DEFAULT_FILTER_COEFFICIENT 0.99
-
-
-
 int main (int argc, char** argv)
 {
+    ros::init(argc, argv, "fri_controller");
     ros::NodeHandle nh;
 
     std::string hostname;
     int port;
 
-    nh.param("hostname", hostname);
+    nh.getParam("hostname", hostname);
+    ROS_INFO("Hostname: %s", hostname.c_str());
+
+    nh.getParam("port", port);
+    ROS_INFO("Port: %i", port);
+
     if(hostname.length() == 0){
         ROS_ERROR("Requires a hostname to be passed as a ros param");
         return 1;
     }
-    nh.param("port", port, 30000);
 
     auto state = std::make_shared<IiwaState>();
     IiwaFRIInterface client(state);
@@ -110,6 +107,8 @@ int main (int argc, char** argv)
 
     // pass connection and client to a new FRI client application
     KUKA::FRI::ClientApplication app(connection, client);
+
+    ROS_INFO_STREAM("Connecting to ip: " << hostname.c_str() << " on port " << port);
 
     // connect client application to KUKA Sunrise controller
     app.connect(port, hostname.c_str());

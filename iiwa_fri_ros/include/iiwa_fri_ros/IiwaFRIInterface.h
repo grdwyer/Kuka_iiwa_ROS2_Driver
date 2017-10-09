@@ -47,6 +47,11 @@ public:
 
 private:
     std::shared_ptr<IiwaState> iiwa_state_;
+
+    /**
+     * \brief Helper function to update current values
+     */
+    void update_state();
 };
 
 

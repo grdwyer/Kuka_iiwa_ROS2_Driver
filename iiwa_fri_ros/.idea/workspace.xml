@@ -2,59 +2,59 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="iiwa_fri_ros" targetName="LBR_JointSineOverlay" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="run_tests" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_cpp" />
       <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_py" />
       <config projectName="iiwa_fri_ros" targetName="gtest" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_gencfg" />
-      <config projectName="iiwa_fri_ros" targetName="doxygen" />
-      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_lisp" />
       <config projectName="iiwa_fri_ros" targetName="download_extra_data" />
-      <config projectName="iiwa_fri_ros" targetName="tests" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_gencfg" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="tester" />
+      <config projectName="iiwa_fri_ros" targetName="IIWA_FRI_Controller" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="doxygen" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_cpp" />
       <config projectName="iiwa_fri_ros" targetName="control_toolbox_gencfg" />
       <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_lisp" />
       <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_cpp" />
       <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_py" />
       <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="iiwa_fri_ros" targetName="iiwa_fri_ros" />
-      <config projectName="iiwa_fri_ros" targetName="clean_test_results" />
-      <config projectName="iiwa_fri_ros" targetName="IIWA_FRI_Controller" />
-      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_nodejs" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_eus" />
-      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_lisp" />
+      <config projectName="iiwa_fri_ros" targetName="run_tests" />
       <config projectName="iiwa_fri_ros" targetName="gtest_main" />
-      <config projectName="iiwa_fri_ros" targetName="tester" />
+      <config projectName="iiwa_fri_ros" targetName="tests" />
+      <config projectName="iiwa_fri_ros" targetName="iiwa_fri_ros" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="clean_test_results" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="control_toolbox_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="iiwa_fri_ros" targetName="std_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="dynamic_reconfigure_generate_messages_py" />
+      <config projectName="iiwa_fri_ros" targetName="controller_manager_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="LBR_JointSineOverlay" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_py" />
       <config projectName="iiwa_fri_ros" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="iiwa_fri_ros" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="iiwa_fri_ros" targetName="rosgraph_msgs_generate_messages_nodejs" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -80,112 +80,50 @@
     <favorites_list name="iiwa_fri_ros" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54041207">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IiwaHWInterface.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="377">
-                  <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#135#155#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="friClientIf.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IiwaFRIController.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#2560#2578#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="iiwa_fri_hardware.launch" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IiwaFRIInterface.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#122#162#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="tester.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/tester.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IiwaFRIInterface.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IiwaHWInterface.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="759">
-                  <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="iiwa_fri_hardware.launch" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="83" lean-forward="true" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IiwaFRIInterface.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IiwaFRIInterface.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="53" column="24" lean-forward="false" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+              <folding>
+                <element signature="e#122#162#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IiwaFRIController.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -216,12 +154,12 @@
         <option value="$PROJECT_DIR$/src/IiwaFRIInterface.h" />
         <option value="$PROJECT_DIR$/src/tester.cpp" />
         <option value="$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h" />
+        <option value="$PROJECT_DIR$/src/IiwaHWInterface.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h" />
+        <option value="$PROJECT_DIR$/src/IiwaFRIController.cpp" />
         <option value="$PROJECT_DIR$/launch/iiwa_fri_hardware.launch" />
         <option value="$PROJECT_DIR$/src/IiwaFRIInterface.cpp" />
-        <option value="$PROJECT_DIR$/src/IiwaHWInterface.cpp" />
-        <option value="$PROJECT_DIR$/src/IiwaFRIController.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -282,7 +220,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,29 +238,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iiwa_fri_ros" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iiwa_fri_ros" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iiwa_fri_ros" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fri_client_sdk" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,6 +327,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -815,11 +737,13 @@
       <workItem from="1506680233730" duration="834000" />
       <workItem from="1506696884742" duration="11267000" />
       <workItem from="1506964909951" duration="3317000" />
+      <workItem from="1507559102246" duration="5074000" />
+      <workItem from="1507568880127" duration="5202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65515000" />
+    <option name="totallyTimeSpent" value="75791000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,11 +756,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="1176" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21954398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18110749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -844,6 +767,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -888,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,9 +819,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -958,9 +879,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1950">
           <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,9 +921,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1950">
           <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,9 +963,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1053">
           <caret line="81" column="1" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="1" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,9 +1005,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1053">
           <caret line="81" column="1" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="1" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,9 +1045,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1248">
           <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,34 +1117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LBRJointSineOverlay/LBRJointSineOverlayApp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="128" column="31" lean-forward="false" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friLBRState.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-273">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,45 +1131,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
+        <state relative-caret-position="2205">
+          <caret line="147" column="9" lean-forward="false" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
+    <entry file="file://$PROJECT_DIR$/include/fri_client_sdk/friClientIf.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#122#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding>
-            <element signature="e#2560#2578#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaHWInterface.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
+        <state relative-caret-position="840">
           <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding>
             <element signature="e#135#155#0" expanded="true" />
@@ -1290,10 +1156,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/src/LBRJointSineOverlay/LBRJointSineOverlayApp.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
+        <state relative-caret-position="140">
+          <caret line="69" column="28" lean-forward="false" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaHWInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="100" column="66" lean-forward="false" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/iiwa_fri_ros/IiwaFRIInterface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="24" lean-forward="false" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+          <folding>
+            <element signature="e#122#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch/iiwa_fri_hardware.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="83" lean-forward="true" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IiwaFRIInterface.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding />
         </state>
       </provider>
