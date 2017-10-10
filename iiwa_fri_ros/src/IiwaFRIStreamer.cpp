@@ -1,19 +1,19 @@
 //
-// Created by george on 21/09/17.
+// Created by localadmin on 10/10/17.
 //
 
-#include "iiwa_fri_ros/IiwaFRIInterface.h"
+#include "iiwa_fri_ros/IiwaFRIStreamer.h"
 
-IiwaFRIInterface::IiwaFRIInterface(std::shared_ptr<IiwaState> state): iiwa_state_(state){
+IiwaFRIStreamer::IiwaFRIStreamer(std::shared_ptr<IiwaState> state): iiwa_state_(state){
 
 };
 
-IiwaFRIInterface::~IiwaFRIInterface() {
+IiwaFRIStreamer::~IiwaFRIStreamer() {
 
 }
 
 
-void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FRI::ESessionState newState) {
+void IiwaFRIStreamer::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FRI::ESessionState newState) {
     KUKA::FRI::LBRClient::onStateChange(oldState, newState);
 
     //TODO: Set as publisher to inform network of state change
@@ -83,43 +83,27 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
     }
 }
 
-void IiwaFRIInterface::command() {
+void IiwaFRIStreamer::command() {
     // Update current state
     update_state();
-
-    auto mode = robotState().getClientCommandMode();
-
-    if(mode == KUKA::FRI::EClientCommandMode::POSITION){
-        // Take current commanded values
-        //TODO: add in check to compare it to current position and ensure the difference is not too large
-        robotCommand().setJointPosition(iiwa_state_->command_position_.data());
-    }
-    else if(mode == KUKA::FRI::EClientCommandMode::TORQUE){
-        // Take current commanded values
-        KUKA::FRI::LBRClient::command();
-        robotCommand().setTorque(iiwa_state_->command_torque_.data());
-    }
-    else if(mode == KUKA::FRI::EClientCommandMode::WRENCH){
-        // Take current commanded values
-        KUKA::FRI::LBRClient::command();
-        robotCommand().setJointPosition(iiwa_state_->command_wrench_.data());
-    }
+    KUKA::FRI::LBRClient::command();
 }
 
-void IiwaFRIInterface::monitor() {
+void IiwaFRIStreamer::monitor() {
     update_state();
     //Copy current position as comanded postiion
     std::memcpy(iiwa_state_->command_position_.data(), robotState().getMeasuredJointPosition(), 7);
 
 };
 
-void IiwaFRIInterface::update_state() {
+
+void IiwaFRIStreamer::waitForCommand() {
+    update_state();
+    KUKA::FRI::LBRClient::waitForCommand();
+}
+
+void IiwaFRIStreamer::update_state() {
     std::memcpy(iiwa_state_->current_position_.data(), robotState().getMeasuredJointPosition(), 7);
     std::memcpy(iiwa_state_->current_torque_.data(), robotState().getMeasuredTorque(), 7);
 
-}
-
-void IiwaFRIInterface::waitForCommand() {
-    update_state();
-    KUKA::FRI::LBRClient::waitForCommand();
 }

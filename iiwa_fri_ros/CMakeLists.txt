@@ -137,7 +137,7 @@ add_library(${PROJECT_NAME}
         src/IiwaHWInterface.cpp
         include/iiwa_fri_ros/IiwaHWInterface.h
         src/IiwaFRIInterface.cpp
-        include/iiwa_fri_ros/IiwaFRIInterface.h)
+        include/iiwa_fri_ros/IiwaFRIInterface.h src/IiwaFRIStreamer.cpp include/iiwa_fri_ros/IiwaFRIStreamer.h)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

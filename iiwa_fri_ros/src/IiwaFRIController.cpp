@@ -64,9 +64,9 @@ cost of any service and repair.
 #include <cstdio>
 #include <cstring> // strstr
 #include <iiwa_fri_ros/IiwaFRIInterface.h>
-#include <iiwa_fri_ros/IiwaHWInterface.h>
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
+#include <iiwa_fri_ros/IiwaFRIStreamer.h>
 
 
 int main (int argc, char** argv)
@@ -89,7 +89,7 @@ int main (int argc, char** argv)
     }
 
     auto state = std::make_shared<IiwaState>();
-    IiwaFRIInterface client(state);
+    IiwaFRIStreamer client(state);
     IiwaHWInterface robot(nh, state);
 
     controller_manager::ControllerManager cm(&robot);
@@ -119,7 +119,7 @@ int main (int argc, char** argv)
     /*   Execution mainloop                                                    */
     /*                                                                         */
     /***************************************************************************/
-    ros::Time current_time = ros::Time::now(), previous_time = ros::Time::now();
+    ros::Time current_time, previous_time = ros::Time::now();
     ros::Duration elapsed_time;
 
     // repeatedly call the step routine to receive and process FRI packets
