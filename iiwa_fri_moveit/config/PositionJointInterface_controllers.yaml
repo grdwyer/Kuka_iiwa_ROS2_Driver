@@ -1,5 +1,5 @@
 controller_list:
-  - name: PositionJointInterface_trajectory_controller
+    name: PositionJointInterface_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true
@@ -10,4 +10,4 @@ controller_list:
       - iiwa_joint_4
       - iiwa_joint_5
       - iiwa_joint_6
-		- iiwa_joint_7
+      - iiwa_joint_7

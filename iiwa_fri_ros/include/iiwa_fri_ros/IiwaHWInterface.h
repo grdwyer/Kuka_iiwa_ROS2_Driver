@@ -29,13 +29,12 @@
 class IiwaState{
 public:
     IiwaState(){
-        for(int i = 0; i < 7; i++) {
-            current_position_[i] = 0.0;
-            current_torque_[i] = 0.0;;
-            command_position_[i] = 0.0;
-            command_wrench_[i] = 0.0;
-            command_torque_[i] = 0.0;
-        }
+            current_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+            current_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+            command_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+            command_wrench_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+            command_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
     };
     void getCurrentState(std::array<double, 7> &pos, std::array<double, 7> &torque){
         std::lock_guard<std::mutex> guard(current_mutex_);
