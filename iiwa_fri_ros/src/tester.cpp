@@ -28,28 +28,47 @@ public:
 class Adder{
 private:
     std::shared_ptr<IiwaState> state_;
-    std::array<double, 7> val_;
+    //std::array<double, 7> val_;
+    double * val_;
 
 public:
     Adder(std::shared_ptr<IiwaState> state){
         state_ = state;
-        val_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+        val_ = new double[7];
+        for (int i = 0; i < 7; i++) {
+            val_[i] = 0.0;
+        }
     }
 
-    void add_values(){
-        std::cout << "Iterating val " << std::endl;
-        for (auto a: val_){
-            a++;
-        }
-        std::cout << "Copying accross to state" << std::endl;
-        std::memcpy(state_->command_position_.data(), val_.data(), 7);
+    ~Adder(){
 
+        delete val_;
+    }
+
+    void add_values() {
+        for (int i = 0; i < 7; i++) {
+            val_[i] = val_[i] + 1.0;
+        }
+
+        std::cout << "Iterating val to: " << val_[0] << std::endl;
+
+        std::cout << "Copying accross to state" << std::endl;
+        //std::memcpy(state_->command_position_.data(), val_.data(), 7);
+       auto tic = ros::Time::now();
+        for (int i = 0; i < 7; i++) {
+            state_->command_position_[i] = val_[i];
+        }
+        auto toc = ros::Time::now();
+        auto duration = toc - tic;
+        std::cout << "Copy duration: " << duration.nsec << std::endl;
     }
 };
 
 
 int main (int argc, char** argv)
 {
+    ros::init(argc, argv, "tester");
+    ros::NodeHandle nh;
 
     auto state = std::make_shared<IiwaState>();
 
