@@ -53,11 +53,20 @@ public:
         std::cout << "Iterating val to: " << val_[0] << std::endl;
 
         std::cout << "Copying accross to state" << std::endl;
-        //std::memcpy(state_->command_position_.data(), val_.data(), 7);
+
        auto tic = ros::Time::now();
-        for (int i = 0; i < 7; i++) {
-            state_->command_position_[i] = val_[i];
-        }
+        std::memcpy(state_->command_position_.data(), val_, 7 * sizeof(double));
+//        for (int i = 0; i < 7; i++) {
+//            state_->command_position_[i] = val_[i];
+//        }
+//        state_->command_position_[0] = val_[0];
+//        state_->command_position_[1] = val_[1];
+//        state_->command_position_[2] = val_[2];
+//        state_->command_position_[3] = val_[3];
+//        state_->command_position_[4] = val_[4];
+//        state_->command_position_[5] = val_[5];
+//        state_->command_position_[6] = val_[6];
+
         auto toc = ros::Time::now();
         auto duration = toc - tic;
         std::cout << "Copy duration: " << duration.nsec << std::endl;
@@ -75,7 +84,7 @@ int main (int argc, char** argv)
     auto read = Reader(state);
     auto write = Adder(state);
 
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < 10; i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         read.read_values();
         write.add_values();

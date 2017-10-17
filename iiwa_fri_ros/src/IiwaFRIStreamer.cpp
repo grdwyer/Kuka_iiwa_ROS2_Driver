@@ -92,13 +92,7 @@ void IiwaFRIStreamer::command() {
 void IiwaFRIStreamer::monitor() {
     update_state();
     //Copy current position as comanded postiion
-    //std::memcpy(iiwa_state_->command_position_.data(), robotState().getMeasuredJointPosition(), 7);
-
-    auto current_pos = robotState().getMeasuredJointPosition();
-
-    for (int i = 0; i < 7; i++) {
-        iiwa_state_->command_position_[i] = current_pos[i];
-    }
+    std::memcpy(iiwa_state_->command_position_.data(), robotState().getMeasuredJointPosition(), 7 * sizeof(double));
 
 };
 
@@ -109,15 +103,7 @@ void IiwaFRIStreamer::waitForCommand() {
 }
 
 void IiwaFRIStreamer::update_state() {
-    //std::memcpy(iiwa_state_->current_position_.data(), robotState().getMeasuredJointPosition(), 7);
-    //std::memcpy(iiwa_state_->current_torque_.data(), robotState().getMeasuredTorque(), 7);
-
-    auto current_pos = robotState().getMeasuredJointPosition();
-    auto current_torque = robotState().getMeasuredTorque();
-
-    for (int i = 0; i < 7; i++) {
-        iiwa_state_->current_position_[i] = current_pos[i];
-        iiwa_state_->current_torque_[i] = current_torque[i];
-    }
+    std::memcpy(iiwa_state_->current_position_.data(), robotState().getMeasuredJointPosition(), 7 * sizeof(double));
+    std::memcpy(iiwa_state_->current_torque_.data(), robotState().getMeasuredTorque(), 7 * sizeof(double));
 
 }
