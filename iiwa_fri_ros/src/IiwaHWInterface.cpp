@@ -130,11 +130,14 @@ bool IiwaHWInterface::start() {
 }
 
 void IiwaHWInterface::read(ros::Duration duration) {
+    // copy the over the previous position
+    previous_position_ = current_position_;
     // Get the current state from the state handle
     fri_state_handle_->getCurrentState(current_position_, current_torque_);
     for (int i = 0; i < 7; i++){
-        current_velocity_[i] = current_position_[i]/duration.sec;
+        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
     }
+    ROS_INFO_STREAM("Duration: " << duration.sec << "\nJoint 1\nPosition: " << current_position_[0] << "\nVelocity: " << current_velocity_[0]);
 
 }
 
@@ -145,5 +148,5 @@ void IiwaHWInterface::write(ros::Duration duration) {
     ej_sat_interface_.enforceLimits(duration);
 
     // Get latest commands from the interface and pass to the state handle
-    fri_state_handle_->setCommandedState(command_position_, command_velocity_, command_torque_);
+    fri_state_handle_->setCommandedPosition(command_position_);
 }

@@ -62,6 +62,11 @@ public:
         command_torque_ = torque;
     };
 
+    void setCommandedPosition(std::array<double, 7> &pos){
+        std::lock_guard<std::mutex> guard(command_mutex_);
+        command_position_ = pos;
+    }
+
 // private:
     std::array<double, 7> current_position_, current_torque_;
     std::array<double, 7> command_position_, command_wrench_, command_torque_;
@@ -119,8 +124,8 @@ private:
 
     std::shared_ptr<IiwaState> fri_state_handle_;
 
-    std::array<double, 7> current_position_, current_velocity_, current_torque_;
-    std::array<double, 7> command_position_, command_velocity_, command_torque_;
+    std::array<double, 7> current_position_, previous_position_, current_velocity_, current_torque_;
+    std::array<double, 7> command_position_;
     std::vector<std::string> joint_names_;
 
     std::vector<std::string> interface_type_;

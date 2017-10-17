@@ -92,7 +92,7 @@ int main (int argc, char** argv)
     IiwaFRIStreamer client(state);
     IiwaHWInterface robot(nh, state);
 
-    controller_manager::ControllerManager cm(&robot);
+    controller_manager::ControllerManager cm(&robot, nh);
 
     /***************************************************************************/
     /*                                                                         */
@@ -124,7 +124,7 @@ int main (int argc, char** argv)
 
     // repeatedly call the step routine to receive and process FRI packets
     bool success = true;
-    while (success)
+    while (success && !ros::isShuttingDown())
     {
         current_time = ros::Time::now();
         elapsed_time = ros::Duration(current_time - previous_time);
