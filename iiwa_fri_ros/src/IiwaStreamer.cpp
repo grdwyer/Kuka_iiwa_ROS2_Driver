@@ -63,7 +63,6 @@ cost of any service and repair.
 #include <cstdlib>
 #include <cstdio>
 #include <cstring> // strstr
-#include <iiwa_fri_ros/IiwaFRIInterface.h>
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
 #include <iiwa_fri_ros/IiwaFRIStreamer.h>

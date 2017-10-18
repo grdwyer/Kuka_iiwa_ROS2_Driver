@@ -167,28 +167,41 @@ target_link_libraries(LBR_JointSineOverlay
         ${catkin_LIBRARIES}
         )
 
-add_executable(IIWA_FRI_Controller
-        src/IiwaFRIController.cpp)
+add_executable(iiwa_streamer
+        src/IiwaStreamer.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(IIWA_FRI_Controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(iiwa_streamer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(IIWA_FRI_Controller
+target_link_libraries(iiwa_streamer
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
 
-add_executable(tester
+add_executable(iiwa_controller
+        src/IiwaController.cpp)
+
+## Add cmake target dependencies of the executable
+## same as for the library above
+add_dependencies(iiwa_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+## Specify libraries to link a library or executable target against
+target_link_libraries(iiwa_controller
+        ${PROJECT_NAME}
+        ${catkin_LIBRARIES}
+        )
+
+add_executable(state_storage
         src/tester.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(tester ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(state_storage ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(tester
+target_link_libraries(state_storage
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )

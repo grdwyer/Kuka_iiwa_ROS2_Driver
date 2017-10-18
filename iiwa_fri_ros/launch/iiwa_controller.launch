@@ -35,6 +35,6 @@
         <param name="port" value="30200"/>
 
         <!-- the real hardware interface /-->
-        <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="IIWA_FRI_Controller" respawn="false"/>
+        <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="iiwa_controller" respawn="false"/>
     </group>
 </launch>
