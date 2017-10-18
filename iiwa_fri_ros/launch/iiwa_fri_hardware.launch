@@ -16,7 +16,7 @@
     <!-- Converts joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
           respawn="false" output="screen">
-        <remap from="joint_states" to="/$(arg robot_name)/joint_states" />
+          <remap from="joint_states" to="/$(arg robot_name)/joint_states" />
     </node>
 
     <include file="$(find iiwa_fri_description)/launch/$(arg model)_upload.launch">
@@ -35,6 +35,6 @@
         <param name="port" value="30200"/>
 
         <!-- the real hardware interface /-->
-        <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="IIWA_FRI_Controller" respawn="false" output="screen"/>
+        <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="IIWA_FRI_Controller" respawn="false"/>
     </group>
 </launch>

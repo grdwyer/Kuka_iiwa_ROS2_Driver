@@ -74,6 +74,9 @@ int main (int argc, char** argv)
     ros::init(argc, argv, "fri_controller");
     ros::NodeHandle nh;
 
+    ros::AsyncSpinner spinner(1);
+    spinner.start();
+
     std::string hostname;
     int port;
 
@@ -91,6 +94,8 @@ int main (int argc, char** argv)
     auto state = std::make_shared<IiwaState>();
     IiwaFRIStreamer client(state);
     IiwaHWInterface robot(nh, state);
+
+    robot.start();
 
     controller_manager::ControllerManager cm(&robot, nh);
 
@@ -146,6 +151,7 @@ int main (int argc, char** argv)
 
     // disconnect from controller
     app.disconnect();
+    spinner.stop();
 
     return 1;
 }
