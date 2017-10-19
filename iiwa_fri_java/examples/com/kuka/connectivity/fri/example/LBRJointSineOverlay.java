@@ -61,17 +61,17 @@ public class LBRJointSineOverlay extends RoboticsAPIApplication
         getLogger().info("FRI connection established.");
 
         // move to start pose
-        _lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0));
+        _lbr.move(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(-90), .0, Math.toRadians(0), .0));
 
         // async move with overlay ...
-        _lbr.moveAsync(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0)
+        _lbr.moveAsync(ptp(Math.toRadians(-45), .0, .0, Math.toRadians(-90), .0, Math.toRadians(-90), .0)
                 .setJointVelocityRel(0.2)
                 .addMotionOverlay(jointOverlay)
                 .setBlendingRel(0.1)
                 );
 
         // ... blending into sync move with overlay
-        _lbr.move(ptp(Math.toRadians(90), .0, .0, Math.toRadians(90), .0, Math.toRadians(-90), .0)
+        _lbr.move(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(-90), .0, Math.toRadians(0), .0)
                 .setJointVelocityRel(0.2)
                 .addMotionOverlay(jointOverlay)
                 );

@@ -1,5 +1,7 @@
 package fri_controller;
 
+import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptp;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -26,7 +28,7 @@ import com.kuka.roboticsAPI.uiModel.userKeys.UserKeyLEDSize;
 /**
  * Creates a FRI Session.
  */
-public class FRIJointController extends RoboticsAPIApplication
+public class FRIStreamerController extends RoboticsAPIApplication
 {
 	private Controller lbr_controller_;
     private LBR lbr_;
@@ -117,22 +119,32 @@ public class FRIJointController extends RoboticsAPIApplication
 	
 	        getLogger().info("FRI connection established.");
 	
-	        // set to null motion
-	        //PositionControlMode ctr_mode = new PositionControlMode();
-	        JointImpedanceControlMode ctr_mode = new JointImpedanceControlMode(200, 200, 200, 200, 200, 200, 200);
-	        PositionHold pos_hold = new PositionHold(ctr_mode, -1, null);
-	        
-	        IMotionContainer positionHoldContainer = tool_.moveAsync(pos_hold.addMotionOverlay(jointOverlay));
-	        int i = 0;
-	        while(motion_on_ == true){
-	        	if(i % 30 == 0){
-	        		getLogger().info(friSession.getFRIChannelInformation().toString());
-	        	}
-	        	ThreadUtil.milliSleep(100);
-	        	i++;
-	        }
-	        
-	        positionHoldContainer.cancel();
+	        tool_.move(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(-90), .0, Math.toRadians(0), .0));
+
+	        // async move with overlay ...
+	        tool_.moveAsync(ptp(Math.toRadians(-45), .0, .0, Math.toRadians(-90), .0, Math.toRadians(-90), .0)
+	                .setJointVelocityRel(0.2)
+	                .addMotionOverlay(jointOverlay)
+	                .setBlendingRel(0.1)
+	                );
+
+	        // ... blending into sync move with overlay
+	        tool_.move(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(-90), .0, Math.toRadians(0), .0)
+	                .setJointVelocityRel(0.2)
+	                .addMotionOverlay(jointOverlay)
+	                );
+	     // async move with overlay ...
+	        tool_.moveAsync(ptp(Math.toRadians(-45), .0, .0, Math.toRadians(-90), .0, Math.toRadians(-90), .0)
+	                .setJointVelocityRel(0.2)
+	                .addMotionOverlay(jointOverlay)
+	                .setBlendingRel(0.1)
+	                );
+
+	        // ... blending into sync move with overlay
+	        tool_.move(ptp(Math.toRadians(-90), .0, .0, Math.toRadians(-90), .0, Math.toRadians(0), .0)
+	                .setJointVelocityRel(0.2)
+	                .addMotionOverlay(jointOverlay)
+	                );
         }
         catch (final TimeoutException e)
         {
@@ -154,7 +166,7 @@ public class FRIJointController extends RoboticsAPIApplication
      */
     public static void main(final String[] args)
     {
-        final FRIJointController app = new FRIJointController();
+        final FRIStreamerController app = new FRIStreamerController();
         app.runApplication();
     }
 
