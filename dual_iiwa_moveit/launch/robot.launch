@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- The planning and execution components of MoveIt! configured to run -->
+    <!-- using the ROS-Industrial interface. -->
+    
+    <!-- | 		PARAMETERS  		| -->
+    <!-- hardware_interface to use : PositionJointInterface, (more coming possibly) -->
+    <arg name="hardware_interface" default="PositionJointInterface"/>
+    <arg name="rviz" default="true" />
+    <arg name="real" default="true"/>
+    
+    <include file="$(find dual_iiwa_controller)/launch/dual_iiwa_controller.launch"/>
+
+    <!-- Load move_group -->
+    <include file="$(find dual_iiwa_moveit)/launch/move_group.launch">
+        <arg name="publish_monitored_planning_scene" value="true" />
+    </include>
+    
+    <include if="$(arg rviz)" file="$(find dual_iiwa_moveit)/launch/moveit_rviz.launch">
+        <arg name="config" value="true"/>
+    </include>
+    
+</launch>

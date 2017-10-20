@@ -19,11 +19,11 @@
   </gazebo>
 
   <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="iiwa7" parent="world">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.006" rpy="0.0 0.0 ${pi/2}"/>
   </xacro:iiwa7>
 
   <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="iiwa14" parent="world">
-    <origin xyz="0.909536 0.612165 0.00393988" rpy="-0.00276109 0.00294195 -1.56426"/>
+    <origin xyz="0.0 0.7 0.008" rpy="0.0 0.0 ${-pi/2}"/>
   </xacro:iiwa14>
   
 </robot> 
