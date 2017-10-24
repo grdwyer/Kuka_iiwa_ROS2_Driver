@@ -4,61 +4,6 @@
 
 #include "iiwa_fri_ros/IiwaHWInterface.h"
 
-void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
-                                          const hardware_interface::JointHandle &joint_handle,
-                                          const urdf::Model *const urdf_model, double *const lower_limit,
-                                          double *const upper_limit, double *const effort_limit) {
-    *lower_limit = -std::numeric_limits<double>::max();
-    *upper_limit = std::numeric_limits<double>::max();
-    *effort_limit = std::numeric_limits<double>::max();
-
-    joint_limits_interface::JointLimits limits;
-    bool has_limits = false;
-    joint_limits_interface::SoftJointLimits soft_limits;
-    bool has_soft_limits = false;
-
-    if (urdf_model != nullptr) {
-        const boost::shared_ptr<const urdf::Joint> urdf_joint = urdf_model->getJoint(joint_name);
-
-        if (urdf_joint != nullptr) {
-            // Get limits from the URDF file.
-            if (joint_limits_interface::getJointLimits(urdf_joint, limits))
-                has_limits = true;
-
-            if (joint_limits_interface::getSoftJointLimits(urdf_joint, soft_limits))
-                has_soft_limits = true;
-        }
-    }
-
-    if (!has_limits)
-        return;
-
-    if (limits.has_position_limits) {
-        *lower_limit = limits.min_position;
-        *upper_limit = limits.max_position;
-    }
-
-    if (limits.has_effort_limits)
-        *effort_limit = limits.max_effort;
-
-    if (has_soft_limits) {
-        const joint_limits_interface::EffortJointSoftLimitsHandle limits_handle(joint_handle, limits, soft_limits);
-        ej_limits_interface_.registerHandle(limits_handle);
-
-        const joint_limits_interface::PositionJointSoftLimitsHandle pj_soft_handle(joint_handle, limits, soft_limits);
-        pj_limits_interface_.registerHandle(pj_soft_handle);
-    }
-    else {
-        const joint_limits_interface::EffortJointSaturationHandle sat_handle(joint_handle, limits);
-        ej_sat_interface_.registerHandle(sat_handle);
-
-        const joint_limits_interface::PositionJointSaturationHandle pj_sat_handle(joint_handle, limits);
-        pj_sat_interface_.registerHandle(pj_sat_handle);
-
-    }
-
-}
-
 IiwaHWInterface::IiwaHWInterface(const ros::NodeHandle &nh, std::shared_ptr<IiwaState> state):
         nh_(nh), fri_state_handle_(state){
 
@@ -127,6 +72,62 @@ bool IiwaHWInterface::start() {
         this->registerInterface(&position_interface_);
 
         return true;
+}
+
+
+void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
+                                          const hardware_interface::JointHandle &joint_handle,
+                                          const urdf::Model *const urdf_model, double *const lower_limit,
+                                          double *const upper_limit, double *const effort_limit) {
+    *lower_limit = -std::numeric_limits<double>::max();
+    *upper_limit = std::numeric_limits<double>::max();
+    *effort_limit = std::numeric_limits<double>::max();
+
+    joint_limits_interface::JointLimits limits;
+    bool has_limits = false;
+    joint_limits_interface::SoftJointLimits soft_limits;
+    bool has_soft_limits = false;
+
+    if (urdf_model != nullptr) {
+        const boost::shared_ptr<const urdf::Joint> urdf_joint = urdf_model->getJoint(joint_name);
+
+        if (urdf_joint != nullptr) {
+            // Get limits from the URDF file.
+            if (joint_limits_interface::getJointLimits(urdf_joint, limits))
+                has_limits = true;
+
+            if (joint_limits_interface::getSoftJointLimits(urdf_joint, soft_limits))
+                has_soft_limits = true;
+        }
+    }
+
+    if (!has_limits)
+        return;
+
+    if (limits.has_position_limits) {
+        *lower_limit = limits.min_position;
+        *upper_limit = limits.max_position;
+    }
+
+    if (limits.has_effort_limits)
+        *effort_limit = limits.max_effort;
+
+    if (has_soft_limits) {
+        const joint_limits_interface::EffortJointSoftLimitsHandle limits_handle(joint_handle, limits, soft_limits);
+        ej_limits_interface_.registerHandle(limits_handle);
+
+        const joint_limits_interface::PositionJointSoftLimitsHandle pj_soft_handle(joint_handle, limits, soft_limits);
+        pj_limits_interface_.registerHandle(pj_soft_handle);
+    }
+    else {
+        const joint_limits_interface::EffortJointSaturationHandle sat_handle(joint_handle, limits);
+        ej_sat_interface_.registerHandle(sat_handle);
+
+        const joint_limits_interface::PositionJointSaturationHandle pj_sat_handle(joint_handle, limits);
+        pj_sat_interface_.registerHandle(pj_sat_handle);
+
+    }
+
 }
 
 void IiwaHWInterface::read(ros::Duration duration) {

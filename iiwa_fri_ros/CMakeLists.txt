@@ -149,24 +149,9 @@ target_link_libraries(${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
 
-## Declare a C++ executable
-## With catkin_make all packages are built within a single CMake context
-## The recommended prefix ensures that target names across packages don't collide
-add_executable(LBR_JointSineOverlay
-        src/LBRJointSineOverlay/LBRJointSineOverlayApp.cpp
-        src/LBRJointSineOverlay/LBRJointSineOverlayClient.cpp
-        src/LBRJointSineOverlay/LBRJointSineOverlayClient.h)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-add_dependencies(LBR_JointSineOverlay ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(LBR_JointSineOverlay
-        #FRIClient
-        ${catkin_LIBRARIES}
-        )
-
+############################
+## iiwa_streamer
+############################
 add_executable(iiwa_streamer
         src/IiwaStreamer.cpp)
 
@@ -180,6 +165,9 @@ target_link_libraries(iiwa_streamer
         ${catkin_LIBRARIES}
         )
 
+############################
+## iiwa_controller
+############################
 add_executable(iiwa_controller
         src/IiwaController.cpp)
 
@@ -192,20 +180,6 @@ target_link_libraries(iiwa_controller
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
-
-add_executable(state_storage
-        src/tester.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-add_dependencies(state_storage ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(state_storage
-        ${PROJECT_NAME}
-        ${catkin_LIBRARIES}
-        )
-
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

@@ -5,7 +5,7 @@
     <arg name="robot_name" default="iiwa"/>
     <arg name="model" default="iiwa14"/>
     <arg name="hostname" default="192.170.11.3"/>
-    <arg name="port" default="30200"/>
+    <arg name="port" default="30201"/>
     <arg name="description" default="true"/>
 
     <!-- need to load joint names  -->
