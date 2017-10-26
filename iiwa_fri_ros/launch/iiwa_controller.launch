@@ -8,13 +8,7 @@
     <arg name="port" default="30201"/>
     <arg name="description" default="true"/>
 
-    <!-- need to load joint names  -->
-
     <arg name="controllers" default="joint_state_controller $(arg hardware_interface)_trajectory_controller"/>
-
-    <!-- Loads the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-          output="screen" ns="$(arg robot_name)" args="$(arg controllers) --shutdown-timeout 2" />
 
     <group if="$(arg description)">
         <include file="$(find iiwa_fri_description)/launch/$(arg model)_upload.launch">
@@ -24,22 +18,15 @@
     </group>
 
     <group ns="$(arg robot_name)">
-        <!-- Converts joint states to TF transforms for rviz, etc -->
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-              respawn="false" output="screen">
-            <remap from="joint_states" to="/$(arg robot_name)/joint_states" />
-        </node>
-
         <rosparam command="load" file="$(find iiwa_fri_ros)/config/joint_names.yaml" />
-        <!-- Hardware interface to be loaded /-->
-        <param name="interface" value="$(arg hardware_interface)"/>
-
         <rosparam file="$(find iiwa_fri_ros)/config/$(arg robot_name)_fri_control.yaml" command="load" />
-
-        <param name="hostname" type="string" value="$(arg hostname)"/>
-        <param name="port" value="$(arg port)"/>
-
-        <!-- the real hardware interface /-->
-        <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="iiwa_controller" respawn="false"/>
     </group>
+    
+    <include file="$(find iiwa_fri_ros)/launch/iiwa_hardware.launch">
+        <arg name="name" default="$(arg robot_name)"/>
+        <arg name="hardware_interface" default="$(arg hardware_interface)"/>
+        <arg name="hostname" default="$(arg hostname)"/>
+        <arg name="port" default="$(arg port)"/>
+        <arg name="controllers" default="$(arg controllers)"/>
+    </include>
 </launch>

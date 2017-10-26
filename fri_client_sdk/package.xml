@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
   <name>fri_client_sdk</name>
-  <version>0.0.0</version>
-  <description>The fri_client_sdk package</description>
+  <version>1.11.0</version>
+  <description>The fast robot interface client from Kuka refactored into a catkin package. The version number will track kukas FRI version number.</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -13,8 +13,7 @@
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
-
+  <license>KUKA</license>
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
