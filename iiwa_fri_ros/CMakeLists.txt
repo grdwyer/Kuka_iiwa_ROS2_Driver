@@ -149,50 +149,37 @@ target_link_libraries(${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
 
-## Declare a C++ executable
-## With catkin_make all packages are built within a single CMake context
-## The recommended prefix ensures that target names across packages don't collide
-add_executable(LBR_JointSineOverlay
-        src/LBRJointSineOverlay/LBRJointSineOverlayApp.cpp
-        src/LBRJointSineOverlay/LBRJointSineOverlayClient.cpp
-        src/LBRJointSineOverlay/LBRJointSineOverlayClient.h)
+############################
+## iiwa_streamer
+############################
+add_executable(iiwa_streamer
+        src/IiwaStreamer.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(LBR_JointSineOverlay ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(iiwa_streamer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(LBR_JointSineOverlay
-        #FRIClient
-        ${catkin_LIBRARIES}
-        )
-
-add_executable(IIWA_FRI_Controller
-        src/IiwaFRIController.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-add_dependencies(IIWA_FRI_Controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(IIWA_FRI_Controller
+target_link_libraries(iiwa_streamer
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
 
-add_executable(tester
-        src/tester.cpp)
+############################
+## iiwa_controller
+############################
+add_executable(iiwa_controller
+        src/IiwaController.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(tester ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(iiwa_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(tester
+target_link_libraries(iiwa_controller
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         )
-
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
