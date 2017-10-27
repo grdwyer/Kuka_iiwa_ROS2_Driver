@@ -5,10 +5,10 @@ agreement or other license is obtained by KUKA Roboter GmbH, Augsburg, Germany.
 
 SCOPE
 
-The software “KUKA Sunrise.Connectivity FRI Client SDK” is targeted to work in
-conjunction with the “KUKA Sunrise.Connectivity FastRobotInterface” toolkit.
-In the following, the term “software” refers to all material directly
-belonging to the provided SDK “Software development kit”, particularly source
+The software ï¿½KUKA Sunrise.Connectivity FRI Client SDKï¿½ is targeted to work in
+conjunction with the ï¿½KUKA Sunrise.Connectivity FastRobotInterfaceï¿½ toolkit.
+In the following, the term ï¿½softwareï¿½ refers to all material directly
+belonging to the provided SDK ï¿½Software development kitï¿½, particularly source
 code, libraries, binaries, manuals and technical documentation.
 
 COPYRIGHT
@@ -58,12 +58,12 @@ cost of any service and repair.
 \version {1.11}
 */
 #include <cstdio>
-#include "friClientApplication.h"
-#include "friClientIf.h"
-#include "friConnectionIf.h"
-#include "friClientData.h"
-#include "FRIMessages.pb.h"
-#include "friTransformationClient.h"
+#include "fri_client_sdk/friClientApplication.h"
+#include "fri_client_sdk/friClientIf.h"
+#include "fri_client_sdk/friConnectionIf.h"
+#include "fri_client_sdk/friClientData.h"
+#include "fri_client_sdk/FRIMessages.pb.h"
+#include "fri_client_sdk/friTransformationClient.h"
 
 using namespace KUKA::FRI;
 

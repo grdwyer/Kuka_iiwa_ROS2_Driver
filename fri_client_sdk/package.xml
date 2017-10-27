@@ -3,30 +3,18 @@
   <name>fri_client_sdk</name>
   <version>1.11.0</version>
   <description>The fast robot interface client from Kuka refactored into a catkin package. The version number will track kukas FRI version number.</description>
-
-  <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <!-- Example:  -->
-  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  
+  <author email="george.dwyer@ucl.ac.uk">George Dwyer</author>
+  <author email="vijay.pawar@ucl.ac.uk">Vijay Pawar</author>
+  
   <maintainer email="george.dwyer@ucl.ac.uk">George Dwyer</maintainer>
 
-
-  <!-- One license tag required, multiple allowed, one license per tag -->
-  <!-- Commonly used license strings: -->
-  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>KUKA</license>
 
-  <!-- Url tags are optional, but multiple are allowed, one per tag -->
-  <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/fri_client_sdk</url> -->
-
-
-  <!-- Author tags are optional, multiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintainers, but could be -->
-  <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
-
-
+  <url type="repository">http://github.com/surgical-vision/iiwa_fri_stack</url>
+  <url type="bugtracker">http://github.com/surgical-vision/iiwa_fri_stack/issues</url>
+  <url type="website">http://github.com/surgical-vision/iiwa_fri_stack/wiki</url>
+  
   <!-- The *_depend tags are used to specify dependencies -->
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->

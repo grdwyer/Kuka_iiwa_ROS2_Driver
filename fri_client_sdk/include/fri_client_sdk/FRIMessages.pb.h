@@ -3,7 +3,7 @@
 
 #ifndef _PB_FRIMESSAGES_PB_H_
 #define _PB_FRIMESSAGES_PB_H_
-#include <pb.h>
+#include <fri_client_sdk/pb.h>
 
 #ifdef __cplusplus
 extern "C" {

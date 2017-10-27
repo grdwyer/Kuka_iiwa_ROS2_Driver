@@ -3,9 +3,9 @@
     <!-- LAUNCH INTERFACE -->
     <arg name="hardware_interface" default="PositionJointInterface"/>
     <arg name="robot_name" default="iiwa"/>
-    <arg name="model" default="iiwa14"/>
-    <arg name="hostname" default="192.170.11.3"/>
-    <arg name="port" default="30201"/>
+    <arg name="model" default="iiwa7"/>
+    <arg name="hostname" default="192.170.10.2"/>
+    <arg name="port" default="30200"/>
     <arg name="description" default="true"/>
 
     <arg name="controllers" default="joint_state_controller $(arg hardware_interface)_trajectory_controller"/>

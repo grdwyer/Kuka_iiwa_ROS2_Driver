@@ -3,9 +3,10 @@
   <name>iiwa_fri_moveit</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the iiwa7 with the MoveIt! Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using an iiwa with the MoveIt! Motion Planning Framework
   </description>
   <author email="george.dwyer@ucl.ac.uk">George Dwyer</author>
+  <autor email="vijay.pawar@ucl.ac.uk">Vijay Pawar</author>
   <maintainer email="george.dwyer@ucl.ac.uk">George Dwyer</maintainer>
 
   <license>BSD</license>

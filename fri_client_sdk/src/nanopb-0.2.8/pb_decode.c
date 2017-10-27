@@ -13,8 +13,8 @@
     #define checkreturn __attribute__((warn_unused_result))
 #endif
 
-#include "pb.h"
-#include "pb_decode.h"
+#include "fri_client_sdk/pb.h"
+#include "fri_client_sdk/pb_decode.h"
 
 /**************************************
  * Declarations internal to this file *
