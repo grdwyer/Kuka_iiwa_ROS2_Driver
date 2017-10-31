@@ -47,6 +47,9 @@ public:
 
 private:
     std::shared_ptr<IiwaState> iiwa_state_;
+    // No control on the first loops to allow the robot to settle (prevents active control for approximately 200 ms at startup)
+    bool init_ = false;
+    int startup_ = 0;
 
     /**
      * \brief Helper function to update current values
