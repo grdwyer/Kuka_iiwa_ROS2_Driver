@@ -41,7 +41,7 @@
 
         <!-- the real hardware interface /-->
         <group unless="$(arg streamer)">
-            <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="iiwa_controller" respawn="false" output="screen"/>
+            <node name="iiwa_fri_hardware" pkg="iiwa_fri_ros" type="iiwa_controller" respawn="false"/>
         </group>
         
         <group if="$(arg streamer)">

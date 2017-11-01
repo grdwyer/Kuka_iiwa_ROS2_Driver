@@ -9,36 +9,39 @@
     <!-- The is gonna have its nodes/topics under a namespace with the same name. -->
     <arg name="robot_name" default="iiwa"/>
     <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
-    <arg name="model" default="iiwa7"/>
+    <arg name="model" default="iiwa14"/>
     <arg name="rviz" default="true" />
+    <arg name="hostname" default="192.170.11.3"/>
+    <arg name="port" default="30201"/>
+    <arg name="controllers" default="joint_state_controller $(arg hardware_interface)_trajectory_controller"/>
     
-    <remap from="/$(arg hardware_interface)_trajectory_controller/follow_joint_trajectory" 
-           to="/$(arg robot_name)/$(arg hardware_interface)_trajectory_controller/follow_joint_trajectory" />
-    <remap from="robot_description" to="/$(arg robot_name)/robot_description" /> 
-    <remap from="/get_planning_scene" to="/$(arg robot_name)/get_planning_scene" /> 
-    
-    <include file="$(find iiwa_fri_ros)/launch/iiwa_controller.launch">
+    <remap from="/iiwa/joint_states" to="/joint_states"/>
+
+    <include file="$(find iiwa_fri_description)/launch/$(arg model)_upload.launch">
         <arg name="hardware_interface" value="$(arg hardware_interface)"/>
-        <arg name="robot_name" value="$(arg robot_name)"/>
-        <arg name="model" value="$(arg model)"/>
-        
-        <arg name="hostname" value="192.170.10.2"/>
-        <arg name="port" value="30200"/>
-        <arg name="description" value="true"/>
+        <arg name="robot_name" value="$(arg robot_name)" />
+    </include>
+
+    <group ns="$(arg robot_name)">
+        <rosparam command="load" file="$(find iiwa_fri_ros)/config/joint_names.yaml" />
+        <rosparam file="$(find iiwa_fri_ros)/config/$(arg robot_name)_fri_control.yaml" command="load" />
+    </group>
+    
+    <include file="$(find iiwa_fri_ros)/launch/iiwa_hardware.launch">
+        <arg name="name" default="$(arg robot_name)"/>
+        <arg name="hardware_interface" default="$(arg hardware_interface)"/>
+        <arg name="hostname" default="$(arg hostname)"/>
+        <arg name="port" default="$(arg port)"/>
+        <arg name="controllers" default="$(arg controllers)"/>
     </include>
 
     <!-- Load move_group -->
-    <group ns="$(arg robot_name)">
-        <include file="$(find iiwa_moveit)/launch/move_group.launch">
-            <arg name="publish_monitored_planning_scene" value="true" />
-            <arg name="hardware_interface" value="$(arg hardware_interface)"/>
-            <arg name="robot_name" value="$(arg robot_name)"/>
-            <arg name="model" value="$(arg model)" />
-        </include>
-        
-        <include if="$(arg rviz)" file="$(find iiwa_moveit)/launch/moveit_rviz.launch">
-            <arg name="config" value="true"/>
-        </include>
-    </group>
+    <include file="$(find iiwa_fri_moveit)/launch/move_group.launch">
+        <arg name="publish_monitored_planning_scene" value="true" />
+    </include>
+    
+    <include if="$(arg rviz)" file="$(find iiwa_fri_moveit)/launch/moveit_rviz.launch">
+        <arg name="config" value="true"/>
+    </include>
     
 </launch>

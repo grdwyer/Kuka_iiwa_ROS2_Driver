@@ -9,7 +9,7 @@
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find iiwa_fri_description)/urdf/iiwa7.urdf.xacro'"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find iiwa_fri_moveit)/config/iiwa7.srdf" />
+  <param name="$(arg robot_description)_semantic" textfile="$(find iiwa_fri_moveit)/config/iiwa.srdf" />
   
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
