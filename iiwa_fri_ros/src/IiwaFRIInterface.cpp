@@ -5,6 +5,7 @@
 #include "iiwa_fri_ros/IiwaFRIInterface.h"
 
 IiwaFRIInterface::IiwaFRIInterface(std::shared_ptr<IiwaState> state): iiwa_state_(state){
+    startup_ = 0;
     init_ = false;
 };
 
@@ -119,6 +120,11 @@ void IiwaFRIInterface::command() {
 
         if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
             // Take current commanded values
+//            ROS_DEBUG_STREAM("Commanded Position: ");
+//            for (int i = 0; i < 6; i++){
+//                ROS_DEBUG_STREAM(iiwa_state_->command_position_[i] << ", ");
+//            }
+//            ROS_DEBUG_STREAM(iiwa_state_->command_position_[6] << std::endl);
             robotCommand().setJointPosition(iiwa_state_->command_position_.data());
         } else if (mode == KUKA::FRI::EClientCommandMode::TORQUE) {
             // Take current commanded values
@@ -159,6 +165,7 @@ void IiwaFRIInterface::update_state() {
 
     for (int i = 0; i < 7; i++) {
         iiwa_state_->current_position_[i] = current_pos[i];
+        ROS_DEBUG_STREAM("CurrentPos J" << i  << ": " << current_pos[i] << "\n");
         iiwa_state_->current_torque_[i] = current_torque[i];
     }
 }
