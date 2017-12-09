@@ -4,11 +4,12 @@
     <!-- Launches the controllers according to the hardware interface selected -->
     <!-- Everythings is spawned under a namespace with the same name as the robot's. -->
     
-    <arg name="hardware_interface" default="PositionJointInterface"/>
+    <arg name="hardware_interface" default="EffortJointInterface"/>
+    <arg name="gui" default="false"/>
 
     <!--arg name="controllers" default="joint_state_controller EffortJointInterface_J1_controller EffortJointInterface_J2_controller EffortJointInterface_J3_controller EffortJointInterface_J4_controller EffortJointInterface_J5_controller EffortJointInterface_J6_controller EffortJointInterface_J7_controller"/> -->
 
-	<arg name="controllers" default="joint_state_controller PositionJointInterface_trajectory_controller"/>
+	  <arg name="controllers" default="joint_state_controller $(arg hardware_interface)_trajectory_controller"/>
     <arg name="robot_name" default="iiwa" />
     <arg name="model" default="iiwa7" />
     
@@ -24,5 +25,11 @@
           respawn="false" output="screen">
         <remap from="joint_states" to="/$(arg robot_name)/joint_states" />
     </node>
+
+		<include file="$(find iiwa_fri_gazebo)/launch/single_iiwa_world.launch">
+			<arg name="hardware_interface" value="$(arg hardware_interface)"/>
+			<arg name="gui" value="$(arg gui)"/>
+		</include>
+		
     
 </launch>
