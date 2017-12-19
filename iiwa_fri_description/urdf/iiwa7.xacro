@@ -12,17 +12,10 @@
   <xacro:property name="safety_controller_k_pos" value="100" />
   <xacro:property name="safety_controller_k_vel" value="2" /> 
   <xacro:property name="joint_damping" value="0.5" />
-  <xacro:property name="max_effort" value="5000"/>
-  <xacro:property name="max_velocity" value="100"/>
+  <xacro:property name="max_effort" value="300"/>
+  <xacro:property name="max_velocity" value="10"/>
   
-  <xacro:macro name="iiwa7" params="parent hardware_interface robot_name *origin">
-    
-    <!--joint between {parent} and link_0-->
-    <joint name="${parent}_${robot_name}_joint" type="fixed">
-      <xacro:insert_block name="origin"/>
-      <parent link="${parent}"/>
-      <child link="${robot_name}_link_0"/>
-    </joint>
+  <xacro:macro name="iiwa7" params="hardware_interface robot_name">
     
     <link name="${robot_name}_link_0">
       <inertial>

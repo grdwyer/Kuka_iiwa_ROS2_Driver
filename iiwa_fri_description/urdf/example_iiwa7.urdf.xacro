@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="im_iiwa">
+    
+    <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+    <xacro:arg name="initial_z" default="0.0"/>   
+    
+    <link name="world"/>
+
+    <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa14.xacro"/>
+
+    <xacro:arg name="eye_robot_name" default="im_iiwa"/>
+    <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+
+    <joint name="$(arg eye_robot_name)_world_joint" type="fixed">
+        <parent link="world"/>
+        <child link="$(arg eye_robot_name)_link_0"/>
+        <origin xyz="0.0 0.0 0.006" rpy="0.0 0.0 ${pi/2}"/>
+    </joint>
+    
+    <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg eye_robot_name)">
+    </xacro:iiwa14>
+
+    <!--
+    <xacro:include filename="$(find sat_description)/sensors/kinect.urdf.xacro"/>
+    
+    <joint name="$(arg eye_robot_name)_ee_to_eye" type="fixed">
+        <parent link="$(arg eye_robot_name)_link_ee"/>
+        <child link="camera_link"/>
+		<origin xyz="0.012 0.0 0.1" rpy="${0.0} ${-pi/2} ${0.0}"/>
+    </joint>
+    -->
+
+</robot>

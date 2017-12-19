@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-   <!-- This lauch file just loads the URDF with the given hardware interface and robot name into the ROS Parameter Server -->
-  <arg name="hardware_interface" default="PositionJointInterface"/> 
-  
-  <param name="robot_description" command="$(find xacro)/xacro '$(find iiwa_fri_description)/urdf/dual_iiwa.urdf.xacro' hardware_interface:=$(arg hardware_interface)" />
-</launch> 
