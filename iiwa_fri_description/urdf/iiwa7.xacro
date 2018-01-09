@@ -15,14 +15,7 @@
   <xacro:property name="max_effort" value="300"/>
   <xacro:property name="max_velocity" value="10"/>
   
-  <xacro:macro name="iiwa7" params="parent hardware_interface robot_name *origin">
-    
-    <!--joint between {parent} and link_0-->
-    <joint name="${parent}_${robot_name}_joint" type="fixed">
-      <xacro:insert_block name="origin"/>
-      <parent link="${parent}"/>
-      <child link="${robot_name}_link_0"/>
-    </joint>
+  <xacro:macro name="iiwa7" params="hardware_interface robot_name">
     
     <link name="${robot_name}_link_0">
       <inertial>
