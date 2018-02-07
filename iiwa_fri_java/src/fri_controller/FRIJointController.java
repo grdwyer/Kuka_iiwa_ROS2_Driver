@@ -13,7 +13,6 @@ import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.motionModel.IMotionContainer;
 import com.kuka.roboticsAPI.motionModel.PositionHold;
-import com.kuka.roboticsAPI.motionModel.controlModeModel.JointImpedanceControlMode;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.PositionControlMode;
 import com.kuka.roboticsAPI.uiModel.userKeys.IUserKey;
 import com.kuka.roboticsAPI.uiModel.userKeys.IUserKeyBar;
@@ -31,7 +30,7 @@ public class FRIJointController extends RoboticsAPIApplication
 	private Controller lbr_controller_;
     private LBR lbr_;
     private String client_name_;
-    private int send_period_;
+    private int send_period_, port_;
     private boolean motion_on_ = true;
     private Tool tool_;
     
@@ -40,7 +39,7 @@ public class FRIJointController extends RoboticsAPIApplication
     {
         lbr_controller_ = (Controller) getContext().getControllers().toArray()[0];
         lbr_ = (LBR) lbr_controller_.getDevices().toArray()[0];
-        tool_ = getApplicationData().createFromTemplate("ZR300");
+        tool_ = getApplicationData().createFromTemplate("EndEffector");
         tool_.attachTo(lbr_.getFlange());
         
         // **********************************************************************
@@ -48,6 +47,7 @@ public class FRIJointController extends RoboticsAPIApplication
         // **********************************************************************
         client_name_ = getApplicationData().getProcessData("FRI_Client_IP").getValue();
         send_period_ = getApplicationData().getProcessData("FRI_Send_Period").getValue();
+        port_ = getApplicationData().getProcessData("FRI_Port").getValue();
     }
     
     void setupUserKeys(){
@@ -59,39 +59,11 @@ public class FRIJointController extends RoboticsAPIApplication
 				motion_on_ = false;
 			}
 		};
-//		IUserKeyListener connectionListener = new IUserKeyListener() {
-//
-//			@Override
-//			public void onKeyEvent(IUserKey forceKey, UserKeyEvent event) {
-//				if(event == UserKeyEvent.KeyDown){
-//					getLogger().info(friSession.getFRIChannelInformation());
-//					System.out.print('\n');
-//					getLogger().info(lbr.getFlange().toString() + "\n\n");
-//				}
-//			}
-//		};
-
-//		IUserKeyListener NextListener = new IUserKeyListener() {
-//
-//			@Override
-//			public void onKeyEvent(IUserKey stopKey, UserKeyEvent event) {
-//				if(event == UserKeyEvent.KeyDown){
-//					next = !next;
-//				}
-//			}
-//		};
 
 		IUserKey stopKey = keybar.addUserKey(0, StopListener, true);
 		stopKey.setText(UserKeyAlignment.Middle, "Stop");
 		stopKey.setLED(UserKeyAlignment.Middle, UserKeyLED.Green, UserKeyLEDSize.Small);
 
-//		IUserKey posKey = keybar.addUserKey(1, positionListener, true);
-//		posKey.setText(UserKeyAlignment.Middle, "Get Position");
-//		posKey.setLED(UserKeyAlignment.Middle, UserKeyLED.Green, UserKeyLEDSize.Small);
-//
-//		IUserKey nextKey = keybar.addUserKey(2, NextListener, true);
-//		nextKey.setText(UserKeyAlignment.Middle, "Next");
-//		nextKey.setLED(UserKeyAlignment.Middle, UserKeyLED.Green, UserKeyLEDSize.Small);
 		keybar.publish();
 	}
 
@@ -101,6 +73,7 @@ public class FRIJointController extends RoboticsAPIApplication
         // configure and start FRI session
         FRIConfiguration friConfiguration = FRIConfiguration.createRemoteConfiguration(lbr_, client_name_);
         friConfiguration.setSendPeriodMilliSec(send_period_);
+        friConfiguration.setPortOnRemote(port_);
 
         getLogger().info("Creating FRI connection to " + friConfiguration.getHostName());
         getLogger().info("SendPeriod: " + friConfiguration.getSendPeriodMilliSec() + "ms |"
@@ -114,12 +87,10 @@ public class FRIJointController extends RoboticsAPIApplication
         {
             friSession.await(10, TimeUnit.SECONDS);
         
-	
 	        getLogger().info("FRI connection established.");
 	
 	        // set to null motion
-	        //PositionControlMode ctr_mode = new PositionControlMode();
-	        JointImpedanceControlMode ctr_mode = new JointImpedanceControlMode(200, 200, 200, 200, 200, 200, 200);
+	        PositionControlMode ctr_mode = new PositionControlMode();
 	        PositionHold pos_hold = new PositionHold(ctr_mode, -1, null);
 	        
 	        IMotionContainer positionHoldContainer = tool_.moveAsync(pos_hold.addMotionOverlay(jointOverlay));

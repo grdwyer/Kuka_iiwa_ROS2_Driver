@@ -2,46 +2,21 @@
 <RoboticsAPIData version="3">
     <world>
         <gravitation x="0.0" y="0.0" z="9.81"/>
-        <frame id="_7937c2b8-5d37-4cd3-8d37-8caeabf80d2e" name="ScopeHome">
-            <transformation a="1.1911164848469529" b="0.018072249200157844" c="-3.130003509121833" x="259.6345884034796" y="-571.6033987270977" z="165.6446900969931"/>
-            <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1506101488692"/>
-                <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="Fetoscope/CalibrationTip/ShaftTip" tool="Fetoscope" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
-                    <tcpTransformation a="1.581332376163734" b="-0.014612755758358345" c="1.5706415631975454" x="361.1825754116574" y="0.9813370422406447" z="41.23849473507828"/>
-                </info>
-            </additionalInformation>
-            <redundancyData>
-                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="61" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.004690805366189902" valueType="java.lang.Double"/>
-                </redundancy>
-            </redundancyData>
-        </frame>
-        <frame id="_a2f90241-dccb-4870-9894-088b774597f9" name="LoadingPosition">
-            <transformation a="3.1329751913039323" b="0.010259364220461656" c="1.7509416143890664" x="478.97401377694734" y="719.9801852533753" z="446.1413029789397"/>
-            <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1480075273033"/>
-                <info base="LBR_iiwa_7_R800_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_7_R800_1" tcpName="CTR/CalibrationTip/ShaftTip" tool="CTR" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
-                    <tcpTransformation a="1.581332376163734" b="-0.014612755758358345" c="1.5706415631975454" x="188.197" y="0.0" z="62.1"/>
-                </info>
-            </additionalInformation>
-            <redundancyData>
-                <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_7_R800_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="60" valueType="java.lang.Integer"/>
-                    <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.014940793088020845" valueType="java.lang.Double"/>
-                </redundancy>
-            </redundancyData>
-        </frame>
     </world>
     <objectTemplates>
-        <toolTemplate class="" name="ZR300">
-            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="16.450689781777285" cogY="16.797284624345693" cogZ="-81.16097831079887" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.3734850947117158"/>
+        <toolTemplate class="" name="EndEffector">
+            <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="7.417748103751508" cogY="7.6606451060907705" cogZ="76.11031380402406" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="2.6726031326457917"/>
         </toolTemplate>
     </objectTemplates>
     <processDataContainer>
         <processData comment="" dataType="java.lang.Integer" defaultValue="5" displayName="FRI Send Period" id="FRI_Send_Period" max="100.0" min="1.0" unit="msec" value="5"/>
-        <processData comment="Must be in same subnet as KONI ip" dataType="java.lang.String" defaultValue="" displayName="FRI Client IP" id="FRI_Client_IP" value="192.170.10.9"/>
+        <processData comment="Must be in same subnet as KONI ip" dataType="java.lang.String" defaultValue="" displayName="FRI Client IP" id="FRI_Client_IP" value="192.170.11.10"/>
+        <processData dataType="java.lang.Integer" defaultValue="30200" displayName="FRI Port" id="FRI_Port" max="30209.0" min="30200.0" value="30201"/>
+        <processData dataType="java.lang.Double" defaultValue="700" displayName="Translation Stiffness" id="transl_stiffness" max="5000.0" min="1.0" value="4000"/>
+        <processData dataType="java.lang.Double" defaultValue="0.7" displayName="Translation Damping" id="transl_damping" max="1.0" min="0.1" value="0.7"/>
+        <processData dataType="java.lang.Double" defaultValue="200" displayName="Rotation Stiffness" id="rot_stiffness" max="300.0" min="0.5" value="250"/>
+        <processData dataType="java.lang.Double" defaultValue="0.7" displayName="Rotation Damping" id="rot_damping" max="1.0" min="0.1" value="0.7"/>
+        <processData dataType="java.lang.Double" defaultValue="200" displayName="Joint Stiffness" id="joint_stiffness" max="3000.0" min="0.1" value="500"/>
+        <processData dataType="java.lang.Double" defaultValue="0.7" displayName="Joint Damping" id="joint_damping" max="1.0" min="0.1" value="0.7"/>
     </processDataContainer>
 </RoboticsAPIData>
