@@ -29,7 +29,7 @@ public class FRITester extends RoboticsAPIApplication
     {
         lbr_controller_ = (Controller) getContext().getControllers().toArray()[0];
         lbr_ = (LBR) lbr_controller_.getDevices().toArray()[0];
-        tool_ = getApplicationData().createFromTemplate("ZR300");
+        tool_ = getApplicationData().createFromTemplate("EndEffector");
         tool_.attachTo(lbr_.getFlange());
         
         // **********************************************************************
