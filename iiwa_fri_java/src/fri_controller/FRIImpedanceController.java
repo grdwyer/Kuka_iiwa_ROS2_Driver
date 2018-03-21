@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import com.kuka.common.ThreadUtil;
+import com.kuka.connectivity.fastRobotInterface.FRIChannelInformation;
 import com.kuka.connectivity.fastRobotInterface.FRIConfiguration;
 import com.kuka.connectivity.fastRobotInterface.FRIJointOverlay;
 import com.kuka.connectivity.fastRobotInterface.FRISession;
@@ -106,8 +107,9 @@ public class FRIImpedanceController extends RoboticsAPIApplication
 	        IMotionContainer positionHoldContainer = tool_.moveAsync(pos_hold.addMotionOverlay(jointOverlay));
 	        int i = 0;
 	        while(motion_on_ == true){
-	        	if(i % 30 == 0){
-	        		getLogger().info(friSession.getFRIChannelInformation().toString());
+	        	if(i % 60 == 0){
+	        		FRIChannelInformation info = friSession.getFRIChannelInformation();
+	        		getLogger().info(String.format("Current Session: %s\nCurrent Jitter: %f\nCurrent Latency: %f\nCurrent Quality: %s", info.getFRISessionState().toString(), info.getJitter(), info.getLatency(), info.getQuality().toString()));
 	        	}
 	        	ThreadUtil.milliSleep(100);
 	        	i++;
