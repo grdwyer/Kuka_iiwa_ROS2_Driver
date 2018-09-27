@@ -7,4 +7,6 @@ Collection of packages to run the KUKA iiwa robot arms using the fast robot inte
   3. Install the fast robot interface in the sunrise project, configure the KONI ip address and synchronise with the robot controller
   4. Build the catkin workspace
   
-
+## KUKA IP setup
+FRI Client IP needs to be the same subnet as ubuntu ethernet connection
+IP in hardware launch file need to be the same as FRI IP set up in sunrise
