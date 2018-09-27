@@ -58,7 +58,7 @@ void IiwaFRIInterface::command() {
 
         if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
             // Take current commanded values
-            ROS_INFO_STREAM("Commanded Position: "
+            ROS_DEBUG_STREAM_THROTTLE(1,"Commanded Position: "
                                     << iiwa_state_->command_position_[0] << ", "
                                     << iiwa_state_->command_position_[1] << ", "
                                     << iiwa_state_->command_position_[2] << ", "
@@ -110,7 +110,7 @@ void IiwaFRIInterface::update_state() {
 
     for (int i = 0; i < 7; i++) {
         iiwa_state_->current_position_[i] = current_pos[i];
-        ROS_INFO_STREAM("Current Position: "
+        ROS_DEBUG_STREAM_THROTTLE(1, "Current Position: "
                                 << current_pos[0] << ", "
                                 << current_pos[1] << ", "
                                 << current_pos[2] << ", "
