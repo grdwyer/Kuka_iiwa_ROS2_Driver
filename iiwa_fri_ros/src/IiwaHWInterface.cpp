@@ -62,6 +62,10 @@ bool IiwaHWInterface::start() {
                 state_interface_.getHandle(joint_names_[i]), &command_position_[i]);
 
         position_interface_.registerHandle(position_joint_handle);
+
+        double lower, upper, effort;
+        registerJointLimits(joint_names_[i], position_joint_handle, &urdf_model_, &lower, &upper, &effort);
+
         }
         /**
          * Add new interfaces here
@@ -77,7 +81,7 @@ bool IiwaHWInterface::start() {
 
 void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
                                           const hardware_interface::JointHandle &joint_handle,
-                                          const urdf::Model *const urdf_model, double *const lower_limit,
+                                          const urdf::Model *urdf_model, double *const lower_limit,
                                           double *const upper_limit, double *const effort_limit) {
     *lower_limit = -std::numeric_limits<double>::max();
     *upper_limit = std::numeric_limits<double>::max();
@@ -125,9 +129,9 @@ void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
 
         const joint_limits_interface::PositionJointSaturationHandle pj_sat_handle(joint_handle, limits);
         pj_sat_interface_.registerHandle(pj_sat_handle);
-
     }
-
+    ROS_INFO_STREAM("Registering joint limits\n\tLower: " << limits.min_position << "\n\tUpper: " << limits.max_position <<
+    "\n\tEffort: " << limits.max_effort << std::endl);
 }
 
 void IiwaHWInterface::read(ros::Duration duration) {

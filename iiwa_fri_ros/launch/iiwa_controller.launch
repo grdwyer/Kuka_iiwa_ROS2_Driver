@@ -3,17 +3,18 @@
     <!-- LAUNCH INTERFACE -->
     <arg name="hardware_interface" default="PositionJointInterface"/>
     <arg name="robot_name" default="iiwa"/>
-    <arg name="model" default="iiwa14 "/>
+    <arg name="model" default="iiwa14"/>
     <arg name="hostname" default="192.170.10.2"/>
-    <arg name="port" default="30200"/>
+    <arg name="port" default="30201"/>
     <arg name="description" default="true"/>
 
     <arg name="controllers" default="joint_state_controller $(arg hardware_interface)_trajectory_controller"/>
 
     <group if="$(arg description)">
-        <include file="$(find iiwa_fri_description)/launch/$(arg model)_upload.launch">
+        <include file="$(find iiwa_fri_description)/launch/example_iiwa_description_upload.launch">
             <arg name="hardware_interface" value="$(arg hardware_interface)"/>
             <arg name="robot_name" value="$(arg robot_name)" />
+            <arg name="model" value="$(arg model)"/>
         </include>
     </group>
 

@@ -108,7 +108,7 @@ void IiwaFRIInterface::command() {
         }
     }
     else{
-        ROS_INFO_STREAM("Values not inited  \n");
+        ROS_DEBUG_STREAM_THROTTLE(2, "Values not inited  \n");
 
         waitForCommand();
 
