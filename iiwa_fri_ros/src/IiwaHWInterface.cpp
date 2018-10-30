@@ -138,7 +138,7 @@ void IiwaHWInterface::read(ros::Duration duration) {
     for (int i = 0; i < 7; i++){
         current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
     }
-    ROS_DEBUG_STREAM("Duration: " << duration.sec << "\nJoint 1\nPosition: " << current_position_[0] << "\nVelocity: " << current_velocity_[0]);
+    ROS_DEBUG_STREAM_THROTTLE(1, "Duration: " << duration.sec << "\nJoint 1\nPosition: " << current_position_[0] << "\nVelocity: " << current_velocity_[0]);
 
 }
 
