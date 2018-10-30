@@ -68,7 +68,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << iiwa_state_->command_position_[3] << ", "
                                     << iiwa_state_->command_position_[4] << ", "
                                     << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl););
+                                    << iiwa_state_->command_position_[6] << std::endl);
             break;
         }
         default: {
