@@ -23,52 +23,52 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
         case KUKA::FRI::MONITORING_WAIT:
         {
             ROS_INFO_STREAM("Entering monitoring wait state\nLast commanded position: "
-                                    << iiwa_state_->command_position_[0] << ", "
-                                    << iiwa_state_->command_position_[1] << ", "
-                                    << iiwa_state_->command_position_[2] << ", "
-                                    << iiwa_state_->command_position_[3] << ", "
-                                    << iiwa_state_->command_position_[4] << ", "
-                                    << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
             break;
         }
 
         case KUKA::FRI::MONITORING_READY:
         {
             ROS_INFO_STREAM("Entering monitoring ready state\nLast commanded position: "
-                                    << iiwa_state_->command_position_[0] << ", "
-                                    << iiwa_state_->command_position_[1] << ", "
-                                    << iiwa_state_->command_position_[2] << ", "
-                                    << iiwa_state_->command_position_[3] << ", "
-                                    << iiwa_state_->command_position_[4] << ", "
-                                    << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
             break;
         }
 
         case KUKA::FRI::COMMANDING_WAIT:
         {
             ROS_INFO_STREAM("Entering commanding wait state\nLast commanded position: "
-                                    << iiwa_state_->command_position_[0] << ", "
-                                    << iiwa_state_->command_position_[1] << ", "
-                                    << iiwa_state_->command_position_[2] << ", "
-                                    << iiwa_state_->command_position_[3] << ", "
-                                    << iiwa_state_->command_position_[4] << ", "
-                                    << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
             break;
         }
 
         case KUKA::FRI::COMMANDING_ACTIVE:
         {
             ROS_INFO_STREAM("Entering commanding active state\nLast commanded position: "
-                                    << iiwa_state_->command_position_[0] << ", "
-                                    << iiwa_state_->command_position_[1] << ", "
-                                    << iiwa_state_->command_position_[2] << ", "
-                                    << iiwa_state_->command_position_[3] << ", "
-                                    << iiwa_state_->command_position_[4] << ", "
-                                    << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
             break;
         }
         default: {
