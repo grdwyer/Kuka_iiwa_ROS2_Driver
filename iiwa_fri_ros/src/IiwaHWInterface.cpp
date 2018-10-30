@@ -143,6 +143,14 @@ void IiwaHWInterface::read(ros::Duration duration) {
 }
 
 void IiwaHWInterface::write(ros::Duration duration) {
+    ROS_DEBUG_STREAM_THROTTLE(1, "Command position (pre-enforcement): \nLast commanded position: "
+            << angles::to_degrees(command_position_[0]) << ", "
+            << angles::to_degrees(command_position_[1]) << ", "
+            << angles::to_degrees(command_position_[2]) << ", "
+            << angles::to_degrees(command_position_[3]) << ", "
+            << angles::to_degrees(command_position_[4]) << ", "
+            << angles::to_degrees(command_position_[5]) << ", "
+            << angles::to_degrees(command_position_[6]) << std::endl);
     pj_limits_interface_.enforceLimits(duration);
     pj_sat_interface_.enforceLimits(duration);
     ej_limits_interface_.enforceLimits(duration);

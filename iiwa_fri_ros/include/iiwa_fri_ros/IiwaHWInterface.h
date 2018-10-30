@@ -19,6 +19,7 @@
 #include <std_msgs/Duration.h>
 #include <urdf/model.h>
 #include <sensor_msgs/JointState.h>
+#include <angles/angles.h>
 
 #include <vector>
 #include <array>
