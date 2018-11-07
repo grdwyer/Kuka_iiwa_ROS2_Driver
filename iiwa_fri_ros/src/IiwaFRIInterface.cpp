@@ -29,7 +29,15 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) <<
+                                    "\nLast known position: "
+                                    << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
             break;
         }
 
@@ -42,7 +50,15 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) <<
+                                    "\nLast known position: "
+                                    << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
             break;
         }
 
@@ -55,7 +71,15 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) <<
+                                    "\nLast known position: "
+                                    << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
             break;
         }
 
@@ -68,7 +92,15 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) <<
+                                    "\nLast known position: "
+                                    << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
+                                    << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
             break;
         }
         default: {
