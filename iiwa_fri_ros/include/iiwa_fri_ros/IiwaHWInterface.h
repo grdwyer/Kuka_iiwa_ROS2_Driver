@@ -104,9 +104,7 @@ public:
     */
     void registerJointLimits(const std::string& joint_name,
                              const hardware_interface::JointHandle& joint_handle,
-                             const urdf::Model *const urdf_model,
-                             double *const lower_limit, double *const upper_limit,
-                             double *const effort_limit);
+                             const urdf::Model *const urdf_model);
 
     /**
      * \brief Retrieves the current state from the shared memory (iiwa state) and passes it to the joint state publisher
@@ -140,10 +138,10 @@ private:
     urdf::Model urdf_model_;
     // Interfaces for limits
     // TODO: need to look into this more to check how it is implemented
-    joint_limits_interface::EffortJointSaturationInterface   ej_sat_interface_;
-    joint_limits_interface::EffortJointSoftLimitsInterface   ej_limits_interface_;
-    joint_limits_interface::PositionJointSaturationInterface pj_sat_interface_;
-    joint_limits_interface::PositionJointSoftLimitsInterface pj_limits_interface_;
+    joint_limits_interface::EffortJointSaturationInterface   effort_joint_saturation_interface_;
+    joint_limits_interface::EffortJointSoftLimitsInterface   effort_joint_limits_interface_;
+    joint_limits_interface::PositionJointSaturationInterface position_joint_saturation_interface_;
+    joint_limits_interface::PositionJointSoftLimitsInterface position_joint_limits_interface_;
 
 
 };
