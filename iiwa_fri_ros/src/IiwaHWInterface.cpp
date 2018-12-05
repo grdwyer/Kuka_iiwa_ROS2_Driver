@@ -113,17 +113,11 @@ void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
         ROS_DEBUG_STREAM("Joint has effort limits");
 
     if (has_soft_limits) {
-        const joint_limits_interface::EffortJointSoftLimitsHandle effort_soft_limits_handle(joint_handle, limits, soft_limits);
-        effort_joint_limits_interface_.registerHandle(effort_soft_limits_handle);
-
         const joint_limits_interface::PositionJointSoftLimitsHandle position_soft_limits_handle(joint_handle, limits, soft_limits);
         position_joint_limits_interface_.registerHandle(position_soft_limits_handle);
     }
     else {
         ROS_WARN_STREAM("Hardcoded to use saturation limits");
-        const joint_limits_interface::EffortJointSaturationHandle effor_saturation_handle(joint_handle, limits);
-        effort_joint_saturation_interface_.registerHandle(effor_saturation_handle);
-
         const joint_limits_interface::PositionJointSaturationHandle position_saturation_handle(joint_handle, limits);
         position_joint_saturation_interface_.registerHandle(position_saturation_handle);
     }
@@ -144,7 +138,8 @@ void IiwaHWInterface::read(ros::Duration duration) {
 }
 
 void IiwaHWInterface::write(ros::Duration duration) {
-    ROS_DEBUG_STREAM_THROTTLE(1, "Command position (pre-enforcement): \nLast commanded position: "
+    ROS_DEBUG_STREAM_THROTTLE(1, "Command position (pre-enforcement): "
+            << "\nLast commanded position: "
             << angles::to_degrees(command_position_[0]) << ", "
             << angles::to_degrees(command_position_[1]) << ", "
             << angles::to_degrees(command_position_[2]) << ", "
@@ -152,11 +147,8 @@ void IiwaHWInterface::write(ros::Duration duration) {
             << angles::to_degrees(command_position_[4]) << ", "
             << angles::to_degrees(command_position_[5]) << ", "
             << angles::to_degrees(command_position_[6]) << std::endl);
-    position_joint_limits_interface_.enforceLimits(duration);
+    //position_joint_limits_interface_.enforceLimits(duration);
     position_joint_saturation_interface_.enforceLimits(duration);
-    effort_joint_limits_interface_.enforceLimits(duration);
-    effort_joint_saturation_interface_.enforceLimits(duration);
-
     // Get latest commands from the interface and pass to the state handle
     fri_state_handle_->setCommandedPosition(command_position_);
 }

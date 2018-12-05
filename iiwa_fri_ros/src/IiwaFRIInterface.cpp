@@ -118,14 +118,14 @@ void IiwaFRIInterface::command() {
 
         if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
             // Take current commanded values
-            ROS_DEBUG_STREAM_THROTTLE(1,"Commanded Position: "
-                                    << iiwa_state_->command_position_[0] << ", "
-                                    << iiwa_state_->command_position_[1] << ", "
-                                    << iiwa_state_->command_position_[2] << ", "
-                                    << iiwa_state_->command_position_[3] << ", "
-                                    << iiwa_state_->command_position_[4] << ", "
-                                    << iiwa_state_->command_position_[5] << ", "
-                                    << iiwa_state_->command_position_[6] << std::endl);
+            ROS_WARN_STREAM("Commanded Position: "
+//                                    << iiwa_state_->command_position_[0] << ", "
+//                                    << iiwa_state_->command_position_[1] << ", "
+//                                    << iiwa_state_->command_position_[2] << ", "
+//                                    << iiwa_state_->command_position_[3] << ", "
+//                                    << iiwa_state_->command_position_[4] << ", "
+//                                    << iiwa_state_->command_position_[5] << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
 
             robotCommand().setJointPosition(iiwa_state_->command_position_.data());
 //            KUKA::FRI::LBRClient::waitForCommand();

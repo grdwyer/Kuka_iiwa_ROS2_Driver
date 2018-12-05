@@ -127,8 +127,8 @@ private:
     std::array<double, 7> command_position_;
     std::vector<std::string> joint_names_;
 
-    std::vector<std::string> interface_type_;
-    std::string selected_interface_;
+//    std::vector<std::string> interface_type_;
+//    std::string selected_interface_;
 
     // Interfaces
     // TODO: add more interfcaes (velocity and effort)
@@ -137,12 +137,8 @@ private:
 
     urdf::Model urdf_model_;
     // Interfaces for limits
-    // TODO: need to look into this more to check how it is implemented
-    joint_limits_interface::EffortJointSaturationInterface   effort_joint_saturation_interface_;
-    joint_limits_interface::EffortJointSoftLimitsInterface   effort_joint_limits_interface_;
     joint_limits_interface::PositionJointSaturationInterface position_joint_saturation_interface_;
     joint_limits_interface::PositionJointSoftLimitsInterface position_joint_limits_interface_;
-
 
 };
 

@@ -10,7 +10,7 @@
   
   <!-- some constants -->
   <xacro:property name="safety_controller_k_pos" value="10" /> <!-- This sets the velocity according the distance the soft limits, velocity = -k_pos * (pos - soft_limit) -->
-  <xacro:property name="safety_controller_k_vel" value="4" /> 
+  <xacro:property name="safety_controller_k_vel" value="40" />
   <xacro:property name="joint_damping" value="0.0" />
   <xacro:property name="max_effort" value="300"/> <!-- Should be changed to match the robots specs -->
   
