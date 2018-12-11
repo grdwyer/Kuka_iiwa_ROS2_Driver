@@ -118,13 +118,13 @@ void IiwaFRIInterface::command() {
 
         if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
             // Take current commanded values
-            ROS_WARN_STREAM("Commanded Position: "
-//                                    << iiwa_state_->command_position_[0] << ", "
-//                                    << iiwa_state_->command_position_[1] << ", "
-//                                    << iiwa_state_->command_position_[2] << ", "
-//                                    << iiwa_state_->command_position_[3] << ", "
-//                                    << iiwa_state_->command_position_[4] << ", "
-//                                    << iiwa_state_->command_position_[5] << ", "
+            ROS_DEBUG_STREAM("Commanded Position: "
+                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
 
             robotCommand().setJointPosition(iiwa_state_->command_position_.data());
@@ -171,13 +171,13 @@ void IiwaFRIInterface::update_state() {
     for (int i = 0; i < 7; i++) {
         iiwa_state_->current_position_[i] = current_pos[i];
         ROS_DEBUG_STREAM_THROTTLE(1, "Current Position: "
-                                << current_pos[0] << ", "
-                                << current_pos[1] << ", "
-                                << current_pos[2] << ", "
-                                << current_pos[3] << ", "
-                                << current_pos[4] << ", "
-                                << current_pos[5] << ", "
-                                << current_pos[6] << std::endl);
+                                << angles::to_degrees(current_pos[0]) << ", "
+                                << angles::to_degrees(current_pos[1]) << ", "
+                                << angles::to_degrees(current_pos[2]) << ", "
+                                << angles::to_degrees(current_pos[3]) << ", "
+                                << angles::to_degrees(current_pos[4]) << ", "
+                                << angles::to_degrees(current_pos[5]) << ", "
+                                << angles::to_degrees(current_pos[6]) << std::endl);
         iiwa_state_->current_torque_[i] = current_torque[i];
     }
 }

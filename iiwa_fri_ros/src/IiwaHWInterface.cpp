@@ -117,7 +117,7 @@ void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
         position_joint_limits_interface_.registerHandle(position_soft_limits_handle);
     }
     else {
-        ROS_WARN_STREAM("Hardcoded to use saturation limits");
+        ROS_WARN_STREAM("No soft limits found, will use the hard limits");
         const joint_limits_interface::PositionJointSaturationHandle position_saturation_handle(joint_handle, limits);
         position_joint_saturation_interface_.registerHandle(position_saturation_handle);
     }
