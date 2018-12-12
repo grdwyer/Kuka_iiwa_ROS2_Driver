@@ -9,11 +9,10 @@
   <xacro:include filename="$(find iiwa_fri_description)/urdf/utilities.xacro" />
   
   <!-- some constants -->
-  <xacro:property name="safety_controller_k_pos" value="100" />
-  <xacro:property name="safety_controller_k_vel" value="2" /> 
-  <xacro:property name="joint_damping" value="0.5" />
-  <xacro:property name="max_effort" value="300"/>
-  <xacro:property name="max_velocity" value="10"/>
+  <xacro:property name="safety_controller_k_pos" value="10" /> <!-- This sets the velocity according the distance the soft limits, velocity = -k_pos * (pos - soft_limit) -->
+  <xacro:property name="safety_controller_k_vel" value="40" />
+  <xacro:property name="joint_damping" value="0.0" />
+  <xacro:property name="max_effort" value="300"/> <!-- Should be changed to match the robots specs -->
   
   <xacro:macro name="iiwa14" params="hardware_interface robot_name">
     
@@ -55,10 +54,10 @@
       <child link="${robot_name}_link_1"/>
       <origin xyz="0 0 0.1575" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * PI / 180}" upper="${170 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-168 * PI / 180}"
-                         soft_upper_limit="${168 * PI / 180}"
+      <limit lower="${-169 * PI / 180}" upper="${169 * PI / 180}"
+             effort="${max_effort}" velocity="${85 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-169 * PI / 180}"
+                         soft_upper_limit="${169 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -94,10 +93,10 @@
       <child link="${robot_name}_link_2"/>
       <origin xyz="0 0 0.2025" rpy="${PI / 2}   0 ${PI}"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-120 * PI / 180}" upper="${120 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-118 * PI / 180}"
-                         soft_upper_limit="${118 * PI / 180}"
+      <limit lower="${-119 * PI / 180}" upper="${119 * PI / 180}"
+             effort="${max_effort}" velocity="${85 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-119 * PI / 180}"
+                         soft_upper_limit="${119 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -133,10 +132,10 @@
       <child link="${robot_name}_link_3"/>
       <origin xyz="0 0.2045 0" rpy="${PI / 2} 0 ${PI}"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * PI / 180}" upper="${170 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-168 * PI / 180}"
-                         soft_upper_limit="${168 * PI / 180}"
+      <limit lower="${-169 * PI / 180}" upper="${169 * PI / 180}"
+             effort="${max_effort}" velocity="${100 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-169 * PI / 180}"
+                         soft_upper_limit="${169 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -172,10 +171,10 @@
       <child link="${robot_name}_link_4"/>
       <origin xyz="0 0 0.2155" rpy="${PI / 2} 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-120 * PI / 180}" upper="${120 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-118 * PI / 180}"
-                         soft_upper_limit="${118 * PI / 180}"
+      <limit lower="${-119 * PI / 180}" upper="${119 * PI / 180}"
+             effort="${max_effort}" velocity="${75 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-119 * PI / 180}"
+                         soft_upper_limit="${119 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -211,10 +210,10 @@
       <child link="${robot_name}_link_5"/>
       <origin xyz="0 0.1845 0" rpy="${-PI / 2} ${PI} 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * PI / 180}" upper="${170 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-168 * PI / 180}"
-                         soft_upper_limit="${168 * PI / 180}"
+      <limit lower="${-169 * PI / 180}" upper="${169 * PI / 180}"
+             effort="${max_effort}" velocity="${130 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-169 * PI / 180}"
+                         soft_upper_limit="${169 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -250,10 +249,10 @@
       <child link="${robot_name}_link_6"/>
       <origin xyz="0 0 0.2155" rpy="${PI / 2} 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-120 * PI / 180}" upper="${120 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-118 * PI / 180}"
-                         soft_upper_limit="${118 * PI / 180}"
+      <limit lower="${-119 * PI / 180}" upper="${119 * PI / 180}"
+             effort="${max_effort}" velocity="${135 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-119 * PI / 180}"
+                         soft_upper_limit="${119 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>
@@ -289,10 +288,10 @@
       <child link="${robot_name}_link_7"/>
       <origin xyz="0 0.081 0" rpy="${- PI / 2} ${PI} 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-175 * PI / 180}" upper="${175 * PI / 180}"
-             effort="${max_effort}" velocity="${max_velocity}" />
-      <safety_controller soft_lower_limit="${-173 * PI / 180}"
-                         soft_upper_limit="${173 * PI / 180}"
+      <limit lower="${-174 * PI / 180}" upper="${174 * PI / 180}"
+             effort="${max_effort}" velocity="${135 * PI / 180}" />
+      <safety_controller soft_lower_limit="${-174 * PI / 180}"
+                         soft_upper_limit="${174 * PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/> 
       <dynamics damping="${joint_damping}"/>

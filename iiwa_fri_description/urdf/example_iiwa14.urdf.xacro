@@ -6,7 +6,7 @@
     
     <link name="world"/>
 
-    <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa7.xacro"/>
+    <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa14.xacro"/>
 
     <xacro:arg name="robot_name" default="iiwa"/>
     <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
@@ -17,8 +17,8 @@
         <origin xyz="0.0 0.0 0.006" rpy="0.0 0.0 ${pi/2}"/>
     </joint>
     
-    <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)">
-    </xacro:iiwa7>
+    <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)">
+    </xacro:iiwa14>
 
 
 </robot>
