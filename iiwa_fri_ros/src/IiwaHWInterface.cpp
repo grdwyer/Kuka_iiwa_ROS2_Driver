@@ -11,6 +11,8 @@ IiwaHWInterface::IiwaHWInterface(const ros::NodeHandle &nh, std::shared_ptr<Iiwa
     nh_.param<int>("rate", rate, 500);
     rate_ = new ros::Rate(rate);
 
+    external_torque_publisher_ = nh_.advertise<sensor_msgs::JointState>("external_torque", 1);
+
 }
 
 IiwaHWInterface::~IiwaHWInterface() {
@@ -66,6 +68,8 @@ bool IiwaHWInterface::start() {
         registerJointLimits(joint_names_[i], position_joint_handle, &urdf_model_);
 
     }
+    external_torque_state_.name.assign(joint_names_.begin(), joint_names_.end());
+
     /**
      * Add new interfaces here
      */
@@ -133,6 +137,12 @@ void IiwaHWInterface::read(ros::Duration duration) {
     for (int i = 0; i < 7; i++){
         current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
     }
+    external_torque_state_.header.stamp = ros::Time::now();
+    external_torque_state_.position.assign(current_position_.begin(), current_position_.end());
+    external_torque_state_.velocity.assign(current_velocity_.begin(), current_velocity_.end());
+    external_torque_state_.effort.assign(fri_state_handle_->current_ext_torque_.begin(), fri_state_handle_->current_ext_torque_.end());
+    external_torque_publisher_.publish(external_torque_state_);
+
     ROS_DEBUG_STREAM_THROTTLE(1, "Duration: " << duration.sec << "\nJoint 1\nPosition: " << current_position_[0] << "\nVelocity: " << current_velocity_[0]);
 
 }

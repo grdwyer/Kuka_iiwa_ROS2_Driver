@@ -167,6 +167,7 @@ void IiwaFRIInterface::monitor() {
 void IiwaFRIInterface::update_state() {
     auto current_pos = robotState().getMeasuredJointPosition();
     auto current_torque = robotState().getMeasuredTorque();
+    auto current_ext_torque = robotState().getExternalTorque();
 
     for (int i = 0; i < 7; i++) {
         iiwa_state_->current_position_[i] = current_pos[i];
@@ -179,6 +180,7 @@ void IiwaFRIInterface::update_state() {
                                 << angles::to_degrees(current_pos[5]) << ", "
                                 << angles::to_degrees(current_pos[6]) << std::endl);
         iiwa_state_->current_torque_[i] = current_torque[i];
+        iiwa_state_->current_ext_torque_[i] = current_ext_torque[i];
     }
 }
 

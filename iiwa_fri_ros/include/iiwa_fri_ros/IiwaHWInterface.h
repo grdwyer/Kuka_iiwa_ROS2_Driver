@@ -32,6 +32,7 @@ public:
     IiwaState(){
             current_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
             current_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+            current_ext_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
             command_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
             command_wrench_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
             command_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -69,7 +70,7 @@ public:
     }
 
 // private:
-    std::array<double, 7> current_position_, current_torque_;
+    std::array<double, 7> current_position_, current_torque_, current_ext_torque_;
     std::array<double, 7> command_position_, command_wrench_, command_torque_;
     std::mutex current_mutex_, command_mutex_;
 };
@@ -108,6 +109,7 @@ public:
 
     /**
      * \brief Retrieves the current state from the shared memory (iiwa state) and passes it to the joint state publisher
+     * Additionally sends the external torque as a normal joint_state message but to a different ros_topic
      */
     void read(ros::Duration duration);
 
@@ -122,6 +124,8 @@ private:
     ros::Rate* rate_;
 
     std::shared_ptr<IiwaState> fri_state_handle_;
+    ros::Publisher external_torque_publisher_;
+    sensor_msgs::JointState external_torque_state_;
 
     std::array<double, 7> current_position_, previous_position_, current_velocity_, current_torque_;
     std::array<double, 7> command_position_;
