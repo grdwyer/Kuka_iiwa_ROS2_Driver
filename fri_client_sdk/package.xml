@@ -5,7 +5,6 @@
   <description>The fast robot interface client from Kuka refactored into a catkin package. The version number will track kukas FRI version number.</description>
   
   <author email="george.dwyer@ucl.ac.uk">George Dwyer</author>
-  <author email="vijay.pawar@ucl.ac.uk">Vijay Pawar</author>
   
   <maintainer email="george.dwyer@ucl.ac.uk">George Dwyer</maintainer>
 

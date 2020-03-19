@@ -5,7 +5,6 @@
   <description>The iiwa_fri_ros package</description>
   
   <author email="george.dwyer@ucl.ac.uk">George Dwyer</author>
-  <author email="vijay.pawar@ucl.ac.uk">Vijay Pawar</author>
   
   <maintainer email="george.dwyer@ucl.ac.uk">George Dwyer</maintainer>
 
@@ -19,6 +18,7 @@
   <build_depend>roscpp</build_depend>
   <build_depend>fri_client_sdk</build_depend>
   <run_depend>roscpp</run_depend>
+  <run_depend>iiwa_fri_description</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
