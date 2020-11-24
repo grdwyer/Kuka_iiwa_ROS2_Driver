@@ -6,19 +6,13 @@
 #define IIWA_FRI_ROS_IIWAHWINTERFACE_H
 
 // ROS headers
-#include <ros/ros.h>
-#include <controller_manager/controller_manager.h>
-#include <control_toolbox/filters.h>
-#include <hardware_interface/robot_hw.h>
-#include <hardware_interface/joint_state_interface.h>
-#include <hardware_interface/joint_command_interface.h>
-#include <joint_limits_interface/joint_limits.h>
-#include <joint_limits_interface/joint_limits_interface.h>
-#include <joint_limits_interface/joint_limits_rosparam.h>
-#include <joint_limits_interface/joint_limits_urdf.h>
-#include <std_msgs/Duration.h>
+#include "rclcpp/rclcpp.hpp"
+#include <hardware_interface/robot_hardware_interface.hpp>
+#include <hardware_interface/joint_handle.hpp>
+
+#include <builtin_interfaces/msg/duration.h>
 #include <urdf/model.h>
-#include <sensor_msgs/JointState.h>
+#include <sensor_msgs/msg/joint_state.h>
 #include <angles/angles.h>
 
 #include <vector>
@@ -75,12 +69,12 @@ public:
     std::mutex current_mutex_, command_mutex_;
 };
 
-class IiwaHWInterface : public hardware_interface::RobotHW{
+class IiwaHWInterface : public hardware_interface::RobotHardwareInterface{
 public:
     /*
      * Constructor
      */
-    IiwaHWInterface(const ros::NodeHandle &nh, std::shared_ptr<IiwaState> state);
+    IiwaHWInterface(std::shared_ptr<IiwaState> state);
 
     /*
      * Destructor
@@ -111,21 +105,21 @@ public:
      * \brief Retrieves the current state from the shared memory (iiwa state) and passes it to the joint state publisher
      * Additionally sends the external torque as a normal joint_state message but to a different ros_topic
      */
-    void read(ros::Duration duration);
+    hardware_interface::return_type read();
 
 
     /**
      * \brief Retrieves the current commanded state from the interfaces and passes it to the shared memory
      */
-    void write(ros::Duration duration);
+    hardware_interface::return_type write();
 
 private:
-    ros::NodeHandle nh_;
-    ros::Rate* rate_;
+    std::shared_ptr<rclcpp::Node> node_;
+
+    rclcpp::Publisher<sensor_msgs::msg::JointState> external_torque_publisher_;
+    sensor_msgs::msg::JointState external_torque_state_;
 
     std::shared_ptr<IiwaState> fri_state_handle_;
-    ros::Publisher external_torque_publisher_;
-    sensor_msgs::JointState external_torque_state_;
 
     std::array<double, 7> current_position_, previous_position_, current_velocity_, current_torque_;
     std::array<double, 7> command_position_;
@@ -136,13 +130,13 @@ private:
 
     // Interfaces
     // TODO: add more interfcaes (velocity and effort)
-    hardware_interface::JointStateInterface state_interface_;
-    hardware_interface::PositionJointInterface position_interface_;
+    hardware_interface::StateInterface state_interface_;
+    hardware_interface::CommandInterface position_interface_;
 
     urdf::Model urdf_model_;
     // Interfaces for limits
-    joint_limits_interface::PositionJointSaturationInterface position_joint_saturation_interface_;
-    joint_limits_interface::PositionJointSoftLimitsInterface position_joint_limits_interface_;
+//    joint_limits_interface::PositionJointSaturationInterface position_joint_saturation_interface_;
+//    joint_limits_interface::PositionJointSoftLimitsInterface position_joint_limits_interface_;
 
 };
 

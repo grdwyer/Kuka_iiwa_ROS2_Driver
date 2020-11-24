@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>iiwa_fri_ros</name>
   <version>0.0.1</version>
   <description>The iiwa_fri_ros package</description>
@@ -14,12 +15,10 @@
   <url type="bugtracker">http://github.com/surgical-vision/iiwa_fri_stack/issues</url>
   <url type="website">http://github.com/surgical-vision/iiwa_fri_stack/wiki</url>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>fri_client_sdk</build_depend>
-  <run_depend>roscpp</run_depend>
-  <run_depend>iiwa_fri_description</run_depend>
-
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>controller_manager</depend>
+  <depend>fri_client_sdk</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

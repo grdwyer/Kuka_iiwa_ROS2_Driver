@@ -1,25 +1,34 @@
-FROM ros:noetic-robot
+ARG ROSDISTRO=foxy
+FROM ros:$ROSDISTRO
+ARG ROSDISTRO
 
 RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    ssh \
     git \
-    python3-catkin-tools \
-    python3-rosdep \
-    python3-rosinstall-generator \
-    python3-vcstool \
     python3-pip \
-    ros-noetic-rqt \
-    ros-noetic-rqt-joint-trajectory-controller \
-    ros-noetic-ros-control \
-    ros-noetic-ros-controllers
+    python3-vcstool \
+    build-essential \
+    cmake \
+    python3-colcon-common-extensions \
+    python3-flake8 \
+    python3-pytest-cov \
+    python3-rosdep \
+    python3-setuptools \
+    python3-vcstool \
+    wget \
+    ros-$ROSDISTRO-rqt \
+    ros-$ROSDISTRO-rviz2 \
+    ros-$ROSDISTRO-angles
 
-RUN pip3 install catkin_tools
+RUN mkdir -p /dev_ws/src
 
-RUN mkdir -p /catkin_ws/src
-
-WORKDIR /catkin_ws/src
+WORKDIR /dev_ws/src
 RUN git clone https://github.com/grdwyer/iiwa_fri_description.git 
-COPY . /catkin_ws/src/iiwa_fri_stack
+COPY . /dev_ws/src/iiwa_fri_stack
 
-WORKDIR /catkin_ws/
-RUN ["/bin/bash", "-c", "source /opt/ros/noetic/setup.bash && \
-    catkin_make"]
+WORKDIR /dev_ws/
+RUN ["/bin/bash", "-c", "source /opt/ros/$ROSDISTRO/setup.bash &&\
+    vcs import src < ./src/iiwa_fri_stack/iiwa_fri_ros/ros2_control.rosinstall &&\
+    vcs pull src || true &&\
+    colcon build --symlink-install --continue-on-error --cmake-args -Wno-dev || true"]

@@ -4,54 +4,51 @@
 
 #include "iiwa_fri_ros/IiwaHWInterface.h"
 
-IiwaHWInterface::IiwaHWInterface(const ros::NodeHandle &nh, std::shared_ptr<IiwaState> state):
-        nh_(nh), fri_state_handle_(state){
+IiwaHWInterface::IiwaHWInterface(std::shared_ptr<IiwaState> state):
+        fri_state_handle_(state) {
+    node_ = std::make_shared<rclcpp::Node>("iiwa_status");
 
-    int rate;
-    nh_.param<int>("rate", rate, 500);
-    rate_ = new ros::Rate(rate);
 
-    external_torque_publisher_ = nh_.advertise<sensor_msgs::JointState>("external_torque", 1);
+//    external_torque_publisher_ = nh_.advertise<sensor_msgs::msg::JointState>("external_torque", 1);
 
 }
 
 IiwaHWInterface::~IiwaHWInterface() {
-    delete rate_;
 }
 
 bool IiwaHWInterface::start() {
-    if ( ros::param::get("joints", joint_names_) ) {
+    if ( node_->get_parameter("joints", joint_names_) ) {
         if ( joint_names_.size() != 7 ) {
             for(auto const& value: joint_names_){
-                ROS_INFO_STREAM(value << ", ");
+                RCLCPP_INFO_STREAM(node_->get_logger(),value << ", ");
             };
-            ROS_ERROR("iiwa's have 7 joints which is not given");
+            RCLCPP_ERROR(node_->get_logger(),"iiwa's have 7 joints which is not given");
         }
     } else {
-        ROS_ERROR("No joints to be handled, ensure you load a yaml file naming the joint names this hardware interface refers to.");
+        RCLCPP_ERROR(node_->get_logger(),"No joints to be handled, ensure you load a yaml file naming the joint names this hardware interface refers to.");
         throw std::runtime_error("No joint name specification");
     }
-
-    if (!(urdf_model_.initParam("robot_description"))) {
-        ROS_ERROR("No URDF model in the robot_description parameter, this is required to define the joint limits.");
+    std::string robot_description;
+    node_->get_parameter("robot_description", robot_description);
+    if (!(urdf_model_.initString(robot_description))) {
+        RCLCPP_ERROR(node_->get_logger(),"No URDF model could be formed from the robot_description parameter, this is required to define the joint limits.");
         throw std::runtime_error("No URDF model available");
     }
 
     urdf::JointConstSharedPtr current_joint;
     // For each joint
     for(int i = 0; i < 7; i++){
-        ROS_INFO_STREAM("Handling joint: " << joint_names_[i]);
+        RCLCPP_INFO_STREAM(node_->get_logger(),"Handling joint: " << joint_names_[i]);
 
         // get current joint configuration
         current_joint = urdf_model_.getJoint(joint_names_[i]);
         if(!current_joint.get()) {
-            ROS_ERROR_STREAM("The specified joint "<< joint_names_[i] << " can't be found in the URDF model. "
+            RCLCPP_ERROR_STREAM(node_->get_logger(),"The specified joint "<< joint_names_[i] << " can't be found in the URDF model. "
                     "Check that you loaded an URDF model in the robot description, or that you spelled correctly the joint name.");
             throw std::runtime_error("Wrong joint name specification");
         }
 
         // joint state handle
-
         hardware_interface::JointStateHandle state_handle(joint_names_[i],
                                                           &(current_position_[i]),
                                                           &(current_velocity_[i]),
@@ -107,14 +104,14 @@ void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
         return;
 
     if (limits.has_position_limits) {
-        ROS_DEBUG_STREAM("Joint has position limits");
+        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has position limits");
     }
 
     if (limits.has_velocity_limits)
-        ROS_DEBUG_STREAM("Joint has velocity limits");
+        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has velocity limits");
 
     if (limits.has_effort_limits)
-        ROS_DEBUG_STREAM("Joint has effort limits");
+        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has effort limits");
 
     if (has_soft_limits) {
         const joint_limits_interface::PositionJointSoftLimitsHandle position_soft_limits_handle(joint_handle, limits, soft_limits);
@@ -125,11 +122,11 @@ void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
         const joint_limits_interface::PositionJointSaturationHandle position_saturation_handle(joint_handle, limits);
         position_joint_saturation_interface_.registerHandle(position_saturation_handle);
     }
-    ROS_INFO_STREAM("Registering joint limits\n\tLower: " << limits.min_position << "\n\tUpper: " << limits.max_position <<
+    RCLCPP_INFO_STREAM(node_->get_logger(),"Registering joint limits\n\tLower: " << limits.min_position << "\n\tUpper: " << limits.max_position <<
     "\n\tEffort: " << limits.max_effort << std::endl);
 }
 
-void IiwaHWInterface::read(ros::Duration duration) {
+hardware_interface::return_type IiwaHWInterface::read() {
     // copy the over the previous position
     previous_position_ = current_position_;
     // Get the current state from the state handle
@@ -147,7 +144,7 @@ void IiwaHWInterface::read(ros::Duration duration) {
 
 }
 
-void IiwaHWInterface::write(ros::Duration duration) {
+hardware_interface::return_type IiwaHWInterface::write() {
     ROS_DEBUG_STREAM_THROTTLE(1, "Command position (pre-enforcement): "
             << "\nLast commanded position: "
             << angles::to_degrees(command_position_[0]) << ", "
@@ -158,7 +155,7 @@ void IiwaHWInterface::write(ros::Duration duration) {
             << angles::to_degrees(command_position_[5]) << ", "
             << angles::to_degrees(command_position_[6]) << std::endl);
     //position_joint_limits_interface_.enforceLimits(duration);
-    position_joint_saturation_interface_.enforceLimits(duration);
+//    position_joint_saturation_interface_.enforceLimits(duration);
     // Get latest commands from the interface and pass to the state handle
     fri_state_handle_->setCommandedPosition(command_position_);
 }
