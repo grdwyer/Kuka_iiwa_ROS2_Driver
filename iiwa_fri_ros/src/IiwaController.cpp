@@ -67,8 +67,23 @@ cost of any service and repair.
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
 
+#include <algorithm>
+#include <chrono>
+#include <memory>
+#include <string>
+#include <thread>
+
+#include "rclcpp/rclcpp.hpp"
+
+using namespace std::chrono_literals;
+
 
 int main (int argc, char** argv)
+{
+    return 0;
+}
+
+int main_ (int argc, char** argv)
 {
     ros::init(argc, argv, "fri_controller");
     ros::NodeHandle nh;

@@ -16,7 +16,12 @@
   <url type="website">http://github.com/surgical-vision/iiwa_fri_stack/wiki</url>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>hardware_interface</buildtool_depend>
+  <buildtool_depend>pluginlib</buildtool_depend>
+  <buildtool_depend>rclcpp</buildtool_depend>
+
   <depend>rclcpp</depend>
+  <depend>std_srvs</depend>
   <depend>controller_manager</depend>
   <depend>fri_client_sdk</depend>
 

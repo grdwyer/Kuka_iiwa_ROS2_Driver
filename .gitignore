@@ -4,6 +4,7 @@ cmake-build-debug/
 */.idea/
 .vscode/
 */.vscode
+.gradle/
 
 build/
 bin/

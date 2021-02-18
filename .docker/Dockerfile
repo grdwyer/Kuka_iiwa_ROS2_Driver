@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     ssh \
     git \
+    libboost-dev \
     python3-pip \
     python3-vcstool \
     build-essential \
@@ -24,7 +25,6 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /dev_ws/src
 
 WORKDIR /dev_ws/src
-RUN git clone https://github.com/grdwyer/iiwa_fri_description.git 
 COPY . /dev_ws/src/iiwa_fri_stack
 
 WORKDIR /dev_ws/

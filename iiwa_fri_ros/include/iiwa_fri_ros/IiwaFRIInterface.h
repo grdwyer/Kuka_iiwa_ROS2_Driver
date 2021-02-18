@@ -9,6 +9,7 @@
 #include "iiwa_fri_ros/IiwaHWInterface.h"
 #include <memory>
 #include <angles/angles.h>
+#include <rclcpp/clock.hpp>
 
 
 class IiwaFRIInterface : public KUKA::FRI::LBRClient{

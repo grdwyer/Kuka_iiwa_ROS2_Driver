@@ -7,7 +7,7 @@
 IiwaFRIInterface::IiwaFRIInterface(std::shared_ptr<IiwaState> state): iiwa_state_(state){
     startup_ = 0;
     init_ = false;
-};
+}
 
 IiwaFRIInterface::~IiwaFRIInterface() {
 
@@ -22,28 +22,28 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
     switch (newState){
         case KUKA::FRI::MONITORING_WAIT:
         {
-            ROS_INFO_STREAM("Entering monitoring wait state\nLast commanded position: "
-                                    << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->command_position_[6]) <<
-                                    "\nLast known position: "
-                                    << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
-                                    << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
+            RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Entering monitoring wait state\nLast commanded position: "
+                                << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                                << angles::to_degrees(iiwa_state_->command_position_[6]) <<
+                                "\nLast known position: "
+                                << angles::to_degrees(iiwa_state_->current_position_[0]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[1]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[2]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[3]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
+                                << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
             break;
         }
 
         case KUKA::FRI::MONITORING_READY:
         {
-            ROS_INFO_STREAM("Entering monitoring ready state\nLast commanded position: "
+            RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Entering monitoring ready state\nLast commanded position: "
                                     << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
@@ -64,7 +64,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
 
         case KUKA::FRI::COMMANDING_WAIT:
         {
-            ROS_INFO_STREAM("Entering commanding wait state\nLast commanded position: "
+            RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Entering commanding wait state\nLast commanded position: "
                                     << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
@@ -85,7 +85,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
 
         case KUKA::FRI::COMMANDING_ACTIVE:
         {
-            ROS_INFO_STREAM("Entering commanding active state\nLast commanded position: "
+            RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Entering commanding active state\nLast commanded position: "
                                     << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
@@ -118,7 +118,7 @@ void IiwaFRIInterface::command() {
 
         if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
             // Take current commanded values
-            ROS_DEBUG_STREAM("Commanded Position: "
+            RCLCPP_DEBUG_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Commanded Position: "
                                     << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
@@ -140,7 +140,7 @@ void IiwaFRIInterface::command() {
         }
     }
     else{
-        ROS_DEBUG_STREAM_THROTTLE(2, "Values not inited  \n");
+        RCLCPP_DEBUG_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Values not inited  \n"); //TODO: Change this to throttle
 
         waitForCommand();
 
@@ -162,7 +162,7 @@ void IiwaFRIInterface::monitor() {
     }
     KUKA::FRI::LBRClient::monitor();
 
-};
+}
 
 void IiwaFRIInterface::update_state() {
     auto current_pos = robotState().getMeasuredJointPosition();
@@ -171,14 +171,14 @@ void IiwaFRIInterface::update_state() {
 
     for (int i = 0; i < 7; i++) {
         iiwa_state_->current_position_[i] = current_pos[i];
-        ROS_DEBUG_STREAM_THROTTLE(1, "Current Position: "
-                                << angles::to_degrees(current_pos[0]) << ", "
-                                << angles::to_degrees(current_pos[1]) << ", "
-                                << angles::to_degrees(current_pos[2]) << ", "
-                                << angles::to_degrees(current_pos[3]) << ", "
-                                << angles::to_degrees(current_pos[4]) << ", "
-                                << angles::to_degrees(current_pos[5]) << ", "
-                                << angles::to_degrees(current_pos[6]) << std::endl);
+//        ROS_DEBUG_STREAM_THROTTLE(1, "Current Position: "
+//                                << angles::to_degrees(current_pos[0]) << ", "
+//                                << angles::to_degrees(current_pos[1]) << ", "
+//                                << angles::to_degrees(current_pos[2]) << ", "
+//                                << angles::to_degrees(current_pos[3]) << ", "
+//                                << angles::to_degrees(current_pos[4]) << ", "
+//                                << angles::to_degrees(current_pos[5]) << ", "
+//                                << angles::to_degrees(current_pos[6]) << std::endl);
         iiwa_state_->current_torque_[i] = current_torque[i];
         iiwa_state_->current_ext_torque_[i] = current_ext_torque[i];
     }

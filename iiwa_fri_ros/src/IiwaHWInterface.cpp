@@ -3,159 +3,182 @@
 //
 
 #include "iiwa_fri_ros/IiwaHWInterface.h"
-
-IiwaHWInterface::IiwaHWInterface(std::shared_ptr<IiwaState> state):
-        fri_state_handle_(state) {
-    node_ = std::make_shared<rclcpp::Node>("iiwa_status");
+#include <hardware_interface/types/hardware_interface_type_values.hpp>
 
 
-//    external_torque_publisher_ = nh_.advertise<sensor_msgs::msg::JointState>("external_torque", 1);
+hardware_interface::return_type IiwaHWInterface::configure(const hardware_interface::HardwareInfo& system_info)
+{
+    info_ = system_info;
 
-}
+    // initialize
+    current_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    previous_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    current_velocity_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    current_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    current_ext_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    command_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
-IiwaHWInterface::~IiwaHWInterface() {
-}
+    controllers_initialized_ = false;
 
-bool IiwaHWInterface::start() {
-    if ( node_->get_parameter("joints", joint_names_) ) {
-        if ( joint_names_.size() != 7 ) {
-            for(auto const& value: joint_names_){
-                RCLCPP_INFO_STREAM(node_->get_logger(),value << ", ");
-            };
-            RCLCPP_ERROR(node_->get_logger(),"iiwa's have 7 joints which is not given");
-        }
-    } else {
-        RCLCPP_ERROR(node_->get_logger(),"No joints to be handled, ensure you load a yaml file naming the joint names this hardware interface refers to.");
-        throw std::runtime_error("No joint name specification");
-    }
-    std::string robot_description;
-    node_->get_parameter("robot_description", robot_description);
-    if (!(urdf_model_.initString(robot_description))) {
-        RCLCPP_ERROR(node_->get_logger(),"No URDF model could be formed from the robot_description parameter, this is required to define the joint limits.");
-        throw std::runtime_error("No URDF model available");
-    }
-
-    urdf::JointConstSharedPtr current_joint;
-    // For each joint
-    for(int i = 0; i < 7; i++){
-        RCLCPP_INFO_STREAM(node_->get_logger(),"Handling joint: " << joint_names_[i]);
-
-        // get current joint configuration
-        current_joint = urdf_model_.getJoint(joint_names_[i]);
-        if(!current_joint.get()) {
-            RCLCPP_ERROR_STREAM(node_->get_logger(),"The specified joint "<< joint_names_[i] << " can't be found in the URDF model. "
-                    "Check that you loaded an URDF model in the robot description, or that you spelled correctly the joint name.");
-            throw std::runtime_error("Wrong joint name specification");
+    for (const hardware_interface::ComponentInfo& joint : info_.joints)
+    {
+        if (joint.command_interfaces.size() != 2)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' has %d command interfaces found. 2 expected.", joint.name.c_str(),
+                         joint.command_interfaces.size());
+            return hardware_interface::return_type::ERROR;
         }
 
-        // joint state handle
-        hardware_interface::JointStateHandle state_handle(joint_names_[i],
-                                                          &(current_position_[i]),
-                                                          &(current_velocity_[i]),
-                                                          &(current_torque_[i]));
+        if (joint.command_interfaces[0].name != hardware_interface::HW_IF_POSITION)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s command interfaces found as first command interface. '%s' expected.",
+                         joint.name.c_str(), joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
+            return hardware_interface::return_type::ERROR;
+        }
 
-        state_interface_.registerHandle(state_handle);
+        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s command interfaces found as second command interface. '%s' expected.",
+                         joint.name.c_str(), joint.command_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
+            return hardware_interface::return_type::ERROR;
+        }
 
-        // position command handle
-        hardware_interface::JointHandle position_joint_handle = hardware_interface::JointHandle(
-                state_interface_.getHandle(joint_names_[i]), &command_position_[i]);
+        if (joint.state_interfaces.size() != 3)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"), "Joint '%s' has %d state interface. 3 expected.",
+                         joint.name.c_str(), joint.state_interfaces.size());
+            return hardware_interface::return_type::ERROR;
+        }
 
-        position_interface_.registerHandle(position_joint_handle);
+        if (joint.state_interfaces[0].name != hardware_interface::HW_IF_POSITION)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s state interface as first state interface. '%s' expected.", joint.name.c_str(),
+                         joint.state_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
+            return hardware_interface::return_type::ERROR;
+        }
 
-        registerJointLimits(joint_names_[i], position_joint_handle, &urdf_model_);
+        if (joint.state_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s state interface as second state interface. '%s' expected.", joint.name.c_str(),
+                         joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_POSITION);
+            return hardware_interface::return_type::ERROR;
+        }
 
-    }
-    external_torque_state_.name.assign(joint_names_.begin(), joint_names_.end());
-
-    /**
-     * Add new interfaces here
-     */
-
-    // Register each of the interfaces
-    this->registerInterface(&state_interface_);
-    this->registerInterface(&position_interface_);
-
-    return true;
-}
-
-
-void IiwaHWInterface::registerJointLimits(const std::string &joint_name,
-                                          const hardware_interface::JointHandle &joint_handle,
-                                          const urdf::Model *urdf_model) {
-    joint_limits_interface::JointLimits limits;
-    bool has_limits = false;
-    joint_limits_interface::SoftJointLimits soft_limits;
-    bool has_soft_limits = false;
-
-    if (urdf_model != nullptr) {
-        auto urdf_joint = urdf_model->getJoint(joint_name);
-
-        if (urdf_joint != nullptr) {
-            // Get limits from the URDF file.
-            if (joint_limits_interface::getJointLimits(urdf_joint, limits))
-                has_limits = true;
-
-            if (joint_limits_interface::getSoftJointLimits(urdf_joint, soft_limits))
-                has_soft_limits = true;
+        if (joint.state_interfaces[2].name != hardware_interface::HW_IF_EFFORT)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s state interface as third state interface. '%s' expected.", joint.name.c_str(),
+                         joint.state_interfaces[2].name.c_str(), hardware_interface::HW_IF_POSITION);
+            return hardware_interface::return_type::ERROR;
         }
     }
 
-    if (!has_limits)
-        return;
+    status_ = hardware_interface::status::CONFIGURED;
 
-    if (limits.has_position_limits) {
-        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has position limits");
-    }
-
-    if (limits.has_velocity_limits)
-        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has velocity limits");
-
-    if (limits.has_effort_limits)
-        RCLCPP_DEBUG_STREAM(node_->get_logger(),"Joint has effort limits");
-
-    if (has_soft_limits) {
-        const joint_limits_interface::PositionJointSoftLimitsHandle position_soft_limits_handle(joint_handle, limits, soft_limits);
-        position_joint_limits_interface_.registerHandle(position_soft_limits_handle);
-    }
-    else {
-        ROS_WARN_STREAM("No soft limits found, will use the hard limits");
-        const joint_limits_interface::PositionJointSaturationHandle position_saturation_handle(joint_handle, limits);
-        position_joint_saturation_interface_.registerHandle(position_saturation_handle);
-    }
-    RCLCPP_INFO_STREAM(node_->get_logger(),"Registering joint limits\n\tLower: " << limits.min_position << "\n\tUpper: " << limits.max_position <<
-    "\n\tEffort: " << limits.max_effort << std::endl);
+    return hardware_interface::return_type::OK;
 }
 
-hardware_interface::return_type IiwaHWInterface::read() {
-    // copy the over the previous position
+std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_interfaces()
+{
+    std::vector<hardware_interface::StateInterface> state_interfaces;
+    for (size_t i = 0; i < info_.joints.size(); ++i)
+    {
+        state_interfaces.emplace_back(hardware_interface::StateInterface(
+                info_.joints[i].name, hardware_interface::HW_IF_POSITION, &current_position_[i]));
+
+        state_interfaces.emplace_back(hardware_interface::StateInterface(
+                info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &current_velocity_[i]));
+
+        state_interfaces.emplace_back(hardware_interface::StateInterface(
+                info_.joints[i].name, hardware_interface::HW_IF_EFFORT, &current_torque_[i]));
+    }
+
+
+    for (auto& sensor : info_.sensors)
+    {
+        for (uint j = 0; j < sensor.state_interfaces.size(); ++j)
+        {
+            state_interfaces.emplace_back(hardware_interface::StateInterface(sensor.name, sensor.state_interfaces[j].name,
+                                                                             &current_ext_torque_[j]));
+        }
+    }
+
+    return state_interfaces;
+}
+
+std::vector<hardware_interface::CommandInterface> IiwaHWInterface::export_command_interfaces()
+{
+    std::vector<hardware_interface::CommandInterface> command_interfaces;
+    for (size_t i = 0; i < info_.joints.size(); ++i)
+    {
+        command_interfaces.emplace_back(hardware_interface::CommandInterface(
+                info_.joints[i].name, hardware_interface::HW_IF_POSITION, &command_position_[i]));
+
+        // TODO: replace with an effort interface and possibly wrench in the future
+//        command_interfaces.emplace_back(hardware_interface::CommandInterface(
+//                info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &urcl_velocity_commands_[i]));
+    }
+
+    return command_interfaces;
+}
+
+hardware_interface::return_type IiwaHWInterface::start()
+{
+    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Starting ...please wait...");
+
+    position_interface_in_use_ = false;
+
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+
+    // The robot's IP address.
+    std::string robot_ip = info_.hardware_parameters["robot_ip"];
+    int robot_port = std::stoi(info_.hardware_parameters["robot_port"]);
+
+    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver...");
+
+    status_ = hardware_interface::status::STARTED;
+
+    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
+
+    return hardware_interface::return_type::OK;
+}
+
+hardware_interface::return_type IiwaHWInterface::stop()
+{
+    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Stopping ...please wait...");
+
+    position_interface_in_use_ = false;
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+
+    // Nedd to implement an actual stop for the iiwaFRIInterface
+    status_ = hardware_interface::status::STOPPED;
+
+    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully stopped!");
+
+    return hardware_interface::return_type::OK;
+}
+
+
+hardware_interface::return_type IiwaHWInterface::read()
+{
     previous_position_ = current_position_;
     // Get the current state from the state handle
     fri_state_handle_->getCurrentState(current_position_, current_torque_);
     for (int i = 0; i < 7; i++){
-        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
+//        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
+        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)1.0/500.0;
     }
-    external_torque_state_.header.stamp = ros::Time::now();
-    external_torque_state_.position.assign(current_position_.begin(), current_position_.end());
-    external_torque_state_.velocity.assign(current_velocity_.begin(), current_velocity_.end());
-    external_torque_state_.effort.assign(fri_state_handle_->current_ext_torque_.begin(), fri_state_handle_->current_ext_torque_.end());
-    external_torque_publisher_.publish(external_torque_state_);
 
-    ROS_DEBUG_STREAM_THROTTLE(1, "Duration: " << duration.sec << "\nJoint 1\nPosition: " << current_position_[0] << "\nVelocity: " << current_velocity_[0]);
-
+    return hardware_interface::return_type::ERROR;
 }
 
-hardware_interface::return_type IiwaHWInterface::write() {
-    ROS_DEBUG_STREAM_THROTTLE(1, "Command position (pre-enforcement): "
-            << "\nLast commanded position: "
-            << angles::to_degrees(command_position_[0]) << ", "
-            << angles::to_degrees(command_position_[1]) << ", "
-            << angles::to_degrees(command_position_[2]) << ", "
-            << angles::to_degrees(command_position_[3]) << ", "
-            << angles::to_degrees(command_position_[4]) << ", "
-            << angles::to_degrees(command_position_[5]) << ", "
-            << angles::to_degrees(command_position_[6]) << std::endl);
-    //position_joint_limits_interface_.enforceLimits(duration);
-//    position_joint_saturation_interface_.enforceLimits(duration);
-    // Get latest commands from the interface and pass to the state handle
+hardware_interface::return_type IiwaHWInterface::write()
+{
     fri_state_handle_->setCommandedPosition(command_position_);
+    return hardware_interface::return_type::OK;
 }

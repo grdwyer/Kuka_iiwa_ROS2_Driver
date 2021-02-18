@@ -63,9 +63,9 @@ cost of any service and repair.
 #include <cstdlib>
 #include <cstdio>
 #include <cstring> // strstr
+#include <iiwa_fri_ros/IiwaFRIInterface.h>
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
-#include <iiwa_fri_ros/IiwaFRIStreamer.h>
 
 
 int main (int argc, char** argv)
@@ -91,7 +91,7 @@ int main (int argc, char** argv)
     }
 
     auto state = std::make_shared<IiwaState>();
-    IiwaFRIStreamer client(state);
+    IiwaFRIInterface client(state);
     IiwaHWInterface robot(nh, state);
 
     robot.start();
