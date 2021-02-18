@@ -4,7 +4,9 @@
 
 #include "iiwa_fri_ros/IiwaFRIInterface.h"
 
-IiwaFRIInterface::IiwaFRIInterface(std::shared_ptr<IiwaState> state): iiwa_state_(state){
+#include <utility>
+
+IiwaFRIInterface::IiwaFRIInterface(std::shared_ptr<IiwaState> state): iiwa_state_(std::move(state)){
     startup_ = 0;
     init_ = false;
 }
