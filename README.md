@@ -1,5 +1,5 @@
-# iiwa FRI Stack
-Collection of packages to run the KUKA iiwa robot arms using the fast robot interface in ROS.
+# Kuka iiwa ROS2 Driver
+Collection of packages to run the KUKA iiwa robot arms using the fast robot interface in ROS2.
 
 ## Installation (quick version)
   1. Clone the repository into your catkin workspace
@@ -19,9 +19,9 @@ Where the general workflow to build the image:
 - Build the docker image
 
 ```
-git clone git@github.com:grdwyer/iiwa_fri_stack.git
-cd iiwa_fri_stack
-docker build --pull --rm -f ./.docker/Dockerfile  -t iiwa_fri_stack:latest .
+git clone git@github.com:grdwyer/Kuka_iiwa_ROS2_Driver.git
+cd Kuka_iiwa_ROS2_Driver
+docker build --pull --rm -f ./.docker/Dockerfile  -t iiwa_fri_driver:foxy .
 ```
 If you are changing the Dockerfile remove the `--rm` tag to keep your intermediate builds. 
 
@@ -30,17 +30,15 @@ My approach (2.3 from the [ROS guide](http://wiki.ros.org/docker/Tutorials/GUI))
 ```
 docker run -it \
     --user=$(id -u $USER):$(id -g $USER) \
-    --group-add dialout --group-add sudo \
+    --group-add sudo \
     --env="DISPLAY" \
-    --workdir="/catkin_ws/src" \
+    --workdir="/dev_ws/src" \
     --volume="/home/$USER:/home/$USER" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --net=host \
-    --privileged \
     iiwa_fri_stack:latest
 ```
 The container needs to be privileged to run as it needs access to the USB, the user added also needs to be in dialout and sudo.
@@ -51,4 +49,4 @@ if you are going to use this container for a while then give it name with: `--na
 
 Lastly the repo has been added in the docker process and is owned by root so the user id you've added won't be able to use it.
 Change ownership to the user with 
-`sudo chown -R $UID /catkin_ws/`
+`sudo chown -R $UID /dev_ws/`
