@@ -25,45 +25,70 @@ bool IiwaFriDriver::initialise_connection() {
 //        if(pthread_setschedparam(th.native_handle(), policy, &sch_params)) {
 //            std::cerr << "Failed to set Thread scheduling : " << std::strerror(errno) << std::endl;
         return true;
+    } else{
+        return false;
     }
 
-
 }
 
-void IiwaFriDriver::read_joint_position(const std::array<double, 7> &joint_positions) {
-    std::copy(state_->current_position_.begin(), state_->current_position_.end(), std::inserter(joint_positions, joint_positions.begin()));
+void IiwaFriDriver::read_joint_position(std::array<double, 7> &joint_positions) {
+    joint_positions = state_->current_position_;
 }
 
-void IiwaFriDriver::read_joint_velocity(const std::array<double, 7> &joint_velocity) {
-    std::copy(state_->current_position_.begin(), state_->current_position_.end(), std::inserter(joint_velocity, joint_velocity.begin()));
+void IiwaFriDriver::read_joint_velocity(std::array<double, 7> &joint_velocity) {
+    joint_velocity = state_->current_velocity_;
 }
 
-void IiwaFriDriver::read_joint_torque(const std::array<double, 7> &joint_torque) {
-    std::copy(state_->current_torque_.begin(), state_->current_torque_.end(), std::inserter(joint_torque, joint_torque.begin()));
+void IiwaFriDriver::read_joint_torque(std::array<double, 7> &joint_torque) {
+    joint_torque = state_->current_torque_;
 }
 
-void IiwaFriDriver::read_external_joint_torque(const std::array<double, 7> &joint_torque) {
-    std::copy(state_->current_ext_torque_.begin(), state_->current_ext_torque_.end(), std::inserter(joint_torque, joint_torque.begin()));
+void IiwaFriDriver::read_external_joint_torque(std::array<double, 7> &joint_torque) {
+    joint_torque = state_->current_ext_torque_;
 }
 
-void IiwaFriDriver::write_joint_position(const std::array<double, 7> &joint_positions) {
-    std::copy(joint_positions.begin(), joint_positions.end(), std::inserter(state_->command_position_, state_->command_position_.begin()));
+void IiwaFriDriver::write_joint_position(std::array<double, 7> &joint_positions) {
+   state_->command_position_ = joint_positions;
 }
 
-void IiwaFriDriver::write_joint_torque(const std::array<double, 7> &joint_torque) {
-    std::copy(joint_torque.begin(), joint_torque.end(), std::inserter(state_->command_torque_, state_->command_torque_.begin()));
+void IiwaFriDriver::write_joint_torque(std::array<double, 7> &joint_torque) {
+    state_->command_torque_ = joint_torque;
 }
 
-void IiwaFriDriver::write_end_effector_wrench(const std::array<double, 6> &wrench) {
-    std::copy(wrench.begin(), wrench.end(), std::inserter(state_->command_wrench_, state_->command_wrench_.begin()));
+void IiwaFriDriver::write_end_effector_wrench(std::array<double, 6> &wrench) {
+    state_->command_wrench_ = wrench;
 }
 
 void IiwaFriDriver::run() {
+    rclcpp::Rate rate(500.0); // 500 hz maybe param this
     bool success = true;
     while (success)
     {
         success = app_->step();
+        rate.sleep();
     }
     app_->disconnect();
 
+}
+
+
+
+bool FakeIiwaFriDriver::initialise_connection() {
+    active_ = true;
+    run_thread_ = std::thread(&FakeIiwaFriDriver::run, this);
+
+//        //For setting the thread policy taken from
+
+    return true;
+}
+
+void FakeIiwaFriDriver::run() {
+    rclcpp::Rate rate(500.0); // 500 hz maybe param this
+    while (active_)
+    {
+        state_->current_position_ = state_->command_position_;
+        state_->current_torque_ = state_->command_torque_;
+
+        rate.sleep();
+    }
 }

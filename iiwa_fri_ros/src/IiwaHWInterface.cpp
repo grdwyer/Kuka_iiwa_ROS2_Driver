@@ -140,12 +140,16 @@ hardware_interface::return_type IiwaHWInterface::start()
     int robot_port = std::stoi(info_.hardware_parameters["robot_port"]);
 
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver...");
+    iiwa_driver_ = std::make_unique<FakeIiwaFriDriver>(robot_ip, robot_port);
+    status_ = iiwa_driver_->initialise_connection()? hardware_interface::status::STARTED : hardware_interface::status::UNKNOWN;
 
-    status_ = hardware_interface::status::STARTED;
-
-    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
-
-    return hardware_interface::return_type::OK;
+    if (status_ == hardware_interface::status::STARTED) {
+        RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
+        return hardware_interface::return_type::OK;
+    } else{
+        RCLCPP_ERROR(rclcpp::get_logger("IiwaHWInterface"), "System not initialised, unable to create a connection!");
+        return hardware_interface::return_type::ERROR;
+    }
 }
 
 hardware_interface::return_type IiwaHWInterface::stop()
@@ -166,19 +170,17 @@ hardware_interface::return_type IiwaHWInterface::stop()
 
 hardware_interface::return_type IiwaHWInterface::read()
 {
-    previous_position_ = current_position_;
-    // Get the current state from the state handle
-    fri_state_handle_->getCurrentState(current_position_, current_torque_);
-    for (int i = 0; i < 7; i++){
-//        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)duration.nsec/(double)10e-9;
-        current_velocity_[i] = (current_position_[i] - previous_position_[i])/(double)1.0/500.0;
-    }
-
-    return hardware_interface::return_type::ERROR;
+    iiwa_driver_->read_joint_position(current_position_);
+    iiwa_driver_->read_joint_velocity(current_velocity_);
+    iiwa_driver_->read_joint_torque(current_torque_);
+    iiwa_driver_->read_external_joint_torque(current_ext_torque_);
+    return hardware_interface::return_type::OK;
 }
 
 hardware_interface::return_type IiwaHWInterface::write()
 {
-    fri_state_handle_->setCommandedPosition(command_position_);
+    iiwa_driver_->write_joint_position(command_position_);
+//    iiwa_driver_->write_joint_torque(command_torque_);
+//    iiwa_driver_->write_joint_torque(command_wrench_);
     return hardware_interface::return_type::OK;
 }

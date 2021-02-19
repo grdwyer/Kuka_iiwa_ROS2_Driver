@@ -28,7 +28,7 @@ find_package(fri_client_sdk REQUIRED)
 find_package(controller_manager REQUIRED)
 
 include_directories(
-  include
+        include
         #${controller_manager_INCLUDE_DIRS}
 )
 
@@ -40,12 +40,16 @@ add_library(IiwaFriDriver
 ament_target_dependencies(IiwaFriDriver
         ${${PROJECT_NAME}_EXPORTED_TARGETS}
         fri_client_sdk
+        rclcpp
         )
 
 add_library(${PROJECT_NAME}
         SHARED
         src/IiwaHWInterface.cpp
         src/IiwaFRIInterface.cpp
+        )
+target_link_libraries(${PROJECT_NAME}
+        IiwaFriDriver
         )
 
 ament_target_dependencies(${PROJECT_NAME}
@@ -55,30 +59,16 @@ ament_target_dependencies(${PROJECT_NAME}
         rclcpp
         std_srvs
         fri_client_sdk
+
         )
 
 pluginlib_export_plugin_description_file(hardware_interface hardware_interface_plugin.xml)
-
-############################
-## iiwa_controller
-############################
-add_executable(iiwa_controller
-        src/IiwaController.cpp)
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(iiwa_controller
-        ${PROJECT_NAME}
-#        controller_manager
-        )
 
 # Installation
 install(
         TARGETS ${PROJECT_NAME}
         DESTINATION lib
 )
-install(TARGETS
-        iiwa_controller
-        DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY config launch
         DESTINATION share/${PROJECT_NAME}

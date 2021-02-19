@@ -25,6 +25,7 @@
 #include "hardware_interface/visibility_control.h"
 
 #include "iiwa_fri_ros/iiwa_state.h"
+#include <iiwa_fri_ros/iiwa_fri_driver.h>
 // ROS
 #include "rclcpp/macros.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -60,6 +61,7 @@ private:
     hardware_interface::HardwareInfo info_;
     hardware_interface::status status_;
     std::shared_ptr<IiwaState> fri_state_handle_;
+    std::unique_ptr<FakeIiwaFriDriver> iiwa_driver_;
 
     uint32_t runtime_state_;
     bool controllers_initialized_;

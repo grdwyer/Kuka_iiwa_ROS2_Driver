@@ -6,9 +6,10 @@
 #define IIWA_FRI_ROS_IIWAFRIINTERFACE_H
 
 #include <fri_client_sdk/friLBRClient.h>
-#include "iiwa_fri_ros/IiwaHWInterface.h"
+#include <iiwa_fri_ros/iiwa_state.h>
 #include <memory>
 #include <angles/angles.h>
+#include <rclcpp/rclcpp.hpp>
 #include <rclcpp/clock.hpp>
 
 

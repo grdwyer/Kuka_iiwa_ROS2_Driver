@@ -9,6 +9,8 @@
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
 #include <thread>
+#include <iterator>
+#include <rclcpp/rate.hpp>
 
 class IiwaFriDriver{
 public:
@@ -17,16 +19,16 @@ public:
 
     bool initialise_connection();
 
-    void read_joint_position(const std::array<double, 7> &joint_positions);
-    void read_joint_velocity(const std::array<double, 7> &joint_velocity);
-    void read_joint_torque(const std::array<double, 7> &joint_torque);
-    void read_external_joint_torque(const std::array<double, 7> &joint_torque);
+    void read_joint_position(std::array<double, 7> &joint_positions);
+    void read_joint_velocity(std::array<double, 7> &joint_velocity);
+    void read_joint_torque(std::array<double, 7> &joint_torque);
+    void read_external_joint_torque(std::array<double, 7> &joint_torque);
 
-    void write_joint_position(const std::array<double, 7> &joint_positions);
-    void write_joint_torque(const std::array<double, 7> &joint_torque);
-    void write_end_effector_wrench(const std::array<double, 6> &wrench);
+    void write_joint_position(std::array<double, 7> &joint_positions);
+    void write_joint_torque(std::array<double, 7> &joint_torque);
+    void write_end_effector_wrench(std::array<double, 6> &wrench);
 
-private:
+protected:
     void run();
 
     KUKA::FRI::UdpConnection connection_;
@@ -39,6 +41,15 @@ private:
 
     std::thread run_thread_;
 
+};
+
+class FakeIiwaFriDriver : public IiwaFriDriver {
+public:
+    FakeIiwaFriDriver(const std::string& robot_ip, int robot_port);
+    bool initialise_connection();
+    void run();
+
+    bool active_;
 
 };
 

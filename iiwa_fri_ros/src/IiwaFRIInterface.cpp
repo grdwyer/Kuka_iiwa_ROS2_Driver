@@ -138,7 +138,7 @@ void IiwaFRIInterface::command() {
         } else if (mode == KUKA::FRI::EClientCommandMode::WRENCH) {
             // Take current commanded values
             KUKA::FRI::LBRClient::command();
-            robotCommand().setJointPosition(iiwa_state_->command_wrench_.data());
+            robotCommand().setWrench(iiwa_state_->command_wrench_.data());
         }
     }
     else{

@@ -1,15 +1,20 @@
-#iiwa:
-  # Publish all joint states -----------------------------------
-  joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 500  
-  
-  # Trajectory Controllers ---------------------------------------
-  #   
-  # Forward Position Controllers ---------------------------------------
-  PositionJointInterface_trajectory_controller:
-    type: position_controllers/JointTrajectoryController
-    joints: 
+controller_manager:
+  ros__parameters:
+    update_rate: 500  # Hz
+
+    forward_command_controller_position:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+
+    iiwa_joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+iiwa_joint_trajectory_controller:
+  ros__parameters:
+    joints:
       - iiwa_joint_1
       - iiwa_joint_2
       - iiwa_joint_3
@@ -17,10 +22,23 @@
       - iiwa_joint_5
       - iiwa_joint_6
       - iiwa_joint_7
-
+    state_publish_rate: 100.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
     constraints:
-      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.0
+      goal_time: 0.0
 
-    state_publish_rate:  500            # Override default
-    action_monitor_rate: 500            # Override default
-    stop_trajectory_duration: 0        # Override default
+
+forward_command_controller_position:
+  ros__parameters:
+    joints:
+      - iiwa_joint_1
+      - iiwa_joint_2
+      - iiwa_joint_3
+      - iiwa_joint_4
+      - iiwa_joint_5
+      - iiwa_joint_6
+      - iiwa_joint_7
+    interface_name: position
+

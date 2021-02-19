@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     python3-rosdep \
     python3-setuptools \
     python3-vcstool \
+    ros-foxy-xacro \
     wget \
     ros-$ROSDISTRO-rqt \
     ros-$ROSDISTRO-rviz2 \
