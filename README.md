@@ -1,5 +1,6 @@
 # Kuka iiwa ROS2 Driver
 Collection of packages to run the KUKA iiwa robot arms using the fast robot interface in ROS2.
+Mostly a port of the iiwa_fri_stack for ROS1 made a few years ago, using the [UR driver](https://github.com/PickNikRobotics/Universal_Robots_ROS2_Driver) to structure the package and understand the ros2 changes.
 
 ## Installation (quick version)
   1. Clone the repository into your catkin workspace
