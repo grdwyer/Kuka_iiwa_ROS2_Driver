@@ -33,8 +33,9 @@ include_directories(
 )
 
 add_library(IiwaFriDriver
-        SHARED
+        STATIC
         src/iiwa_fri_driver.cpp
+        src/IiwaFRIInterface.cpp
         )
 
 ament_target_dependencies(IiwaFriDriver
@@ -46,7 +47,6 @@ ament_target_dependencies(IiwaFriDriver
 add_library(${PROJECT_NAME}
         SHARED
         src/IiwaHWInterface.cpp
-        src/IiwaFRIInterface.cpp
         )
 target_link_libraries(${PROJECT_NAME}
         IiwaFriDriver
@@ -64,10 +64,24 @@ ament_target_dependencies(${PROJECT_NAME}
 
 pluginlib_export_plugin_description_file(hardware_interface hardware_interface_plugin.xml)
 
+
 # Installation
 install(
         TARGETS ${PROJECT_NAME}
         DESTINATION lib
+)
+
+install(
+        DIRECTORY include/
+        DESTINATION include
+)
+
+ament_export_include_directories(
+        include
+)
+ament_export_libraries(
+        ${PROJECT_NAME}
+        IiwaFriDriver
 )
 
 install(DIRECTORY config launch

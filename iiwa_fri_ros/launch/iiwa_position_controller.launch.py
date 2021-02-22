@@ -29,14 +29,14 @@ def generate_launch_description():
     # Get URDF via xacro
     robot_description_path = os.path.join(get_package_share_directory('iiwa_fri_ros'), 'config', 'load_iiwa.xacro')
 
-    robot_description_config = xacro.process_file(robot_description_path,
-                                                  mappings={'use_ros2_control': str(use_ros2_control).lower(),
-                                                            'robot_ip': '192.170.10.2',
-                                                            'robot_port': '30200'}
+    robot_description_config = xacro.process_file(robot_description_path
+                                                  # , mappings={'use_ros2_control': str(use_ros2_control).lower(),
+                                                  #           'robot_ip': '192.170.10.2',
+                                                  #           'robot_port': '30200'}
                                                   )
 
     robot_description = {'robot_description': robot_description_config.toxml()}
-
+    print(robot_description)
 
     iiwa_controller = os.path.join(
         get_package_share_directory('iiwa_fri_ros'),
@@ -60,13 +60,13 @@ def generate_launch_description():
     )
 
     # # RViz
-    # rviz_config_file = get_package_share_directory(
-    #     'ur_ros2_control_demos') + "/config/rviz/config.rviz"
+    rviz_config_file = get_package_share_directory(
+        'iiwa_fri_ros') + "/config/display.rviz"
     rviz_node = Node(package='rviz2',
                      executable='rviz2',
                      name='rviz2',
                      output='log',
-                     # arguments=['-d', rviz_config_file],
+                     arguments=['-d', rviz_config_file],
                      parameters=[robot_description]
                      )
 
@@ -77,7 +77,7 @@ def generate_launch_description():
         output={
             'stdout': 'screen',
             'stderr': 'screen',
-        },
+        }
     )
 
     return LaunchDescription([ros2_control_node, rviz_node, robot_state_pub_node, static_tf])

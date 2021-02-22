@@ -8,6 +8,7 @@
 
 hardware_interface::return_type IiwaHWInterface::configure(const hardware_interface::HardwareInfo& system_info)
 {
+    clock_ = rclcpp::Clock(RCL_STEADY_TIME);
     info_ = system_info;
 
     // initialize
@@ -22,10 +23,10 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
 
     for (const hardware_interface::ComponentInfo& joint : info_.joints)
     {
-        if (joint.command_interfaces.size() != 2)
+        if (joint.command_interfaces.size() != 1)
         {
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
-                         "Joint '%s' has %d command interfaces found. 2 expected.", joint.name.c_str(),
+                         "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
                          joint.command_interfaces.size());
             return hardware_interface::return_type::ERROR;
         }
@@ -38,13 +39,13 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             return hardware_interface::return_type::ERROR;
         }
 
-        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
-        {
-            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
-                         "Joint '%s' have %s command interfaces found as second command interface. '%s' expected.",
-                         joint.name.c_str(), joint.command_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
-            return hardware_interface::return_type::ERROR;
-        }
+//        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
+//        {
+//            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+//                         "Joint '%s' have %s command interfaces found as second command interface. '%s' expected.",
+//                         joint.name.c_str(), joint.command_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
+//            return hardware_interface::return_type::ERROR;
+//        }
 
         if (joint.state_interfaces.size() != 3)
         {
@@ -85,9 +86,11 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
 
 std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_interfaces()
 {
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Setting up state interfaces");
     std::vector<hardware_interface::StateInterface> state_interfaces;
     for (size_t i = 0; i < info_.joints.size(); ++i)
     {
+        RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Setting joint: " << info_.joints[i].name << " at index " << i);
         state_interfaces.emplace_back(hardware_interface::StateInterface(
                 info_.joints[i].name, hardware_interface::HW_IF_POSITION, &current_position_[i]));
 
@@ -113,9 +116,11 @@ std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_in
 
 std::vector<hardware_interface::CommandInterface> IiwaHWInterface::export_command_interfaces()
 {
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Setting up command interfaces");
     std::vector<hardware_interface::CommandInterface> command_interfaces;
     for (size_t i = 0; i < info_.joints.size(); ++i)
     {
+        RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Setting joint: " << info_.joints[i].name << " at index " << i);
         command_interfaces.emplace_back(hardware_interface::CommandInterface(
                 info_.joints[i].name, hardware_interface::HW_IF_POSITION, &command_position_[i]));
 
@@ -139,8 +144,9 @@ hardware_interface::return_type IiwaHWInterface::start()
     std::string robot_ip = info_.hardware_parameters["robot_ip"];
     int robot_port = std::stoi(info_.hardware_parameters["robot_port"]);
 
-    RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver...");
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver using: \n\tIP: " << robot_ip << "\n\tPort: " << robot_port);
     iiwa_driver_ = std::make_unique<FakeIiwaFriDriver>(robot_ip, robot_port);
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "instantiated driver");
     status_ = iiwa_driver_->initialise_connection()? hardware_interface::status::STARTED : hardware_interface::status::UNKNOWN;
 
     if (status_ == hardware_interface::status::STARTED) {
@@ -170,6 +176,7 @@ hardware_interface::return_type IiwaHWInterface::stop()
 
 hardware_interface::return_type IiwaHWInterface::read()
 {
+    RCLCPP_DEBUG_STREAM_THROTTLE(rclcpp::get_logger("IiwaHWInterface"), clock_, 1e3, "Reading from driver");
     iiwa_driver_->read_joint_position(current_position_);
     iiwa_driver_->read_joint_velocity(current_velocity_);
     iiwa_driver_->read_joint_torque(current_torque_);
@@ -179,6 +186,7 @@ hardware_interface::return_type IiwaHWInterface::read()
 
 hardware_interface::return_type IiwaHWInterface::write()
 {
+    RCLCPP_DEBUG_STREAM_THROTTLE(rclcpp::get_logger("IiwaHWInterface"), clock_, 1e3, "Writing to driver");
     iiwa_driver_->write_joint_position(command_position_);
 //    iiwa_driver_->write_joint_torque(command_torque_);
 //    iiwa_driver_->write_joint_torque(command_wrench_);

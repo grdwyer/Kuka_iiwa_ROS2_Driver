@@ -1,6 +1,6 @@
-<library path="iiwa_fri_driver_plugin">
-  <class name="iiwa_fri_driver/IiwaPositionHardwareInterface"
-         type="iiwa_fri_driver::IiwaPositionHardwareInterface"
+<library path="iiwa_fri_ros">
+  <class name="iiwa_fri_ros/IiwaHWInterface"
+         type="IiwaHWInterface"
          base_class_type="hardware_interface::SystemInterface">
     <description>
 		ROS2 Control System Driver for kuka iiwa series robots using the fast robot interface

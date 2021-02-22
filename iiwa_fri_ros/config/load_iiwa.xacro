@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa">
     <xacro:include filename="$(find iiwa_fri_description)/urdf/iiwa14.xacro"/>
 
     <!-- parameters -->
@@ -7,7 +7,7 @@
 
     <!-- arm -->
     <xacro:iiwa14
-            name="$(arg name)"
-            hardware_interface=""
+            robot_name="$(arg name)"
+            hardware_interface="PositionJointInterface"
             />
 </robot>

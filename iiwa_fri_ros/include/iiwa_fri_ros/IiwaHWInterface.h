@@ -29,7 +29,7 @@
 // ROS
 #include "rclcpp/macros.hpp"
 #include "rclcpp/rclcpp.hpp"
-
+#include <rclcpp/clock.hpp>
 
 
 class IiwaHWInterface : public hardware_interface::SystemInterface{
@@ -62,6 +62,8 @@ private:
     hardware_interface::status status_;
     std::shared_ptr<IiwaState> fri_state_handle_;
     std::unique_ptr<FakeIiwaFriDriver> iiwa_driver_;
+
+    rclcpp::Clock clock_;
 
     uint32_t runtime_state_;
     bool controllers_initialized_;

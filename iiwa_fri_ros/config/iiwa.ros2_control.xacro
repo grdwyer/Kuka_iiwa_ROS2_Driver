@@ -6,7 +6,7 @@
 
         <ros2_control name="${name}" type="system">
             <hardware>
-                <plugin>iiwa_fri_driver/IiwaPositionHardwareInterface</plugin>
+                <plugin>iiwa_fri_ros/IiwaHWInterface</plugin>
                 <param name="robot_ip">${robot_ip}</param>
                 <param name="robot_port">${robot_port}</param>
             </hardware>

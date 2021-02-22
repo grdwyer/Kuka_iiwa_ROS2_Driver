@@ -71,7 +71,14 @@ void IiwaFriDriver::run() {
 
 }
 
+FakeIiwaFriDriver::FakeIiwaFriDriver(const std::string &robot_ip, int robot_port) : IiwaFriDriver(robot_ip,
+                                                                                                  robot_port) {
+    state_ = std::make_shared<IiwaState>();
 
+    robot_hostname_ = robot_ip;
+    robot_port_ = robot_port;
+
+}
 
 bool FakeIiwaFriDriver::initialise_connection() {
     active_ = true;
@@ -92,3 +99,5 @@ void FakeIiwaFriDriver::run() {
         rate.sleep();
     }
 }
+
+
