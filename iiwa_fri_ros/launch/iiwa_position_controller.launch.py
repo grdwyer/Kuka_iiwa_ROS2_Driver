@@ -2,7 +2,7 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 
-from launch import LaunchDescription
+from launch import LaunchDescriptionq
 from launch_ros.actions import Node
 
 import xacro
@@ -22,9 +22,6 @@ def load_file(package_name, file_path):
 def generate_launch_description():
 
     ld = LaunchDescription()
-
-    use_ros2_control = True
-
 
     # Get URDF via xacro
     robot_description_path = os.path.join(get_package_share_directory('iiwa_fri_ros'), 'config', 'load_iiwa.xacro')
@@ -49,7 +46,8 @@ def generate_launch_description():
                      executable='static_transform_publisher',
                      name='static_transform_publisher',
                      output='log',
-                     arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'world', 'iiwa_link_0'])
+                     arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'world', 'iiwa_link_0']
+                     )
 
     # Publishes tf's for the robot
     robot_state_pub_node = Node(
@@ -80,4 +78,4 @@ def generate_launch_description():
         }
     )
 
-    return LaunchDescription([ros2_control_node, rviz_node, robot_state_pub_node, static_tf])
+    return LaunchDescription([ros2_control_node, robot_state_pub_node])

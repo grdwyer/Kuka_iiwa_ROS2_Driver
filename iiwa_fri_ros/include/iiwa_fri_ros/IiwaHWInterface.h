@@ -61,7 +61,7 @@ private:
     hardware_interface::HardwareInfo info_;
     hardware_interface::status status_;
     std::shared_ptr<IiwaState> fri_state_handle_;
-    std::unique_ptr<FakeIiwaFriDriver> iiwa_driver_;
+    std::unique_ptr<IiwaFriDriver> iiwa_driver_;
 
     rclcpp::Clock clock_;
 

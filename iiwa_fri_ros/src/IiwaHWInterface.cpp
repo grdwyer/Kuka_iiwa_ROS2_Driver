@@ -145,7 +145,7 @@ hardware_interface::return_type IiwaHWInterface::start()
     int robot_port = std::stoi(info_.hardware_parameters["robot_port"]);
 
     RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver using: \n\tIP: " << robot_ip << "\n\tPort: " << robot_port);
-    iiwa_driver_ = std::make_unique<FakeIiwaFriDriver>(robot_ip, robot_port);
+    iiwa_driver_ = std::make_unique<IiwaFriDriver>(robot_ip, robot_port);
     RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "instantiated driver");
     status_ = iiwa_driver_->initialise_connection()? hardware_interface::status::STARTED : hardware_interface::status::UNKNOWN;
 
