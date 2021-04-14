@@ -151,6 +151,12 @@ hardware_interface::return_type IiwaHWInterface::start()
 
     if (status_ == hardware_interface::status::STARTED) {
         RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
+        rclcpp::Rate rate(500.0);
+        for(int i = 0; i < 100; i++){
+            read();
+            rate.sleep();
+        }
+        std::copy(current_position_.begin(), current_position_.end(), command_position_.begin());
         return hardware_interface::return_type::OK;
     } else{
         RCLCPP_ERROR(rclcpp::get_logger("IiwaHWInterface"), "System not initialised, unable to create a connection!");

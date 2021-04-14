@@ -40,6 +40,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                 << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
                                 << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
                                 << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
+            std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
             break;
         }
 
@@ -61,6 +62,7 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
                                     << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
+            std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
             break;
         }
 
@@ -82,11 +84,13 @@ void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FR
                                     << angles::to_degrees(iiwa_state_->current_position_[4]) << ", "
                                     << angles::to_degrees(iiwa_state_->current_position_[5]) << ", "
                                     << angles::to_degrees(iiwa_state_->current_position_[6]) << std::endl);
+            std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
             break;
         }
 
         case KUKA::FRI::COMMANDING_ACTIVE:
         {
+            std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
             RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Entering commanding active state\nLast commanded position: "
                                     << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
                                     << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
@@ -142,7 +146,7 @@ void IiwaFRIInterface::command() {
         }
     }
     else{
-        RCLCPP_DEBUG_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Values not inited  \n"); //TODO: Change this to throttle
+        RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("IiwaHWInterface"), "Values not inited  \n"); //TODO: Change this to throttle
 
         waitForCommand();
 
@@ -157,11 +161,12 @@ void IiwaFRIInterface::command() {
 void IiwaFRIInterface::monitor() {
     update_state();
     //Copy current position as comanded postiion
-    auto current_pos = robotState().getMeasuredJointPosition();
-
-    for (int i = 0; i < 7; i++) {
-        iiwa_state_->command_position_[i] = current_pos[i];
-    }
+//    auto current_pos = robotState().getMeasuredJointPosition();
+//
+//    for (int i = 0; i < 7; i++) {
+//        iiwa_state_->command_position_[i] = current_pos[i];
+//    }
+    std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
     KUKA::FRI::LBRClient::monitor();
 
 }
@@ -188,11 +193,12 @@ void IiwaFRIInterface::update_state() {
 
 void IiwaFRIInterface::waitForCommand() {
     update_state();
-    auto current_pos = robotState().getMeasuredJointPosition();
+//    auto current_pos = robotState().getMeasuredJointPosition();
 
-    for (int i = 0; i < 7; i++) {
-        iiwa_state_->command_position_[i] = current_pos[i];
-    }
+    std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
+//    for (int i = 0; i < 7; i++) {
+//        iiwa_state_->command_position_[i] = current_pos[i];
+//    }
 
     KUKA::FRI::LBRClient::waitForCommand();
 }

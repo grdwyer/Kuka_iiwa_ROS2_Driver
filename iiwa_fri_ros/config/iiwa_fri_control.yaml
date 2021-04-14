@@ -11,6 +11,10 @@ controller_manager:
     iiwa_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+joint_state_controller:
+  ros__parameters:
+    type:         joint_state_controller/JointStateController
+    publish_rate: 500
 
 iiwa_arm_controller:
   ros__parameters:
