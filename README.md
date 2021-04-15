@@ -40,7 +40,7 @@ docker run -it \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    iiwa_fri_stack:latest
+    iiwa_fri_driver:latest
 ```
 The container needs to be privileged to run as it needs access to the USB, the user added also needs to be in dialout and sudo.
 This should be logging your host user in the container, mounting your home directory within the image and other things like x server info and sudo access.  

@@ -8,10 +8,15 @@
 #include <fri_client_sdk/friLBRClient.h>
 #include <iiwa_fri_ros/iiwa_state.h>
 #include <memory>
-#include <angles/angles.h>
+//#include <angles/angles.h>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp/clock.hpp>
 
+namespace angles {
+    inline double to_degrees(double radians) {
+        return radians * 180.0 / M_PI;
+    }
+}
 
 class IiwaFRIInterface : public KUKA::FRI::LBRClient{
 public:

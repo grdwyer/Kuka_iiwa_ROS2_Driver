@@ -9,7 +9,6 @@
 #include <builtin_interfaces/msg/duration.h>
 #include <urdf/model.h>
 #include <sensor_msgs/msg/joint_state.h>
-#include <angles/angles.h>
 
 // System
 #include <memory>
