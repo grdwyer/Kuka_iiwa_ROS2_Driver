@@ -5,7 +5,7 @@
 #ifndef IIWA_FRI_ROS_IIWA_FRI_DRIVER_H
 #define IIWA_FRI_ROS_IIWA_FRI_DRIVER_H
 
-#include <iiwa_fri_ros/IiwaFRIInterface.h>
+#include <iiwa_fri_ros/iiwa_fri_interface.h>
 #include <fri_client_sdk/friUdpConnection.h>
 #include <fri_client_sdk/friClientApplication.h>
 #include <thread>

@@ -2,7 +2,7 @@
 // Created by george on 21/09/17.
 //
 
-#include "iiwa_fri_ros/IiwaFRIInterface.h"
+#include "iiwa_fri_ros/iiwa_fri_interface.h"
 
 #include <utility>
 

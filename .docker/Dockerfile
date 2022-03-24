@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     ros-$ROSDISTRO-rqt \
     ros-$ROSDISTRO-rviz2 \
+    ros-$ROSDISTRO-ros2-control \
+    ros-$ROSDISTRO-ros2-controllers \
     ros-$ROSDISTRO-angles
 
 RUN mkdir -p /dev_ws/src
@@ -30,6 +32,5 @@ COPY . /dev_ws/src/iiwa_fri_stack
 
 WORKDIR /dev_ws/
 RUN ["/bin/bash", "-c", "source /opt/ros/$ROSDISTRO/setup.bash &&\
-    vcs import src < ./src/iiwa_fri_stack/iiwa_fri_ros/ros2_control.rosinstall &&\
-    vcs pull src || true &&\
-    colcon build --symlink-install --continue-on-error --cmake-args -Wno-dev || true"]
+    git clone -b foxy https://github.com/grdwyer/iiwa_fri_description.git src/iiwa_fri_description && \
+    colcon build --symlink-install --cmake-args -Wno-dev"]

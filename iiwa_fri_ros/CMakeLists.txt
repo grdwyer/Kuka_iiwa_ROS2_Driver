@@ -35,7 +35,7 @@ include_directories(
 add_library(IiwaFriDriver
         STATIC
         src/iiwa_fri_driver.cpp
-        src/IiwaFRIInterface.cpp
+        src/iiwa_fri_interface.cpp
         )
 
 ament_target_dependencies(IiwaFriDriver
@@ -46,7 +46,7 @@ ament_target_dependencies(IiwaFriDriver
 
 add_library(${PROJECT_NAME}
         SHARED
-        src/IiwaHWInterface.cpp
+        src/iiwa_hw_interface.cpp
         )
 target_link_libraries(${PROJECT_NAME}
         IiwaFriDriver

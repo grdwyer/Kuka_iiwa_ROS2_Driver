@@ -6,8 +6,5 @@
     <xacro:arg name="name" default="iiwa"/>
 
     <!-- arm -->
-    <xacro:iiwa14
-            robot_name="$(arg name)"
-            hardware_interface="PositionJointInterface"
-            />
+    <xacro:iiwa14 robot_name="$(arg name)" hardware_interface="PositionJointInterface"/>
 </robot>

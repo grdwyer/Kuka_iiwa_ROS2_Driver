@@ -2,7 +2,7 @@
 // Created by george on 21/09/17.
 //
 
-#include "iiwa_fri_ros/IiwaHWInterface.h"
+#include "iiwa_fri_ros/iiwa_hw_interface.h"
 #include <hardware_interface/types/hardware_interface_type_values.hpp>
 
 

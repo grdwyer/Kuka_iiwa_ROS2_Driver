@@ -1,16 +1,28 @@
 # Kuka iiwa ROS2 Driver
 Collection of packages to run the KUKA iiwa robot arms using the fast robot interface in ROS2.
 Mostly a port of the iiwa_fri_stack for ROS1 made a few years ago, using the [UR driver](https://github.com/PickNikRobotics/Universal_Robots_ROS2_Driver) to structure the package and understand the ros2 changes.
-
+  
+The hardware interface currently only provides a position command interface but the state provides position, velocity and effort (measured torque on each joint).
 ## Installation (quick version)
-  1. Clone the repository into your catkin workspace
+  1. Clone the repository into your workspace
   2. Copy the contents of the iiwa_fri_java package into the src folder of your sunrise project (this will copy the RoboticsAPI.data.xml file so if you have changed the default one you will need to merge it with your file).
   3. Install the fast robot interface in the sunrise project, configure the KONI ip address and synchronise with the robot controller
-  4. Build the catkin workspace
+  4. Build the workspace
   
-## KUKA IP setup
-FRI Client IP needs to be the same subnet as ubuntu ethernet connection
-IP in hardware launch file need to be the same as FRI IP set up in sunrise
+## KUKA Networking Setup
+The KONI connection on the kuka controller must be accessible from the computer running ros_control, check with ping (controller sends duplicates back that is ok).  
+On the SmartPad in Process Data set the FRI Client IP to the address of the computer running ros_control and set the FRI Port to an unused port between 30200 and 30209.
+In the launch file where the xacro file is processed set the robot_ip argument to the ip at the KONI connection and set the robot_port to the same value as on the SmartPad.  
+An example of this can be found in the [example xacro](https://github.com/grdwyer/Kuka_iiwa_ROS2_Driver/blob/foxy/iiwa_fri_ros/config/load_iiwa.xacro#L42) line 42-53.  
+
+## Running the example
+A launch file and required configuration files are provided in `iiwa_fri_ros` to launch the hardware interface, controllers, a robot state publisher and rviz.  
+To run you will need the [iiwa_fri_description](https://github.com/grdwyer/iiwa_fri_description.git) on the foxy branch.  
+`git clone -b foxy https://github.com/grdwyer/iiwa_fri_description.git`  
+
+Modify the load_iiwa.xacro to have your ip and port configuration.  
+Build your workspace (you'll need to have ros2 control and rviz2 installed)  
+`ros2 launch iiwa_fri_ros iiwa_position_controller.launch.py`
 
 ## Docker
 ### Build
@@ -42,12 +54,7 @@ docker run -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     iiwa_fri_driver:latest
 ```
-The container needs to be privileged to run as it needs access to the USB, the user added also needs to be in dialout and sudo.
 This should be logging your host user in the container, mounting your home directory within the image and other things like x server info and sudo access.  
-The other perk of this is your ssh keys are hopefully in `~/.ssh` so you can then push your changes. 
-
-if you are going to use this container for a while then give it name with: `--name iiwa_fri_stack_dev`
-
-Lastly the repo has been added in the docker process and is owned by root so the user id you've added won't be able to use it.
-Change ownership to the user with 
+The repo has been added in the docker process and is owned by root so the user id you've added won't be able to use it.
+Change ownership of the workspace to the user with:  
 `sudo chown -R $UID /dev_ws/`
