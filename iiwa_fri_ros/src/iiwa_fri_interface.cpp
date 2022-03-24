@@ -19,7 +19,6 @@ IiwaFRIInterface::~IiwaFRIInterface() {
 void IiwaFRIInterface::onStateChange(KUKA::FRI::ESessionState oldState, KUKA::FRI::ESessionState newState) {
     KUKA::FRI::LBRClient::onStateChange(oldState, newState);
 
-
     //TODO: Set as publisher to inform network of state change
     switch (newState){
         case KUKA::FRI::MONITORING_WAIT:
@@ -160,12 +159,6 @@ void IiwaFRIInterface::command() {
 
 void IiwaFRIInterface::monitor() {
     update_state();
-    //Copy current position as comanded postiion
-//    auto current_pos = robotState().getMeasuredJointPosition();
-//
-//    for (int i = 0; i < 7; i++) {
-//        iiwa_state_->command_position_[i] = current_pos[i];
-//    }
     std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
     KUKA::FRI::LBRClient::monitor();
 
@@ -193,12 +186,6 @@ void IiwaFRIInterface::update_state() {
 
 void IiwaFRIInterface::waitForCommand() {
     update_state();
-//    auto current_pos = robotState().getMeasuredJointPosition();
-
     std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
-//    for (int i = 0; i < 7; i++) {
-//        iiwa_state_->command_position_[i] = current_pos[i];
-//    }
-
     KUKA::FRI::LBRClient::waitForCommand();
 }

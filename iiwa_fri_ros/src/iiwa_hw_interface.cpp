@@ -18,15 +18,16 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
     current_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     current_ext_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     command_position_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    command_torque_ = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
     controllers_initialized_ = false;
 
     for (const hardware_interface::ComponentInfo& joint : info_.joints)
     {
-        if (joint.command_interfaces.size() != 1)
+        if (joint.command_interfaces.size() != 2)
         {
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
-                         "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
+                         "Joint '%s' has %d command interfaces found. 2 expected.", joint.name.c_str(),
                          joint.command_interfaces.size());
             return hardware_interface::return_type::ERROR;
         }
@@ -39,13 +40,13 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             return hardware_interface::return_type::ERROR;
         }
 
-//        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
-//        {
-//            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
-//                         "Joint '%s' have %s command interfaces found as second command interface. '%s' expected.",
-//                         joint.name.c_str(), joint.command_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
-//            return hardware_interface::return_type::ERROR;
-//        }
+        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_EFFORT)
+        {
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
+                         "Joint '%s' have %s command interfaces found as second command interface. '%s' expected.",
+                         joint.name.c_str(), joint.command_interfaces[1].name.c_str(), hardware_interface::HW_IF_EFFORT);
+            return hardware_interface::return_type::ERROR;
+        }
 
         if (joint.state_interfaces.size() != 3)
         {
@@ -101,7 +102,6 @@ std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_in
                 info_.joints[i].name, hardware_interface::HW_IF_EFFORT, &current_torque_[i]));
     }
 
-
     for (auto& sensor : info_.sensors)
     {
         for (uint j = 0; j < sensor.state_interfaces.size(); ++j)
@@ -110,7 +110,6 @@ std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_in
                                                                              &current_ext_torque_[j]));
         }
     }
-
     return state_interfaces;
 }
 
@@ -124,9 +123,8 @@ std::vector<hardware_interface::CommandInterface> IiwaHWInterface::export_comman
         command_interfaces.emplace_back(hardware_interface::CommandInterface(
                 info_.joints[i].name, hardware_interface::HW_IF_POSITION, &command_position_[i]));
 
-        // TODO: replace with an effort interface and possibly wrench in the future
-//        command_interfaces.emplace_back(hardware_interface::CommandInterface(
-//                info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &urcl_velocity_commands_[i]));
+        command_interfaces.emplace_back(hardware_interface::CommandInterface(
+                info_.joints[i].name, hardware_interface::HW_IF_EFFORT, &command_torque_[i]));
     }
 
     return command_interfaces;
@@ -194,7 +192,7 @@ hardware_interface::return_type IiwaHWInterface::write()
 {
     RCLCPP_DEBUG_STREAM_THROTTLE(rclcpp::get_logger("IiwaHWInterface"), clock_, 1e3, "Writing to driver");
     iiwa_driver_->write_joint_position(command_position_);
-//    iiwa_driver_->write_joint_torque(command_torque_);
+    iiwa_driver_->write_joint_torque(command_torque_);
 //    iiwa_driver_->write_joint_torque(command_wrench_);
     return hardware_interface::return_type::OK;
 }

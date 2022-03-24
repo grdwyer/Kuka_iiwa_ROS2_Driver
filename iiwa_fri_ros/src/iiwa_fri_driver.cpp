@@ -71,33 +71,4 @@ void IiwaFriDriver::run() {
 
 }
 
-FakeIiwaFriDriver::FakeIiwaFriDriver(const std::string &robot_ip, int robot_port) : IiwaFriDriver(robot_ip,
-                                                                                                  robot_port) {
-    state_ = std::make_shared<IiwaState>();
-
-    robot_hostname_ = robot_ip;
-    robot_port_ = robot_port;
-
-}
-
-bool FakeIiwaFriDriver::initialise_connection() {
-    active_ = true;
-    run_thread_ = std::thread(&FakeIiwaFriDriver::run, this);
-
-//        //For setting the thread policy taken from
-
-    return true;
-}
-
-void FakeIiwaFriDriver::run() {
-    rclcpp::Rate rate(500.0); // 500 hz maybe param this
-    while (active_)
-    {
-        state_->current_position_ = state_->command_position_;
-        state_->current_torque_ = state_->command_torque_;
-
-        rate.sleep();
-    }
-}
-
 

@@ -43,15 +43,4 @@ protected:
 
 };
 
-class FakeIiwaFriDriver : public IiwaFriDriver {
-public:
-    FakeIiwaFriDriver(const std::string& robot_ip, int robot_port);
-    bool initialise_connection();
-    void run();
-
-    bool active_;
-
-};
-
-
 #endif //IIWA_FRI_ROS_IIWA_FRI_DRIVER_H

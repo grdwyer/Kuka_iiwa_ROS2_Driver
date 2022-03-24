@@ -69,7 +69,7 @@ private:
     bool position_interface_in_use_;
 
     std::array<double, 7> current_position_, previous_position_, current_velocity_, current_torque_, current_ext_torque_;
-    std::array<double, 7> command_position_;
+    std::array<double, 7> command_position_, command_torque_;
     std::vector<std::string> joint_names_;
 
 };
