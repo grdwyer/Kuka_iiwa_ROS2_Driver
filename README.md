@@ -3,7 +3,7 @@ Collection of packages to run the KUKA iiwa robot arms using the fast robot inte
 Mostly a port of the iiwa_fri_stack for ROS1 made a few years ago, using the [UR driver](https://github.com/PickNikRobotics/Universal_Robots_ROS2_Driver) to structure the package and understand the ros2 changes.
   
 The hardware interface currently only provides a position command interface but the state provides position, velocity and effort (measured torque on each joint).
-## Installation (quick version)
+## Installation
   1. Clone the repository into your workspace
   2. Copy the contents of the iiwa_fri_java package into the src folder of your sunrise project (this will copy the RoboticsAPI.data.xml file so if you have changed the default one you will need to merge it with your file).
   3. Install the fast robot interface in the sunrise project, configure the KONI ip address and synchronise with the robot controller
@@ -23,6 +23,10 @@ To run you will need the [iiwa_fri_description](https://github.com/grdwyer/iiwa_
 Modify the load_iiwa.xacro to have your ip and port configuration.  
 Build your workspace (you'll need to have ros2 control and rviz2 installed)  
 `ros2 launch iiwa_fri_ros iiwa_position_controller.launch.py`
+
+**Note** this will not move the robot, rqt_joint_trajectory_controller does not seem to exist for ROS2 yet, the controller launched is a JointTrajectoryController.
+So you can make your own node to publish a JointTrajectory msg or load the forward_command_controller_position controller which takes a float array msg.  
+Alternatively set it up with MoveIt2 and use the rviz moveit plugin.  
 
 ## Docker
 ### Build
@@ -45,14 +49,15 @@ docker run -it \
     --user=$(id -u $USER):$(id -g $USER) \
     --group-add sudo \
     --env="DISPLAY" \
-    --workdir="/dev_ws/src" \
+    --workdir="/dev_ws" \
     --volume="/home/$USER:/home/$USER" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    iiwa_fri_driver:latest
+    --net=host \
+    iiwa_fri_driver:foxy
 ```
 This should be logging your host user in the container, mounting your home directory within the image and other things like x server info and sudo access.  
 The repo has been added in the docker process and is owned by root so the user id you've added won't be able to use it.
