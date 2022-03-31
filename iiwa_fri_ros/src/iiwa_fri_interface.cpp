@@ -136,6 +136,14 @@ void IiwaFRIInterface::command() {
 //            KUKA::FRI::LBRClient::waitForCommand();
         } else if (mode == KUKA::FRI::EClientCommandMode::TORQUE) {
             // Take current commanded values
+            RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Commanded Torque: "
+                    << iiwa_state_->command_torque_[0] << ", "
+                    << iiwa_state_->command_torque_[1] << ", "
+                    << iiwa_state_->command_torque_[2] << ", "
+                    << iiwa_state_->command_torque_[3] << ", "
+                    << iiwa_state_->command_torque_[4] << ", "
+                    << iiwa_state_->command_torque_[5] << ", "
+                    << iiwa_state_->command_torque_[6] << std::endl);
             KUKA::FRI::LBRClient::command();
             robotCommand().setTorque(iiwa_state_->command_torque_.data());
         } else if (mode == KUKA::FRI::EClientCommandMode::WRENCH) {
@@ -187,5 +195,36 @@ void IiwaFRIInterface::update_state() {
 void IiwaFRIInterface::waitForCommand() {
     update_state();
     std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
+
     KUKA::FRI::LBRClient::waitForCommand();
+    auto mode = robotState().getClientCommandMode();
+
+    if (mode == KUKA::FRI::EClientCommandMode::POSITION) {
+        // Take current commanded values
+        RCLCPP_DEBUG_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Commanded Position: "
+                << angles::to_degrees(iiwa_state_->command_position_[0]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[1]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[2]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[3]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[4]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[5]) << ", "
+                << angles::to_degrees(iiwa_state_->command_position_[6]) << std::endl);
+
+        robotCommand().setJointPosition(iiwa_state_->command_position_.data());
+//            KUKA::FRI::LBRClient::waitForCommand();
+    } else if (mode == KUKA::FRI::EClientCommandMode::TORQUE) {
+        // Take current commanded values
+        RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"),"Commanded Torque: "
+                << iiwa_state_->command_torque_[0] << ", "
+                << iiwa_state_->command_torque_[1] << ", "
+                << iiwa_state_->command_torque_[2] << ", "
+                << iiwa_state_->command_torque_[3] << ", "
+                << iiwa_state_->command_torque_[4] << ", "
+                << iiwa_state_->command_torque_[5] << ", "
+                << iiwa_state_->command_torque_[6] << std::endl);
+        robotCommand().setTorque(iiwa_state_->command_torque_.data());
+    } else if (mode == KUKA::FRI::EClientCommandMode::WRENCH) {
+        // Take current commanded values
+        robotCommand().setWrench(iiwa_state_->command_wrench_.data());
+    }
 }
