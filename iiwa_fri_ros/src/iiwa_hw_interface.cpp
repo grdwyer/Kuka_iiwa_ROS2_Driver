@@ -5,9 +5,14 @@
 #include "iiwa_fri_ros/iiwa_hw_interface.h"
 #include <hardware_interface/types/hardware_interface_type_values.hpp>
 
+using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 
-hardware_interface::return_type IiwaHWInterface::configure(const hardware_interface::HardwareInfo& system_info)
+CallbackReturn IiwaHWInterface::on_init(const hardware_interface::HardwareInfo &system_info)
 {
+    if (hardware_interface::SystemInterface::on_init(system_info) != CallbackReturn::SUCCESS)
+    {
+        return CallbackReturn::ERROR;
+    }
     clock_ = rclcpp::Clock(RCL_STEADY_TIME);
     info_ = system_info;
 
@@ -28,7 +33,7 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
                          "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
                          joint.command_interfaces.size());
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
 
         if (joint.command_interfaces[0].name != hardware_interface::HW_IF_POSITION)
@@ -36,7 +41,7 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
                          "Joint '%s' have %s command interfaces found as first command interface. '%s' expected.",
                          joint.name.c_str(), joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
 
 //        if (joint.command_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
@@ -51,7 +56,7 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
         {
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"), "Joint '%s' has %d state interface. 3 expected.",
                          joint.name.c_str(), joint.state_interfaces.size());
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
 
         if (joint.state_interfaces[0].name != hardware_interface::HW_IF_POSITION)
@@ -59,7 +64,7 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
                          "Joint '%s' have %s state interface as first state interface. '%s' expected.", joint.name.c_str(),
                          joint.state_interfaces[0].name.c_str(), hardware_interface::HW_IF_POSITION);
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
 
         if (joint.state_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
@@ -67,7 +72,7 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
                          "Joint '%s' have %s state interface as second state interface. '%s' expected.", joint.name.c_str(),
                          joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_POSITION);
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
 
         if (joint.state_interfaces[2].name != hardware_interface::HW_IF_EFFORT)
@@ -75,13 +80,11 @@ hardware_interface::return_type IiwaHWInterface::configure(const hardware_interf
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
                          "Joint '%s' have %s state interface as third state interface. '%s' expected.", joint.name.c_str(),
                          joint.state_interfaces[2].name.c_str(), hardware_interface::HW_IF_POSITION);
-            return hardware_interface::return_type::ERROR;
+            return CallbackReturn::ERROR;
         }
     }
 
-    status_ = hardware_interface::status::CONFIGURED;
-
-    return hardware_interface::return_type::OK;
+    return CallbackReturn::SUCCESS;
 }
 
 std::vector<hardware_interface::StateInterface> IiwaHWInterface::export_state_interfaces()
@@ -132,8 +135,7 @@ std::vector<hardware_interface::CommandInterface> IiwaHWInterface::export_comman
     return command_interfaces;
 }
 
-hardware_interface::return_type IiwaHWInterface::start()
-{
+rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHWInterface::on_activate(const rclcpp_lifecycle::State &previous_state) {
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Starting ...please wait...");
 
     position_interface_in_use_ = false;
@@ -147,9 +149,8 @@ hardware_interface::return_type IiwaHWInterface::start()
     RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "Initializing driver using: \n\tIP: " << robot_ip << "\n\tPort: " << robot_port);
     iiwa_driver_ = std::make_unique<IiwaFriDriver>(robot_ip, robot_port);
     RCLCPP_INFO_STREAM(rclcpp::get_logger("IiwaHWInterface"), "instantiated driver");
-    status_ = iiwa_driver_->initialise_connection()? hardware_interface::status::STARTED : hardware_interface::status::UNKNOWN;
 
-    if (status_ == hardware_interface::status::STARTED) {
+    if (iiwa_driver_->initialise_connection()) {
         RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
         rclcpp::Rate rate(500.0);
         for(int i = 0; i < 100; i++){
@@ -157,28 +158,25 @@ hardware_interface::return_type IiwaHWInterface::start()
             rate.sleep();
         }
         std::copy(current_position_.begin(), current_position_.end(), command_position_.begin());
-        return hardware_interface::return_type::OK;
+        return CallbackReturn::SUCCESS;
     } else{
         RCLCPP_ERROR(rclcpp::get_logger("IiwaHWInterface"), "System not initialised, unable to create a connection!");
-        return hardware_interface::return_type::ERROR;
+        return CallbackReturn::ERROR;
     }
 }
 
-hardware_interface::return_type IiwaHWInterface::stop()
-{
+rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHWInterface::on_deactivate(const rclcpp_lifecycle::State &previous_state) {
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Stopping ...please wait...");
 
     position_interface_in_use_ = false;
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // Nedd to implement an actual stop for the iiwaFRIInterface
-    status_ = hardware_interface::status::STOPPED;
 
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully stopped!");
 
-    return hardware_interface::return_type::OK;
+    return CallbackReturn::SUCCESS;
 }
-
 
 hardware_interface::return_type IiwaHWInterface::read()
 {
@@ -198,3 +196,4 @@ hardware_interface::return_type IiwaHWInterface::write()
 //    iiwa_driver_->write_joint_torque(command_wrench_);
     return hardware_interface::return_type::OK;
 }
+

@@ -22,6 +22,9 @@
 
   <depend>rclcpp</depend>
   <depend>std_srvs</depend>
+  <depend>urdf</depend>
+  <depend>sensor_msgs</depend>
+  <depend>rclcpp_lifecycle</depend>
   <depend>controller_manager</depend>
   <depend>fri_client_sdk</depend>
 

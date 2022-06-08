@@ -15,12 +15,12 @@
 #include <vector>
 
 // ros2_control hardware_interface
+#include <rclcpp_lifecycle/state.hpp>
 #include "hardware_interface/actuator.hpp"
 #include "hardware_interface/hardware_info.hpp"
 #include "hardware_interface/sensor.hpp"
 #include "hardware_interface/system_interface.hpp"
 #include "hardware_interface/types/hardware_interface_return_values.hpp"
-#include "hardware_interface/types/hardware_interface_status_values.hpp"
 #include "hardware_interface/visibility_control.h"
 
 #include "iiwa_fri_ros/iiwa_state.h"
@@ -35,30 +35,24 @@ class IiwaHWInterface : public hardware_interface::SystemInterface{
 public:
     RCLCPP_SHARED_PTR_DEFINITIONS(IiwaHWInterface)
 
-    hardware_interface::return_type configure(const hardware_interface::HardwareInfo& system_info) final;
+    CallbackReturn on_init(const hardware_interface::HardwareInfo& system_info) final;
 
     std::vector<hardware_interface::StateInterface> export_state_interfaces() final;
 
     std::vector<hardware_interface::CommandInterface> export_command_interfaces() final;
-
-    hardware_interface::status get_status() const final
-    {
-        return status_;
-    }
 
     std::string get_name() const final
     {
         return info_.name;
     }
 
-    hardware_interface::return_type start() final;
-    hardware_interface::return_type stop() final;
+    CallbackReturn on_activate(const rclcpp_lifecycle::State & previous_state);
+    CallbackReturn on_deactivate(const rclcpp_lifecycle::State & previous_state);
     hardware_interface::return_type read() final;
     hardware_interface::return_type write() final;
 
 private:
     hardware_interface::HardwareInfo info_;
-    hardware_interface::status status_;
     std::shared_ptr<IiwaState> fri_state_handle_;
     std::unique_ptr<IiwaFriDriver> iiwa_driver_;
 
