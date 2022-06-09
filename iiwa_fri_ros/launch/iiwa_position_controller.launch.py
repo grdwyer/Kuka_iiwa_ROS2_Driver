@@ -91,19 +91,16 @@ def generate_launch_description():
         package='controller_manager',
         executable='ros2_control_node',
         parameters=[robot_description, iiwa_controller],
-        output={
-            'stdout': 'screen',
-            'stderr': 'screen',
-        }
+        output="screen"
     )
 
     load_controllers = []
     for controller in ["iiwa_arm_controller", "joint_state_broadcaster"]:
         load_controllers += [
-            ExecuteProcess(
-                cmd=["ros2 run controller_manager spawner.py {}".format(controller)],
-                shell=True,
-                output="screen",
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=[controller, "-c", "/controller_manager"]
             )
         ]
 

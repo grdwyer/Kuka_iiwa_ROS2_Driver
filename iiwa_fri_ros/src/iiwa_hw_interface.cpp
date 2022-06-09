@@ -31,7 +31,7 @@ CallbackReturn IiwaHWInterface::on_init(const hardware_interface::HardwareInfo &
         if (joint.command_interfaces.size() != 1)
         {
             RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"),
-                         "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
+                         "Joint '%s' has %ld command interfaces found. 1 expected.", joint.name.c_str(),
                          joint.command_interfaces.size());
             return CallbackReturn::ERROR;
         }
@@ -54,7 +54,7 @@ CallbackReturn IiwaHWInterface::on_init(const hardware_interface::HardwareInfo &
 
         if (joint.state_interfaces.size() != 3)
         {
-            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"), "Joint '%s' has %d state interface. 3 expected.",
+            RCLCPP_FATAL(rclcpp::get_logger("IiwaHWInterface"), "Joint '%s' has %ld state interface. 3 expected.",
                          joint.name.c_str(), joint.state_interfaces.size());
             return CallbackReturn::ERROR;
         }
