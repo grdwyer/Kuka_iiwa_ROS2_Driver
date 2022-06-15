@@ -146,26 +146,18 @@ void IiwaFRIInterface::command() {
         }
     }
     else{
-        RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("IiwaHWInterface"), "Values not inited  \n"); //TODO: Change this to throttle
+        RCLCPP_DEBUG_STREAM_ONCE(rclcpp::get_logger("IiwaHWInterface"), "Values not inited  \n"); //TODO: Change this to throttle
 
         waitForCommand();
-
         if(startup_ > 100){
             init_ = true;
         }
-
         startup_++;
     }
 }
 
 void IiwaFRIInterface::monitor() {
     update_state();
-    //Copy current position as comanded postiion
-//    auto current_pos = robotState().getMeasuredJointPosition();
-//
-//    for (int i = 0; i < 7; i++) {
-//        iiwa_state_->command_position_[i] = current_pos[i];
-//    }
     std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
     KUKA::FRI::LBRClient::monitor();
 
@@ -175,17 +167,11 @@ void IiwaFRIInterface::update_state() {
     auto current_pos = robotState().getMeasuredJointPosition();
     auto current_torque = robotState().getMeasuredTorque();
     auto current_ext_torque = robotState().getExternalTorque();
+    double time = robotState().getSampleTime();
 
     for (int i = 0; i < 7; i++) {
+        iiwa_state_->current_velocity_[i] = (current_pos[i] - iiwa_state_->current_position_[i])/time; // new position - previous position / time consider using a moving average if this is noisy
         iiwa_state_->current_position_[i] = current_pos[i];
-//        ROS_DEBUG_STREAM_THROTTLE(1, "Current Position: "
-//                                << angles::to_degrees(current_pos[0]) << ", "
-//                                << angles::to_degrees(current_pos[1]) << ", "
-//                                << angles::to_degrees(current_pos[2]) << ", "
-//                                << angles::to_degrees(current_pos[3]) << ", "
-//                                << angles::to_degrees(current_pos[4]) << ", "
-//                                << angles::to_degrees(current_pos[5]) << ", "
-//                                << angles::to_degrees(current_pos[6]) << std::endl);
         iiwa_state_->current_torque_[i] = current_torque[i];
         iiwa_state_->current_ext_torque_[i] = current_ext_torque[i];
     }
@@ -193,12 +179,6 @@ void IiwaFRIInterface::update_state() {
 
 void IiwaFRIInterface::waitForCommand() {
     update_state();
-//    auto current_pos = robotState().getMeasuredJointPosition();
-
     std::copy(iiwa_state_->current_position_.begin(), iiwa_state_->current_position_.end(), iiwa_state_->command_position_.begin());
-//    for (int i = 0; i < 7; i++) {
-//        iiwa_state_->command_position_[i] = current_pos[i];
-//    }
-
     KUKA::FRI::LBRClient::waitForCommand();
 }
