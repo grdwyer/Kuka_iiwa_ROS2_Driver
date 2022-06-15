@@ -138,8 +138,6 @@ std::vector<hardware_interface::CommandInterface> IiwaHWInterface::export_comman
 rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHWInterface::on_activate(const rclcpp_lifecycle::State &previous_state) {
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Starting ...please wait...");
 
-    position_interface_in_use_ = false;
-
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // The robot's IP address.
@@ -154,7 +152,7 @@ rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHW
         RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "System successfully started!");
         rclcpp::Rate rate(500.0);
         for(int i = 0; i < 100; i++){
-            read();
+            read(this->clock_.now(), rclcpp::Duration(rate.period()));
             rate.sleep();
         }
         std::copy(current_position_.begin(), current_position_.end(), command_position_.begin());
@@ -168,7 +166,6 @@ rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHW
 rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHWInterface::on_deactivate(const rclcpp_lifecycle::State &previous_state) {
     RCLCPP_INFO(rclcpp::get_logger("IiwaHWInterface"), "Stopping ...please wait...");
 
-    position_interface_in_use_ = false;
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // Nedd to implement an actual stop for the iiwaFRIInterface
@@ -178,7 +175,7 @@ rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn IiwaHW
     return CallbackReturn::SUCCESS;
 }
 
-hardware_interface::return_type IiwaHWInterface::read()
+hardware_interface::return_type IiwaHWInterface::read(const rclcpp::Time & time, const rclcpp::Duration & period)
 {
     RCLCPP_DEBUG_STREAM_THROTTLE(rclcpp::get_logger("IiwaHWInterface"), clock_, 1e3, "Reading from driver");
     iiwa_driver_->read_joint_position(current_position_);
@@ -188,7 +185,7 @@ hardware_interface::return_type IiwaHWInterface::read()
     return hardware_interface::return_type::OK;
 }
 
-hardware_interface::return_type IiwaHWInterface::write()
+hardware_interface::return_type IiwaHWInterface::write(const rclcpp::Time & time, const rclcpp::Duration & period)
 {
     RCLCPP_DEBUG_STREAM_THROTTLE(rclcpp::get_logger("IiwaHWInterface"), clock_, 1e3, "Writing to driver");
     iiwa_driver_->write_joint_position(command_position_);

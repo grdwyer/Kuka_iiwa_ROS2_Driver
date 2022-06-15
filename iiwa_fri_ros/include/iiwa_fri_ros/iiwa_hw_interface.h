@@ -48,8 +48,8 @@ public:
 
     CallbackReturn on_activate(const rclcpp_lifecycle::State & previous_state);
     CallbackReturn on_deactivate(const rclcpp_lifecycle::State & previous_state);
-    hardware_interface::return_type read() final;
-    hardware_interface::return_type write() final;
+    hardware_interface::return_type read(const rclcpp::Time & time, const rclcpp::Duration & period) final;
+    hardware_interface::return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) final;
 
 private:
     hardware_interface::HardwareInfo info_;
@@ -60,7 +60,6 @@ private:
 
     uint32_t runtime_state_;
     bool controllers_initialized_;
-    bool position_interface_in_use_;
 
     std::array<double, 7> current_position_, previous_position_, current_velocity_, current_torque_, current_ext_torque_;
     std::array<double, 7> command_position_;
